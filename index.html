@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Toolkit - Clinic Catalyst Workshop</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0;
+  --teal-bright:#00D4BC;
+  --teal-dark:#007A6E;
+  --hero-dark:#0A2A28;
+  --hero-mid:#0D3D38;
+  --dark-section:#0E2D2A;
+  --white:#FFFFFF;
+  --off-white:#F4F6F5;
+  --light-gray:#EBEBEB;
+  --text-dark:#1A1A1A;
+  --text-soft:#5A6664;
+  --border:#E0E4E3;
+  --card:#FFFFFF;
+  --gold:#C9A24B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6;overflow-x:hidden;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;border-bottom:1px solid rgba(0,212,188,0.15);}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none;}
+.nav-logo span{color:var(--teal-bright);}
+.nav-tag{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+
+/* HERO */
+.hero{position:relative;padding:5.5rem 2rem 4.5rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid) 0%,var(--hero-dark) 60%);color:#fff;overflow:hidden;}
+.hero::after{content:'';position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);width:140%;height:120px;background:radial-gradient(ellipse at center,rgba(0,212,188,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:1.1rem;}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:900;line-height:1.05;letter-spacing:-.01em;max-width:880px;margin:0 auto 1.3rem;}
+.hero h1 em{font-style:normal;color:var(--teal-bright);}
+.hero-sub{font-size:1.08rem;font-weight:300;color:rgba(255,255,255,.82);max-width:620px;margin:0 auto 2rem;line-height:1.7;}
+.hero-meta{display:inline-flex;gap:.6rem 1.4rem;flex-wrap:wrap;justify-content:center;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.hero-meta span{display:inline-flex;align-items:center;gap:.45rem;}
+.hero-meta span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal-bright);}
+
+/* JUMP CHIPS */
+.jump{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:880px;margin:-1.6rem auto 0;padding:0 1.5rem;}
+.jump a{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--hero-dark);background:#fff;border:1px solid var(--border);padding:.6rem 1.1rem;border-radius:999px;box-shadow:0 4px 16px rgba(10,42,40,.06);transition:all .18s;}
+.jump a:hover{background:var(--hero-dark);color:#fff;border-color:var(--hero-dark);}
+
+/* SECTIONS */
+.wrap{max-width:1080px;margin:0 auto;padding:3.5rem 1.5rem 1rem;}
+.sec-head{margin-bottom:1.8rem;}
+.label{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;}
+.label::before{content:'';width:26px;height:2px;background:var(--teal);}
+.sec-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;line-height:1.1;letter-spacing:-.01em;margin-bottom:.5rem;}
+.sec-intro{color:var(--text-soft);max-width:640px;font-size:1rem;}
+
+/* CARD GRID */
+.grid{display:grid;gap:1rem;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;transition:all .18s;text-decoration:none;color:inherit;position:relative;}
+.card:hover{border-color:var(--teal);box-shadow:0 12px 30px rgba(10,42,40,.08);transform:translateY(-2px);}
+.card .ico{width:42px;height:42px;border-radius:10px;background:rgba(0,180,160,.1);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:.9rem;}
+.card h3{font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:800;margin-bottom:.35rem;line-height:1.2;}
+.card p{font-size:.86rem;color:var(--text-soft);line-height:1.55;flex:1;}
+.card .go{margin-top:1rem;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);display:inline-flex;align-items:center;gap:.4rem;}
+.card .go::after{content:'\2192';transition:transform .18s;}
+.card:hover .go::after{transform:translateX(4px);}
+.step{position:absolute;top:1.1rem;right:1.2rem;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;color:var(--light-gray);}
+
+/* STATUS PILLS */
+.pill{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .55rem;border-radius:999px;margin-bottom:.8rem;width:fit-content;}
+.pill.must{background:#FBE9E7;color:#C0392B;}
+.pill.soon{background:#FFF4E0;color:#B7791F;}
+.pill.day{background:rgba(0,180,160,.12);color:var(--teal-dark);}
+
+/* FEATURED DOWNLOAD BANNER */
+.feature{background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));border-radius:18px;padding:2.4rem;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;position:relative;overflow:hidden;}
+.feature::before{content:'';position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(0,212,188,.22),transparent 70%);}
+.feature-txt{position:relative;z-index:1;max-width:560px;}
+.feature-txt h3{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem;}
+.feature-txt p{color:rgba(255,255,255,.8);font-size:.95rem;}
+.btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--teal-bright);color:var(--hero-dark);padding:1rem 2rem;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .18s;position:relative;z-index:1;white-space:nowrap;}
+.btn:hover{background:#fff;transform:translateY(-2px);}
+.btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff;}
+.btn.ghost:hover{background:#fff;color:var(--hero-dark);border-color:#fff;}
+
+/* SKILL LIST */
+.skill{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;display:flex;gap:.85rem;align-items:flex-start;transition:all .15s;}
+.skill:hover{border-color:var(--teal);}
+.skill .n{font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:900;color:var(--teal);background:rgba(0,180,160,.1);min-width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.skill h4{font-family:'Montserrat',sans-serif;font-size:.86rem;font-weight:800;margin-bottom:.15rem;line-height:1.2;}
+.skill p{font-size:.78rem;color:var(--text-soft);line-height:1.45;}
+
+/* ACCOUNT ROW */
+.acct{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:all .15s;}
+.acct:hover{border-color:var(--teal);box-shadow:0 8px 20px rgba(10,42,40,.06);}
+.acct .badge{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.95rem;width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;}
+.acct .meta{flex:1;}
+.acct h4{font-family:'Montserrat',sans-serif;font-size:.92rem;font-weight:800;margin-bottom:.1rem;}
+.acct .meta p{font-size:.78rem;color:var(--text-soft);}
+.acct .arrow{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--teal);font-size:1.1rem;}
+
+/* CALLOUT */
+.callout{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:1.2rem 1.4rem;display:flex;gap:.9rem;}
+.callout .ci{font-size:1.4rem;}
+.callout p{font-size:.9rem;color:var(--text-soft);}
+.callout strong{color:var(--text-dark);}
+
+/* SUPPORT */
+.support{background:var(--dark-section);border-radius:18px;padding:2.6rem;text-align:center;color:#fff;}
+.support h3{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:900;margin-bottom:.6rem;}
+.support p{color:rgba(255,255,255,.78);max-width:480px;margin:0 auto 1.5rem;}
+.support .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+
+/* FOOTER */
+footer{text-align:center;padding:2.5rem 1.5rem;color:var(--text-soft);font-size:.78rem;}
+footer .fl{font-family:'Montserrat',sans-serif;font-weight:900;letter-spacing:.04em;color:var(--hero-dark);margin-bottom:.4rem;}
+footer .fl span{color:var(--teal);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#top">CLINIC<span>CATALYST</span></a>
+  <span class="nav-tag">Workshop Toolkit</span>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="hero-eyebrow">2-Day Workshop &middot; Melbourne &middot; 7-8 July 2026</div>
+  <h1>Your toolkit, <em>all in one place.</em></h1>
+  <p class="hero-sub">Everything you set up before the room, every account you'll log into, all 16 AI skills to download, and the cheat sheets to keep beside you. Work top to bottom - you'll walk in ready to build.</p>
+  <div class="hero-meta">
+    <span>16 AI Skills</span>
+    <span>Step-by-step setup</span>
+    <span>Cheat sheets &amp; guides</span>
+  </div>
+</header>
+
+<div class="jump">
+  <a href="#start">Start Here</a>
+  <a href="#skills">Download Skills</a>
+  <a href="#accounts">Accounts &amp; Tools</a>
+  <a href="#cheats">Cheat Sheets</a>
+  <a href="#docs">Workshop Docs</a>
+  <a href="#support">Get Help</a>
+</div>
+
+<!-- ===== START HERE ===== -->
+<section class="wrap" id="start">
+  <div class="sec-head">
+    <div class="label">Step 1 &middot; Before You Arrive</div>
+    <h2 class="sec-title">Start here - set these up first</h2>
+    <p class="sec-intro">Two things take days to approve, so don't leave them late. Knock these over in order and you're sorted before Day 1.</p>
+  </div>
+  <div class="grid g2">
+
+    <a class="card" href="#" target="_blank"><!-- TODO: CC GHL affiliate signup link -->
+      <span class="step">01</span>
+      <span class="pill must">Do this now &middot; slowest step</span>
+      <div class="ico">&#128241;</div>
+      <h3>Sign up for GoHighLevel (GHL)</h3>
+      <p>Your CRM + automation hub. Start the trial, claim a phone number, and submit your A2P / SMS registration immediately - approval can take up to 2 weeks. Without it, your texts won't send on the day.</p>
+      <span class="go">Sign up &amp; register SMS</span>
+    </a>
+
+    <a class="card" href="https://claude.ai" target="_blank">
+      <span class="step">02</span>
+      <span class="pill soon">Do this 1-2 weeks before</span>
+      <div class="ico">&#129504;</div>
+      <h3>Create your Claude account</h3>
+      <p>Sign up at claude.ai with your clinic email. This is the AI that powers your whole Admin Assistant. Quick to do - just get it done ahead so we're not troubleshooting logins on Day 1.</p>
+      <span class="go">Create account</span>
+    </a>
+
+    <a class="card" href="https://console.anthropic.com" target="_blank">
+      <span class="step">03</span>
+      <span class="pill soon">Do this 1-2 weeks before</span>
+      <div class="ico">&#128273;</div>
+      <h3>Get your API key</h3>
+      <p>At console.anthropic.com, add a payment method (usage-based, ~$5-15/mo for a clinic) and create a key named "Clinic Catalyst". Copy it somewhere safe and bring it - you can't see it again after you close the page.</p>
+      <span class="go">Open Anthropic Console</span>
+    </a>
+
+    <a class="card" href="https://elevenlabs.io/sign-up" target="_blank">
+      <span class="step">04</span>
+      <span class="pill soon">Do this 1-2 weeks before</span>
+      <div class="ico">&#127908;</div>
+      <h3>Create your ElevenLabs account</h3>
+      <p>This powers your AI voice - the natural-sounding voice your assistant uses for calls and the after-hours line. Sign up, grab your API key, and bring it. We connect it in the room.</p>
+      <span class="go">Create account</span>
+    </a>
+
+  </div>
+
+  <div style="margin-top:1.2rem">
+    <div class="callout">
+      <span class="ci">&#128241;</span>
+      <p><strong>Join the setup call.</strong> We run a 30-45 min group call before the workshop and do the fiddly bits - GHL signup, SMS registration, channel connections - together, live. If you do one thing on this page with us, make it this. <a href="#" style="color:var(--teal-dark);font-weight:700"><!-- TODO: setup call booking link -->Book the setup call &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOWNLOAD SKILLS ===== -->
+<section class="wrap" id="skills">
+  <div class="sec-head">
+    <div class="label">Step 2 &middot; Your AI Skills</div>
+    <h2 class="sec-title">Download your 16 AI skills</h2>
+    <p class="sec-intro">Your whole skill library lives in one Google Drive folder. Download it once, drop it into your <code>~/Clinic/</code> folder on Day 1, and every tool below is ready to run.</p>
+  </div>
+
+  <div class="feature" style="margin-bottom:1.4rem">
+    <div class="feature-txt">
+      <h3>The Clinic Catalyst Skill Pack</h3>
+      <p>All 16 skills, the connection helpers, and the install cards - bundled and ready. We walk through the install together, but grab it ahead so you're set.</p>
+    </div>
+    <a class="btn" href="#" target="_blank"><!-- TODO: Google Drive skill pack download link -->&#11015; Download from Google Drive</a>
+  </div>
+
+  <div class="grid g2">
+    <div class="skill"><span class="n">1</span><div><h4>Business Brain</h4><p>The spine. Knows your clinic - services, prices, brand, voice - so everything sounds like you.</p></div></div>
+    <div class="skill"><span class="n">2</span><div><h4>Email Agent</h4><p>Reads your inbox, drafts replies in your voice for one-tap approval. 60-90 min back a day.</p></div></div>
+    <div class="skill"><span class="n">3</span><div><h4>Calendar Manager</h4><p>Bookings, reminders, conflicts and the "when are you free?" tennis - handled.</p></div></div>
+    <div class="skill"><span class="n">4</span><div><h4>Pre-Call Brief</h4><p>A one-page brief on whoever you're about to talk to, ten minutes before.</p></div></div>
+    <div class="skill"><span class="n">5</span><div><h4>Follow-Up Agent</h4><p>Chases every lead, rebooking nudge and quiet enquiry - in your voice, nothing dropped.</p></div></div>
+    <div class="skill"><span class="n">6</span><div><h4>Carousel Builder</h4><p>Give it a topic, get a branded, ready-to-post carousel in 60 seconds. No Canva nights.</p></div></div>
+    <div class="skill"><span class="n">7</span><div><h4>Hook Generator</h4><p>5 scroll-stopping hooks, scored, so your content actually gets seen.</p></div></div>
+    <div class="skill"><span class="n">8</span><div><h4>Stop The Slop</h4><p>Run any draft through it - rewrites the robotic AI tells back into your voice.</p></div></div>
+    <div class="skill"><span class="n">9</span><div><h4>Content Intel / Ad Spy</h4><p>Trending formats and competitor ad patterns in your niche. Stop guessing.</p></div></div>
+    <div class="skill"><span class="n">10</span><div><h4>Keyword Research</h4><p>The exact words your clients type into Google before they book.</p></div></div>
+    <div class="skill"><span class="n">11</span><div><h4>Website Audit</h4><p>10+ quick wins for your site, ranked - most take five minutes.</p></div></div>
+    <div class="skill"><span class="n">12</span><div><h4>AI Visibility (GEO)</h4><p>So when someone asks ChatGPT "best clinic near me," yours comes up.</p></div></div>
+    <div class="skill"><span class="n">13</span><div><h4>Page Builder</h4><p>Describe a service page, get a beautiful mobile-friendly one on demand.</p></div></div>
+    <div class="skill"><span class="n">14</span><div><h4>Proposal Generator</h4><p>Branded proposals out while they're still excited - minutes, not hours.</p></div></div>
+    <div class="skill"><span class="n">15</span><div><h4>Marketing Genius</h4><p>A strategist on tap - email copy, subject lines, sales scripts, outreach.</p></div></div>
+    <div class="skill"><span class="n">16</span><div><h4>Landing Page Builder</h4><p>High-converting pages that match your offers and capture every click.</p></div></div>
+  </div>
+</section>
+
+<!-- ===== ACCOUNTS ===== -->
+<section class="wrap" id="accounts">
+  <div class="sec-head">
+    <div class="label">Step 3 &middot; Log In Anywhere</div>
+    <h2 class="sec-title">Your accounts &amp; tools</h2>
+    <p class="sec-intro">Quick links to every platform your system runs on. Bookmark this section.</p>
+  </div>
+  <div class="grid g2">
+
+    <a class="acct" href="#" target="_blank"><!-- TODO: GHL login link -->
+      <span class="badge" style="background:#2b3a8c">GHL</span>
+      <span class="meta"><h4>GoHighLevel</h4><p>Your CRM, SMS, social planner &amp; workflows</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://claude.ai" target="_blank">
+      <span class="badge" style="background:#0A2A28">C</span>
+      <span class="meta"><h4>Claude</h4><p>claude.ai - your AI assistant</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://console.anthropic.com" target="_blank">
+      <span class="badge" style="background:#C9745A">A</span>
+      <span class="meta"><h4>Anthropic Console</h4><p>Your API key &amp; usage/billing</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://elevenlabs.io" target="_blank">
+      <span class="badge" style="background:#111">11</span>
+      <span class="meta"><h4>ElevenLabs</h4><p>Your AI voice for calls &amp; after-hours</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://business.facebook.com" target="_blank">
+      <span class="badge" style="background:#1877F2">f</span>
+      <span class="meta"><h4>Meta Business Suite</h4><p>Facebook + Instagram ads &amp; pages</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://ads.google.com" target="_blank">
+      <span class="badge" style="background:#34A853">G</span>
+      <span class="meta"><h4>Google Ads + Business</h4><p>Search ads, reviews &amp; bookings</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== CHEAT SHEETS ===== -->
+<section class="wrap" id="cheats">
+  <div class="sec-head">
+    <div class="label">Step 4 &middot; Keep These Beside You</div>
+    <h2 class="sec-title">Cheat sheets &amp; quick guides</h2>
+    <p class="sec-intro">The one-pagers we hand out in the room - here to download anytime you need a reminder.</p>
+  </div>
+  <div class="grid g3">
+
+    <a class="card" href="#" target="_blank"><!-- TODO: Mac install card -->
+      <div class="ico">&#127822;</div>
+      <h3>Claude Code install - Mac</h3>
+      <p>The one-line Terminal command and sign-in steps to get Claude Code running on a Mac.</p>
+      <span class="go">Open card</span>
+    </a>
+    <a class="card" href="#" target="_blank"><!-- TODO: Windows install card -->
+      <div class="ico">&#129482;</div>
+      <h3>Claude Code install - Windows</h3>
+      <p>The documented Windows install path, step by step, with the sign-in and API key paste.</p>
+      <span class="go">Open card</span>
+    </a>
+    <a class="card" href="#" target="_blank"><!-- TODO: API key guide -->
+      <div class="ico">&#128273;</div>
+      <h3>Get your API key</h3>
+      <p>Where to click in the Anthropic Console, what to name it, and how to keep it safe.</p>
+      <span class="go">Open guide</span>
+    </a>
+    <a class="card" href="#" target="_blank"><!-- TODO: GHL + A2P guide -->
+      <div class="ico">&#128242;</div>
+      <h3>GHL + SMS (A2P) setup</h3>
+      <p>Claim your number and complete the business messaging registration - the slow approval, done right.</p>
+      <span class="go">Open guide</span>
+    </a>
+    <a class="card" href="#" target="_blank"><!-- TODO: Business Brain template -->
+      <div class="ico">&#129504;</div>
+      <h3>Business Brain template</h3>
+      <p>The 8 questions that teach your assistant your clinic. Pre-fill before the room to move faster.</p>
+      <span class="go">Open template</span>
+    </a>
+    <a class="card" href="#" target="_blank"><!-- TODO: Daily routine card -->
+      <div class="ico">&#9749;</div>
+      <h3>Your daily routine</h3>
+      <p>The 10-minute morning loop: check GHL, approve drafts, glance at the social queue. That's it.</p>
+      <span class="go">Open card</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== WORKSHOP DOCS ===== -->
+<section class="wrap" id="docs">
+  <div class="sec-head">
+    <div class="label">Step 5 &middot; The Plan</div>
+    <h2 class="sec-title">Workshop documents</h2>
+    <p class="sec-intro">What we're building, when, and what you'll walk away with.</p>
+  </div>
+  <div class="grid g3">
+    <a class="card" href="#" target="_blank"><!-- TODO: pre-workshop checklist -->
+      <div class="ico">&#9989;</div>
+      <h3>Pre-workshop checklist</h3>
+      <p>Everything to set up and bring before Day 1, in order. Your "ready to build" list.</p>
+      <span class="go">Open</span>
+    </a>
+    <a class="card" href="#" target="_blank"><!-- TODO: 2-day itinerary -->
+      <div class="ico">&#128197;</div>
+      <h3>The 2-day plan</h3>
+      <p>What you'll have built by the end of each block - framed as outcomes, not sessions.</p>
+      <span class="go">Open</span>
+    </a>
+    <a class="card" href="#" target="_blank"><!-- TODO: handover doc -->
+      <div class="ico">&#127881;</div>
+      <h3>Your handover doc</h3>
+      <p>The take-home: what's running, how to trigger each skill, the safety rules, and where to get help.</p>
+      <span class="go">Open</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== SUPPORT ===== -->
+<section class="wrap" id="support">
+  <div class="support">
+    <h3>Stuck on something?</h3>
+    <p>Don't troubleshoot alone. Reply to your workshop email and we'll sort it before the day - or bring it to the setup call and we'll do it together.</p>
+    <div class="row">
+      <a class="btn" href="#"><!-- TODO: support email -->&#9993; Email us</a>
+      <a class="btn ghost" href="#"><!-- TODO: setup call link -->Book the setup call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">CLINIC<span>CATALYST</span></div>
+  <div>2-Day Workshop Toolkit &middot; Melbourne CBD &middot; 7-8 July 2026</div>
+</footer>
+
+</body>
+</html>
