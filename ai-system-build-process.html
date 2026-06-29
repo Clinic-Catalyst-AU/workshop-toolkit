@@ -87,9 +87,9 @@ footer span{color:var(--teal-dark);font-weight:600;}
   </div>
 
   <div class="phase">
-    <div class="phase-head"><div class="phase-num">0</div><div><h2>Pre-work: phone number + regulatory bundle</h2><span class="tag">Do this 4+ days ahead</span></div></div>
-    <p>Australian numbers legally need a Twilio regulatory bundle. Approval takes 1-3 business days, so it's homework, not a same-day task.</p>
-    <h3>Gather first (PDF/JPG/PNG, under 5MB)</h3>
+    <div class="phase-head"><div class="phase-num">0</div><div><h2>Pre-work: phone number + regulatory bundle</h2><span class="tag">We do this together on the day</span></div></div>
+    <p>Australian numbers need a one-time regulatory bundle. The only thing you bring is your business registration PDF (free download from ABN Lookup) - we set the bundle up together, screen by screen, on Day 1, so it's approved in time to build on Day 2. Not a task you do alone.</p>
+    <h3>Bring this (PDF/JPG/PNG, under 5MB) - we'll sort the rest together on the day</h3>
     <ul><li>Business registration (ASIC/ABN)</li><li>Proof of physical address - utility bill or lease in the business name (no PO Box)</li><li>Authorised rep photo ID</li><li>Proof of authorisation</li><li>Website / social link</li></ul>
     <span class="where">Settings &rarr; Phone System &rarr; Regulatory Bundles</span>
     <p>Create Bundle &rarr; Australia / Local / <strong>Business</strong> (individual not supported). Submit, wait for approval, then link it to the number (Phone Numbers &rarr; &middot;&middot;&middot; &rarr; Select AU Regulatory Bundle to Link) and confirm the green "KYC Linked" tag.</p>
@@ -98,8 +98,9 @@ footer span{color:var(--teal-dark);font-weight:600;}
   </div>
 
   <div class="phase">
-    <div class="phase-head"><div class="phase-num">1</div><div><h2>Email foundation: sending domain</h2></div></div>
-    <span class="where">Settings &rarr; Email Services &rarr; Dedicated Domain</span>
+    <div class="phase-head"><div class="phase-num">1</div><div><h2>Email foundation: sending domain</h2><span class="tag">Optional - skip for now</span></div></div>
+    <p><strong>Not required to go live.</strong> GHL sends email fine on its own from day one. This step only makes emails come from your own domain for slightly better inbox placement - a nice-to-have you can add later. Skip it for the workshop.</p>
+    <span class="where">Later, if you want it: Settings &rarr; Email Services &rarr; Dedicated Domain</span>
     <p>Add your <strong>root domain</strong> so the From address shows your real address. GHL generates DNS records (DKIM, return-path CNAME, tracking CNAME, Mailgun MX) to add at your DNS host.</p>
     <div class="gotcha"><strong>Gotcha - SPF</strong>Only ONE <code>v=spf1</code> record is allowed per domain. If you already have one, MERGE GHL's includes into it - never add a second SPF record, or all email breaks.</div>
     <div class="gotcha"><strong>Gotcha - DNS panels</strong>Some panels won't let you delete records - edit the value instead. Verify with <code>dig @your-nameserver</code>; public resolvers cache stale data up to the record's TTL.</div>
@@ -131,7 +132,7 @@ footer span{color:var(--teal-dark);font-weight:600;}
 
   <div class="phase">
     <div class="phase-head"><div class="phase-num">5</div><div><h2>Voice agent</h2></div></div>
-    <p>Configure the voice prompt with the same identity, funnel and no-jargon rules, plus the booking-capture rule (name/email/phone with country code before booking). If asked "are you AI?", answer honestly and warmly. Attach the approved number from Phase 0.</p>
+    <p>Configure the voice prompt with the same identity, funnel and no-jargon rules, plus the booking-capture rule (name/email/phone with country code before booking). <strong>For the voice itself, select the built-in Australian voice (Sophia) right inside GHL - no ElevenLabs or external voice account needed.</strong> If asked "are you AI?", answer honestly and warmly. Attach the approved number from Phase 0.</p>
   </div>
 
   <div class="phase">
