@@ -41,19 +41,31 @@
   .hero .badge{margin-bottom:26px}
   .hero h1{margin-bottom:24px}
   .hero .lead{max-width:640px;margin:0 auto}
-  .orbit{position:relative;width:min(340px,80vw);height:min(340px,80vw);margin:8px auto 34px}
-  .orbit .core{position:absolute;inset:0;margin:auto;width:130px;height:130px;border-radius:50%;
+  .orbit{position:relative;width:min(360px,86vw);height:min(360px,86vw);margin:8px auto 34px;--r:min(150px,40vw)}
+  .orbit .core{position:absolute;inset:0;margin:auto;width:130px;height:130px;border-radius:50%;z-index:4;
     background:radial-gradient(circle at 35% 30%,var(--mint-bright),var(--mint) 45%,#3aa897 100%);
-    display:flex;align-items:center;justify-content:center;font-size:54px;
-    box-shadow:0 0 0 10px rgba(127,217,200,.12),0 0 60px rgba(127,217,200,.4);
-    animation:pulse 3.4s ease-in-out infinite}
-  @keyframes pulse{50%{box-shadow:0 0 0 18px rgba(127,217,200,.06),0 0 80px rgba(127,217,200,.55)}}
+    display:flex;align-items:center;justify-content:center;font-size:56px;
+    box-shadow:0 0 0 10px rgba(127,217,200,.12),0 0 60px rgba(127,217,200,.45);
+    animation:breathe 3.2s ease-in-out infinite}
+  @keyframes breathe{
+    0%,100%{transform:scale(1);box-shadow:0 0 0 10px rgba(127,217,200,.12),0 0 50px rgba(127,217,200,.4)}
+    50%{transform:scale(1.16);box-shadow:0 0 0 22px rgba(127,217,200,.05),0 0 95px rgba(127,217,200,.65)}}
   .orbit .ring{position:absolute;inset:0;border:1.5px dashed var(--line);border-radius:50%;animation:spin 26s linear infinite}
-  .orbit .ring.two{inset:38px;border-color:rgba(217,165,102,.3);animation-duration:18s;animation-direction:reverse}
+  .orbit .ring.two{inset:46px;border-color:rgba(217,165,102,.3);animation-duration:18s;animation-direction:reverse}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .sat{position:absolute;width:52px;height:52px;border-radius:50%;background:var(--card);
-    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:24px;
-    top:50%;left:50%;margin:-26px;box-shadow:0 8px 22px rgba(0,0,0,.3)}
+  /* each icon rides an invisible arm pinned to centre; the arm spins so the icon circles the brain */
+  .orbiter{position:absolute;top:50%;left:50%;width:0;height:0;z-index:2;
+    animation:orbit 16s linear infinite;animation-delay:var(--d,0s)}
+  @keyframes orbit{to{transform:rotate(360deg)}}
+  .sat{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px;border-radius:50%;
+    background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+    font-size:25px;box-shadow:0 8px 22px rgba(0,0,0,.32);
+    transform:translateY(calc(var(--r) * -1));
+    animation:satkeep 16s linear infinite;animation-delay:var(--d,0s)}
+  /* counter-rotate the icon so the emoji stays upright while it circles */
+  @keyframes satkeep{
+    from{transform:translateY(calc(var(--r) * -1)) rotate(0deg)}
+    to{transform:translateY(calc(var(--r) * -1)) rotate(-360deg)}}
   .scrollcue{margin-top:14px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,231,.5);animation:bob 2s ease-in-out infinite}
   @keyframes bob{50%{transform:translateY(7px)}}
 
@@ -230,7 +242,6 @@
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1;transform:none;transition:none}
     .jline{transform:none}
-    .orbit .ring,.orbit .ring.two,.core,.scrollcue{animation:none!important}
   }
 </style>
 </head>
@@ -242,12 +253,13 @@
   <div class="orbit">
     <div class="ring"></div>
     <div class="ring two"></div>
+    <div class="orbiter" style="--d:0s"><div class="sat">📣</div></div>
+    <div class="orbiter" style="--d:-2.67s"><div class="sat">💸</div></div>
+    <div class="orbiter" style="--d:-5.33s"><div class="sat">📱</div></div>
+    <div class="orbiter" style="--d:-8s"><div class="sat">💌</div></div>
+    <div class="orbiter" style="--d:-10.67s"><div class="sat">🤝</div></div>
+    <div class="orbiter" style="--d:-13.33s"><div class="sat">⭐</div></div>
     <div class="core">🧠</div>
-    <div class="sat" style="transform:translate(0,-145px)">📣</div>
-    <div class="sat" style="transform:translate(138px,-45px)">📱</div>
-    <div class="sat" style="transform:translate(85px,118px)">💌</div>
-    <div class="sat" style="transform:translate(-85px,118px)">⭐</div>
-    <div class="sat" style="transform:translate(-138px,-45px)">💸</div>
   </div>
   <h1>Meet your clinic's<br><span class="em">AI Operating System</span></h1>
   <p class="lead">One smart brain that markets your clinic, follows up every enquiry, and keeps your chairs full - while you do the thing you actually love. Let us show you how it all fits together. 👇</p>
