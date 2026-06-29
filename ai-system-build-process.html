@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI System Build - The Process | Clinic Catalyst</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0; --teal-bright:#00D4BC; --teal-dark:#007A6E;
+  --hero-dark:#0A2A28; --hero-mid:#0D3D38; --dark-section:#0E2D2A;
+  --white:#FFFFFF; --off-white:#F4F6F5; --light-gray:#EBEBEB;
+  --text-dark:#1A1A1A; --text-soft:#5A6664; --border:#E0E4E3; --card:#FFFFFF; --gold:#C9A24B;
+  --warn:#C9842B; --warn-bg:#FBF3E7;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.65;overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;border-bottom:1px solid rgba(0,212,188,0.15);}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none;}
+.nav-logo span{color:var(--teal-bright);}
+.nav-back{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;}
+.nav-back:hover{color:var(--teal-bright);}
+.hero{position:relative;padding:4.5rem 2rem 3.5rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid) 0%,var(--hero-dark) 60%);color:#fff;}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:1rem;}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,4.5vw,3rem);font-weight:900;line-height:1.06;max-width:840px;margin:0 auto 1.1rem;}
+.hero h1 em{font-style:normal;color:var(--teal-bright);}
+.hero-sub{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.82);max-width:640px;margin:0 auto;line-height:1.7;}
+.wrap{max-width:920px;margin:0 auto;padding:3rem 1.6rem;}
+.rules{background:var(--dark-section);color:#fff;border-radius:16px;padding:1.8rem 2rem;margin-bottom:2.5rem;}
+.rules h2{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:var(--teal-bright);letter-spacing:.04em;margin-bottom:.9rem;text-transform:uppercase;}
+.rules ul{list-style:none;}
+.rules li{padding:.45rem 0 .45rem 1.5rem;position:relative;font-size:.92rem;color:rgba(255,255,255,.88);border-bottom:1px solid rgba(255,255,255,.07);}
+.rules li:last-child{border-bottom:none;}
+.rules li::before{content:'\2192';position:absolute;left:0;color:var(--teal-bright);font-weight:700;}
+.phase{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem 2rem;margin-bottom:1.4rem;box-shadow:0 4px 14px rgba(10,42,40,.04);}
+.phase-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;}
+.phase-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.15rem;display:flex;align-items:center;justify-content:center;}
+.phase-head h2{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:800;line-height:1.2;}
+.phase-head .tag{display:block;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-dark);margin-top:.2rem;}
+.phase h3{font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:700;margin:1.2rem 0 .5rem;color:var(--hero-dark);}
+.phase p,.phase li{font-size:.92rem;color:var(--text-dark);}
+.phase ol,.phase ul{margin:.4rem 0 .4rem 1.3rem;}
+.phase li{margin:.3rem 0;}
+.where{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-dark);background:rgba(0,180,160,.1);padding:.2rem .6rem;border-radius:5px;margin:.3rem 0;}
+.gotcha{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:.9rem 0;font-size:.88rem;}
+.gotcha strong{color:var(--warn);font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.25rem;}
+.who{font-size:.82rem;color:var(--text-soft);font-style:italic;margin-top:.6rem;}
+.checklist{background:var(--card);border:2px solid var(--teal);border-radius:16px;padding:1.8rem 2rem;margin:2rem 0;}
+.checklist h2{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:800;margin-bottom:1rem;color:var(--hero-dark);}
+.checklist li{list-style:none;padding:.5rem 0 .5rem 2rem;position:relative;font-size:.92rem;border-bottom:1px solid var(--border);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'\2713';position:absolute;left:0;width:20px;height:20px;border:2px solid var(--teal);border-radius:5px;color:transparent;font-weight:700;line-height:16px;text-align:center;}
+.scale{background:var(--dark-section);color:#fff;border-radius:16px;padding:2rem;margin-top:2rem;}
+.scale h2{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--teal-bright);margin-bottom:.8rem;}
+.scale p,.scale li{font-size:.92rem;color:rgba(255,255,255,.85);}
+.scale ul{margin:.6rem 0 0 1.2rem;}
+.scale li{margin:.35rem 0;}
+code{background:rgba(0,180,160,.12);color:var(--teal-dark);padding:.1rem .4rem;border-radius:4px;font-family:'Courier New',monospace;font-size:.85em;}
+footer{text-align:center;padding:2.5rem 1rem;color:var(--text-soft);font-size:.8rem;}
+footer span{color:var(--teal-dark);font-weight:600;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="workshop-toolkit-library.html">CLINIC<span>CATALYST</span></a>
+  <a class="nav-back" href="workshop-toolkit-library.html">&larr; Back to toolkit</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Implementation Process</div>
+  <h1>Build your <em>AI system</em>, step by step.</h1>
+  <p class="hero-sub">The exact, in-order process to stand up an AI agent across web chat, social, email, SMS and voice - with booking, confirmations, automations and Google presence. Every gotcha flagged so you don't lose the hours we did.</p>
+</header>
+
+<div class="wrap">
+
+  <div class="rules">
+    <h2>The golden rules (read first)</h2>
+    <ul>
+      <li>Do the slow, approval-based steps FIRST (phone bundle, DNS) - they take 1-3 business days.</li>
+      <li>Knowledge Base = what the bot KNOWS. Instructions = how it BEHAVES. Behaviour rules go in Instructions, never the knowledge base.</li>
+      <li>Trial in Suggestive mode (bot drafts, you approve), then flip to Auto-pilot.</li>
+      <li>Verify with a real test through each channel - never assume, and never trust one lucky pass.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">0</div><div><h2>Pre-work: phone number + regulatory bundle</h2><span class="tag">Do this 4+ days ahead</span></div></div>
+    <p>Australian numbers legally need a Twilio regulatory bundle. Approval takes 1-3 business days, so it's homework, not a same-day task.</p>
+    <h3>Gather first (PDF/JPG/PNG, under 5MB)</h3>
+    <ul><li>Business registration (ASIC/ABN)</li><li>Proof of physical address - utility bill or lease in the business name (no PO Box)</li><li>Authorised rep photo ID</li><li>Proof of authorisation</li><li>Website / social link</li></ul>
+    <span class="where">Settings &rarr; Phone System &rarr; Regulatory Bundles</span>
+    <p>Create Bundle &rarr; Australia / Local / <strong>Business</strong> (individual not supported). Submit, wait for approval, then link it to the number (Phone Numbers &rarr; &middot;&middot;&middot; &rarr; Select AU Regulatory Bundle to Link) and confirm the green "KYC Linked" tag.</p>
+    <div class="gotcha"><strong>Gotcha - the empty dropdown</strong>The bundle asks for an "Address sid" from a dropdown that's <em>empty until an Address exists</em>. Create the Address FIRST (Regulatory Compliance &rarr; Addresses &rarr; Create Address) or you'll be stuck.</div>
+    <div class="gotcha"><strong>Gotcha - no AU porting</strong>You can't port an Australian number into GHL (port-in is US-only). Buy a fresh AU number once the bundle is approved.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">1</div><div><h2>Email foundation: sending domain</h2></div></div>
+    <span class="where">Settings &rarr; Email Services &rarr; Dedicated Domain</span>
+    <p>Add your <strong>root domain</strong> so the From address shows your real address. GHL generates DNS records (DKIM, return-path CNAME, tracking CNAME, Mailgun MX) to add at your DNS host.</p>
+    <div class="gotcha"><strong>Gotcha - SPF</strong>Only ONE <code>v=spf1</code> record is allowed per domain. If you already have one, MERGE GHL's includes into it - never add a second SPF record, or all email breaks.</div>
+    <div class="gotcha"><strong>Gotcha - DNS panels</strong>Some panels won't let you delete records - edit the value instead. Verify with <code>dig @your-nameserver</code>; public resolvers cache stale data up to the record's TTL.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">2</div><div><h2>The AI agent (text)</h2></div></div>
+    <h3>Three content layers</h3>
+    <ol><li><strong>FAQ / Q&amp;A</strong> - question + answer pairs, pasted into the Q&amp;A trainer.</li><li><strong>Knowledge Base</strong> - one document (.docx) uploaded as the deeper reference.</li><li><strong>Instructions / Personality / Goals</strong> - the behaviour: tone, the funnel/routing, pricing rules, and the booking-capture rule.</li></ol>
+    <div class="gotcha"><strong>Gotcha - KB vs Instructions</strong>Behaviour (collecting details, routing, what to quote) must live in Instructions, not the knowledge base - or the bot treats it as trivia and ignores it.</div>
+    <h3>Voice + funnel to bake in</h3>
+    <ul><li>Plain language, warm, no jargon.</li><li>The funnel: no idea where to start &rarr; the low-cost starter; wants it built &rarr; book a call.</li><li>Pricing: only quote the one fixed low-ticket price; everything bespoke routes to the call.</li></ul>
+    <div class="gotcha"><strong>Gotcha - stale snapshot content</strong>If cloned from a snapshot, the Q&amp;A, knowledge base and workflows carry OLD content (wrong prices, dead products). Audit and align ALL of it before going live.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">3</div><div><h2>Booking + confirmations</h2></div></div>
+    <h3>Capture details before booking</h3>
+    <div class="gotcha"><strong>Gotcha - blank bookings</strong>On Instagram/Facebook, GHL only gets the person's name, never email/phone. The bot MUST be instructed to ask for and confirm name, email + mobile (with country code) BEFORE booking - or it books a blank contact and nothing can be sent.</div>
+    <h3>Calendar</h3>
+    <ul><li>Assign a host to the calendar (Zoom links generate off the host's connected Zoom).</li><li>Set Meeting Location &rarr; Zoom so the confirmation contains a link.</li></ul>
+    <div class="gotcha"><strong>Gotcha - the confirmation that actually works</strong>GHL's built-in calendar confirmation only fires for bookings made through the calendar/widget. Bot-created bookings do NOT trigger it. Build a WORKFLOW with a "Customer Booked Appointment" trigger &rarr; Send Email + SMS (fires regardless of source). And remember: workflows ship as Draft and do nothing until you flip them to <strong>Publish</strong>.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">4</div><div><h2>Channels + go live</h2></div></div>
+    <ol><li>Connect web chat, Facebook, Instagram, email. (TikTok is NOT a supported channel - funnel its traffic to link-in-bio/IG.)</li><li>Enable the bot per channel (connecting is not the same as enabling).</li><li>Test from a <em>different</em> account (your own DM won't trigger it) in Suggestive mode.</li><li>Once replies look right, switch to Auto-pilot.</li></ol>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">5</div><div><h2>Voice agent</h2></div></div>
+    <p>Configure the voice prompt with the same identity, funnel and no-jargon rules, plus the booking-capture rule (name/email/phone with country code before booking). If asked "are you AI?", answer honestly and warmly. Attach the approved number from Phase 0.</p>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">6</div><div><h2>Inbound email into the system</h2><span class="tag">Optional - big decision</span></div></div>
+    <p>To make cold emails land in the system (so the bot answers them), point the domain's MX to GHL/Mailgun as primary.</p>
+    <div class="gotcha"><strong>Gotcha - this moves the WHOLE inbox</strong>It routes every address on that domain into GHL. Only do it if that address is dedicated to the system. The old MX's TTL (often 4 hours) means it takes hours to cut over - do it the day before, not the day of.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">7</div><div><h2>Website chat widget</h2></div></div>
+    <ol><li>Sites &rarr; Chat Widget &rarr; connect it to the bot &rarr; enable the Web channel.</li><li>Paste the embed <code>&lt;script&gt;</code> into the site HTML before <code>&lt;/body&gt;</code>.</li></ol>
+    <div class="gotcha"><strong>Gotcha - Content-Security-Policy</strong>If the site has a CSP, add the widget domains or it loads but can't talk to GHL: <code>widgets.leadconnectorhq.com</code> (script + frame), <code>services.leadconnectorhq.com</code>, <code>backend.leadconnectorhq.com</code> and <code>wss://backend.leadconnectorhq.com</code> (connect-src). Hard-refresh after deploy.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">8</div><div><h2>Automations (response + marketing)</h2></div></div>
+    <p>Most ship as drafts in the snapshot - align the copy, then publish:</p>
+    <ul><li>Speed-to-lead - instant SMS + email when a lead arrives</li><li>Missed-call-text-back - auto-SMS when a call is missed (the standout for clinics)</li><li>No-show follow-up</li><li>Long-term nurture + stale-lead re-engagement</li><li>Review request after a win</li></ul>
+    <div class="gotcha"><strong>Gotcha - bulk sends</strong>Consent + a dry-run/count check before any marketing blast. Never send to a live-queried list.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><div class="phase-num">9</div><div><h2>Google presence</h2></div></div>
+    <p><strong>Business Profile:</strong> business.google.com &rarr; create, pick category, service-area + cities, website/phone in their own fields, description in the description field (no URLs in the text), verify. Use a dedicated Google account per brand - never mix brands.</p>
+    <p><strong>Search Console:</strong> add a Domain property &rarr; add the TXT at DNS &rarr; verify &rarr; submit <code>sitemap.xml</code> &rarr; URL-inspect key pages and Request Indexing.</p>
+  </div>
+
+  <div class="checklist">
+    <h2>Final verification - prove it works</h2>
+    <ul>
+      <li>Test message on web chat, IG, FB - bot replies in the right voice</li>
+      <li>Bot asks for name/email/phone, books, and the confirmation email + SMS arrive WITH the meeting link</li>
+      <li>Cold email appears in the system and the bot responds (if Phase 6 done)</li>
+      <li>Voice agent answers, routes, and books with details captured</li>
+      <li>Pricing/offer the bot gives is current (no stale snapshot content)</li>
+      <li>Confirmation workflow shows Published, not Draft</li>
+    </ul>
+  </div>
+
+  <div class="scale">
+    <h2>Replicating at scale</h2>
+    <p>Build it once, then save a GHL Snapshot (workflows, calendars, custom fields, pipelines travel in snapshots; confirm whether the bot + knowledge base clone, or paste those per account from the saved files).</p>
+    <ul>
+      <li>Collect each client's compliance docs early</li>
+      <li>Spin up their branded sub-account &rarr; load the snapshot</li>
+      <li>Swap branding + their offer specifics &rarr; attach their approved phone bundle</li>
+      <li>Submit each client's regulatory bundle at the start of the week so it's approved by handover</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>Clinic Catalyst &middot; <span>AI System Build Process</span> &middot; Internal implementation guide</footer>
+</body>
+</html>

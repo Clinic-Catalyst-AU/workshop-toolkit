@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Ad System - Clinic Catalyst Workshop</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0;--teal-bright:#00D4BC;--teal-dark:#007A6E;
+  --hero-dark:#0A2A28;--hero-mid:#0D3D38;--dark-section:#0E2D2A;
+  --white:#FFFFFF;--off-white:#F4F6F5;--light-gray:#EBEBEB;
+  --text-dark:#1A1A1A;--text-soft:#5A6664;--border:#E0E4E3;--card:#FFFFFF;--gold:#C9A24B;
+  --green:#1E8E76;--red:#C0392B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6;overflow-x:hidden;}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;border-bottom:1px solid rgba(0,212,188,0.15);}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none;}
+.nav-logo span{color:var(--teal-bright);}
+.nav-back{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;}
+.nav-back:hover{color:var(--teal-bright);}
+
+.hero{position:relative;padding:5rem 2rem 4rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid) 0%,var(--hero-dark) 60%);color:#fff;overflow:hidden;}
+.hero::after{content:'';position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);width:140%;height:120px;background:radial-gradient(ellipse at center,rgba(0,212,188,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:1.1rem;}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.06;letter-spacing:-.01em;max-width:840px;margin:0 auto 1.2rem;}
+.hero h1 em{font-style:normal;color:var(--teal-bright);}
+.hero-sub{font-size:1.06rem;font-weight:300;color:rgba(255,255,255,.82);max-width:640px;margin:0 auto;line-height:1.7;}
+
+.jump{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:880px;margin:-1.6rem auto 0;padding:0 1.5rem;}
+.jump a{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--hero-dark);background:#fff;border:1px solid var(--border);padding:.6rem 1.1rem;border-radius:999px;box-shadow:0 4px 16px rgba(10,42,40,.06);transition:all .18s;}
+.jump a:hover{background:var(--hero-dark);color:#fff;border-color:var(--hero-dark);}
+
+.wrap{max-width:1080px;margin:0 auto;padding:3.2rem 1.5rem 1rem;}
+.sec-head{margin-bottom:1.8rem;}
+.label{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;}
+.label::before{content:'';width:26px;height:2px;background:var(--teal);}
+.sec-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;line-height:1.1;letter-spacing:-.01em;margin-bottom:.5rem;}
+.sec-intro{color:var(--text-soft);max-width:680px;font-size:1rem;}
+
+.grid{display:grid;gap:1rem;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:860px){.g3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.g2,.g3{grid-template-columns:1fr;}}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;position:relative;}
+.card .ico{width:42px;height:42px;border-radius:10px;background:rgba(0,180,160,.1);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:.9rem;}
+.card h3{font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:800;margin-bottom:.35rem;line-height:1.2;}
+.card p{font-size:.86rem;color:var(--text-soft);line-height:1.55;flex:1;}
+.card .role{margin-top:.9rem;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);}
+
+.pill{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .55rem;border-radius:999px;margin-bottom:.8rem;width:fit-content;}
+.pill.spine{background:rgba(201,162,75,.16);color:#9a7322;}
+.pill.make{background:rgba(0,180,160,.14);color:var(--teal-dark);}
+.pill.read{background:#E7F0FB;color:#1d5fa8;}
+.pill.comply{background:#FBE9E7;color:var(--red);}
+
+.feature{background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));border-radius:18px;padding:2.4rem;color:#fff;position:relative;overflow:hidden;}
+.feature::before{content:'';position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(0,212,188,.22),transparent 70%);}
+.feature-in{position:relative;z-index:1;}
+.feature h3{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem;}
+.feature p{color:rgba(255,255,255,.82);font-size:.95rem;max-width:620px;}
+.steps{list-style:none;counter-reset:s;margin:1.4rem 0 0;display:grid;gap:.7rem;}
+.steps li{counter-increment:s;display:flex;gap:.85rem;align-items:flex-start;color:rgba(255,255,255,.9);font-size:.92rem;}
+.steps li::before{content:counter(s);font-family:'Montserrat',sans-serif;font-weight:900;font-size:.78rem;color:var(--hero-dark);background:var(--teal-bright);min-width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.steps code{background:rgba(255,255,255,.14);padding:.12rem .45rem;border-radius:5px;font-size:.86em;}
+.urlchip{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,212,188,.14);border:1px solid rgba(0,212,188,.4);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.82rem;letter-spacing:.02em;padding:.6rem 1rem;border-radius:9px;margin-top:1.2rem;}
+
+.cc{border-radius:14px;padding:1.4rem 1.5rem;border:1px solid var(--border);background:#fff;}
+.cc.can{border-left:4px solid var(--green);}
+.cc.cant{border-left:4px solid var(--red);}
+.cc h3{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem;}
+.cc.can h3{color:var(--green);}
+.cc.cant h3{color:var(--red);}
+.cc ul{list-style:none;display:grid;gap:.6rem;}
+.cc li{font-size:.88rem;color:var(--text-soft);padding-left:1.4rem;position:relative;line-height:1.5;}
+.cc.can li::before{content:'\2713';position:absolute;left:0;color:var(--green);font-weight:900;}
+.cc.cant li::before{content:'\2715';position:absolute;left:0;color:var(--red);font-weight:900;}
+
+.prompts{display:grid;gap:.7rem;}
+.prompt{background:#fff;border:1px solid var(--border);border-radius:11px;padding:.95rem 1.15rem;font-size:.92rem;color:var(--text-dark);display:flex;gap:.7rem;align-items:flex-start;}
+.prompt .q{color:var(--teal);font-weight:900;flex-shrink:0;}
+.prompt em{font-style:italic;color:var(--text-soft);}
+
+.loop{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;}
+@media(max-width:680px){.loop{grid-template-columns:repeat(2,1fr);}}
+.loop .n{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center;}
+.loop .n .b{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--teal);font-size:1.1rem;margin-bottom:.4rem;}
+.loop .n h4{font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:800;margin-bottom:.2rem;}
+.loop .n p{font-size:.76rem;color:var(--text-soft);line-height:1.45;}
+
+.callout{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:1.2rem 1.4rem;display:flex;gap:.9rem;align-items:flex-start;}
+.callout .ci{font-size:1.4rem;}
+.callout p{font-size:.9rem;color:var(--text-soft);}
+.callout strong{color:var(--text-dark);}
+
+footer{text-align:center;padding:2.5rem 1.5rem;color:var(--text-soft);font-size:.78rem;margin-top:2rem;}
+footer .fl{font-family:'Montserrat',sans-serif;font-weight:900;letter-spacing:.04em;color:var(--hero-dark);margin-bottom:.4rem;}
+footer .fl span{color:var(--teal);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="workshop-toolkit-library.html#top">CLINIC<span>CATALYST</span></a>
+  <a class="nav-back" href="workshop-toolkit-library.html">&larr; Back to Toolkit</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="hero-eyebrow">Your Ad System &middot; The Post-Andromeda Way</div>
+  <h1>Make the ads. Read what works. <em>Make more of it.</em></h1>
+  <p class="hero-sub">Meta's AI does the targeting now - you win on creative volume and clean signal, not clever audiences. This is the system that lets your clinic do exactly that: turn one video into many ads, see what's actually working in plain English, and double down on the winners. No agency in the loop.</p>
+</header>
+
+<div class="jump">
+  <a href="#map">The System</a>
+  <a href="#connect">Connect Meta</a>
+  <a href="#cancant">Can / Can't</a>
+  <a href="#playbook">The Playbook</a>
+  <a href="#loop">The Loop</a>
+</div>
+
+<!-- ===== WHY ===== -->
+<section class="wrap">
+  <div class="sec-head">
+    <div class="label">Why this matters</div>
+    <h2 class="sec-title">Andromeda changed the game</h2>
+    <p class="sec-intro">Meta's Andromeda update handed the audience targeting to Meta's own AI. You can't out-target the machine anymore. The levers left are creative volume, a strong offer, clean tracking signal, and reading the data to scale winners and kill losers. So the real skill is knowing what's working - and making more of it, fast. That's what this system gives you.</p>
+  </div>
+</section>
+
+<!-- ===== SYSTEM MAP ===== -->
+<section class="wrap" id="map">
+  <div class="sec-head">
+    <div class="label">How it fits together</div>
+    <h2 class="sec-title">One brain, four tools, one gate</h2>
+    <p class="sec-intro">Everything reads from your Business Brain - your brand guide, services, voice and compliance context. Connect the brain once and every tool below inherits your fonts, colours and rules automatically. Nothing is hardcoded; it's all yours.</p>
+  </div>
+
+  <div class="grid g3">
+    <div class="card" style="border-color:var(--gold);">
+      <span class="pill spine">The Spine</span>
+      <div class="ico" style="background:rgba(201,162,75,.14);color:#9a7322;">&#129504;</div>
+      <h3>Business Brain / Brand Guide</h3>
+      <p>Knows your clinic - brand font, colours, services, voice, and what's AHPRA-sensitive. Every tool pulls from it, so your ads come out looking and sounding like you, not like a template.</p>
+      <span class="role">Feeds everything</span>
+    </div>
+    <div class="card">
+      <span class="pill make">Make</span>
+      <div class="ico">&#127909;</div>
+      <h3>Ad Creative Multiplier</h3>
+      <p>One clinic video in, 15 ready-to-upload Meta variants out - 5 hooks across Reels, Feed and Stories sizes, in your brand font and colours, with the compliance gate on every hook.</p>
+      <span class="role">Video &rarr; 15 ads</span>
+    </div>
+    <div class="card">
+      <span class="pill make">Make</span>
+      <div class="ico">&#128221;</div>
+      <h3>Advertising AI (Google)</h3>
+      <p>Your clinic details in, a full AHPRA-compliant Responsive Search Ad set plus an Exact/Phrase keyword plan out - character-checked and ready to load. The hour-long copy job, done in minutes.</p>
+      <span class="role">Search ad copy</span>
+    </div>
+    <div class="card">
+      <span class="pill read">Read</span>
+      <div class="ico">&#128202;</div>
+      <h3>Meta Ads connector</h3>
+      <p>Meta's official link into Claude. Ask "what are my ads doing?" and get a straight answer off your live data - winners, losers, fatiguing creative, tracking health. Set up below.</p>
+      <span class="role">Live ad data</span>
+    </div>
+    <div class="card">
+      <span class="pill read">Read</span>
+      <div class="ico">&#128200;</div>
+      <h3>Ads Analyzer</h3>
+      <p>The offline twin of the connector. Export a CSV from Ads Manager and it tells you what to kill, keep and scale, and which hooks the algorithm is rewarding. No account link needed - it just works.</p>
+      <span class="role">CSV &rarr; verdict</span>
+    </div>
+    <div class="card" style="border-color:#f3d3cf;">
+      <span class="pill comply">The Gate</span>
+      <div class="ico" style="background:#FBE9E7;color:var(--red);">&#128737;</div>
+      <h3>Compliance Filter</h3>
+      <p>Sits across all of it. Screens every line for AHPRA/TGA - no Schedule-4 drug names, no pricing on injectables, no banned superlatives or guarantees - before anything reaches an ad.</p>
+      <span class="role">AHPRA on everything</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONNECT META ===== -->
+<section class="wrap" id="connect">
+  <div class="sec-head">
+    <div class="label">Set it up &middot; about 5 minutes</div>
+    <h2 class="sec-title">Connect Meta to Claude</h2>
+    <p class="sec-intro">This is Meta's own connector - no API keys, no developer account, no code. You paste one link and log in. It's free during Meta's open beta. Connect it READ-ONLY: that's where all the value is for a clinic, and it keeps you safe (more on that below).</p>
+  </div>
+
+  <div class="feature">
+    <div class="feature-in">
+      <h3>The 5-minute connect</h3>
+      <p>Do this in your own Claude account, on your own ad account. Read-only.</p>
+      <ol class="steps">
+        <li>In <code>claude.ai</code>, go to Settings &rarr; Connectors &rarr; Add custom connector.</li>
+        <li>Name it <code>Meta Ads</code> and paste the connector URL (below).</li>
+        <li>Complete the Facebook login and choose your ad account.</li>
+        <li>Set the permission level to <code>Read-only</code>.</li>
+        <li>Test it - ask Claude: <em>"Show me my Meta ad accounts."</em></li>
+      </ol>
+      <span class="urlchip">&#128279; https://mcp.facebook.com/ads</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAN / CAN'T ===== -->
+<section class="wrap" id="cancant">
+  <div class="sec-head">
+    <div class="label">Know the edges</div>
+    <h2 class="sec-title">What it can and can't do</h2>
+    <p class="sec-intro">The connector has 29 tools - 21 that read your data and 8 that can change your campaigns and spend money. For your clinic, the reading is the whole win. Here's the honest line on both.</p>
+  </div>
+  <div class="grid g2">
+    <div class="cc can">
+      <h3>&#9989; Use it for (read-only)</h3>
+      <ul>
+        <li>See which ads have the best hook rate and lowest cost per result</li>
+        <li>Spot creative that's fatiguing - frequency climbing, clicks dropping</li>
+        <li>Track cost per lead and spend trends week to week</li>
+        <li>Check your pixel and tracking are firing - the silent money-waster</li>
+        <li>Benchmark your CTR and CPM against your objective</li>
+        <li>Find which hook or angle the algorithm is rewarding right now</li>
+      </ul>
+    </div>
+    <div class="cc cant">
+      <h3>&#9940; Don't rely on it for</h3>
+      <ul>
+        <li>Making the creative - it can't cut your video or write copy (that's the Multiplier and Advertising AI)</li>
+        <li>Compliance - it will happily push non-AHPRA copy if told to; the filter is still your gate</li>
+        <li>Hands-off launching - the write tools have no guardrails and can spend real money on a misread prompt</li>
+        <li>Real-time bid management - there's lag; it's not a bidding bot</li>
+        <li>Billing setup - that still lives in Ads Manager</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:1.2rem">
+    <div class="callout">
+      <span class="ci">&#128274;</span>
+      <p><strong>Keep it read-only.</strong> Launching and budget changes stay a deliberate human step - your eyes on the money and the compliance. Meta's own advice is to start read-only and only consider the write tools after weeks of watching it behave. For a clinic, read-only does the job.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLAYBOOK ===== -->
+<section class="wrap" id="playbook">
+  <div class="sec-head">
+    <div class="label">Day to day</div>
+    <h2 class="sec-title">The playbook - what to actually ask</h2>
+    <p class="sec-intro">Once it's connected, this is your weekly five-minute check. Just ask Claude in plain English:</p>
+  </div>
+  <div class="prompts">
+    <div class="prompt"><span class="q">&ldquo;</span><em>Which of my ads has the best hook rate and lowest cost per result in the last 14 days?</em></div>
+    <div class="prompt"><span class="q">&ldquo;</span><em>Which creatives are fatiguing - frequency climbing and CTR dropping?</em></div>
+    <div class="prompt"><span class="q">&ldquo;</span><em>What's my cost per lead this month versus last month?</em></div>
+    <div class="prompt"><span class="q">&ldquo;</span><em>Is my pixel firing correctly - any event errors losing me signal?</em></div>
+    <div class="prompt"><span class="q">&ldquo;</span><em>Which hook or angle is the algorithm rewarding right now?</em></div>
+  </div>
+</section>
+
+<!-- ===== THE LOOP ===== -->
+<section class="wrap" id="loop">
+  <div class="sec-head">
+    <div class="label">The whole thing in four moves</div>
+    <h2 class="sec-title">Make &rarr; measure &rarr; make more</h2>
+    <p class="sec-intro">This is the engine. Run the loop and your ads get sharper every cycle - because you're always pouring budget into what's already proven to work.</p>
+  </div>
+  <div class="loop">
+    <div class="n"><div class="b">01</div><h4>Make</h4><p>Multiplier turns one video into 15 on-brand variants. Advertising AI writes the search ads.</p></div>
+    <div class="n"><div class="b">02</div><h4>Launch</h4><p>You upload and set budgets - the human step. Compliance checked, money in your control.</p></div>
+    <div class="n"><div class="b">03</div><h4>Measure</h4><p>The connector tells you which hooks and creatives are winning, which are burning cash.</p></div>
+    <div class="n"><div class="b">04</div><h4>Make more</h4><p>Feed the winning hooks back into the Multiplier. More of what works, less of what doesn't.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">CLINIC<span>CATALYST</span></div>
+  <div>Your Ad System &middot; 2-Day Workshop &middot; Melbourne CBD &middot; 7-8 July 2026</div>
+</footer>
+
+</body>
+</html>
