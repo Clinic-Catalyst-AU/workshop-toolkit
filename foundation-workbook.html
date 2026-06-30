@@ -236,6 +236,70 @@ textarea{min-height:80px;resize:vertical;line-height:1.5}
     </div>
   </div>
 
+  <div class="sec">
+    <span class="tag">8 &middot; Your look</span>
+    <h2>Your look &amp; feel</h2>
+    <div class="sub">Your covers and carousels get rendered in these, so your visuals look like <i>you</i> - not a template. After, drop your font files + logo into <code>Business-Brain/brand-assets/</code>.</div>
+    <label>Your main brand colour<span class="hint">the accent - a hex like #C9A24B if you know it, or just describe it ("warm gold") and we'll match it</span></label>
+    <input type="text" data-k="accent_colour" placeholder="#C9A24B or 'warm gold'">
+    <label>A darker colour for text<span class="hint">optional - for contrast on covers; leave blank for near-black</span></label>
+    <input type="text" data-k="ink_colour" placeholder="#1A1A1A or 'charcoal'">
+    <label>Your fonts<span class="hint">headline + body. Drop the .ttf files into brand-assets/ (headline-font.ttf, body-font.ttf) for an exact match</span></label>
+    <input type="text" data-k="fonts" placeholder="e.g. Montserrat headline + Open Sans body">
+    <label>Do you have a logo?<span class="hint">if yes, save it as brand-assets/logo.png (transparent PNG)</span></label>
+    <input type="text" data-k="logo" placeholder="yes / no">
+    <label>Your overall aesthetic<span class="hint">steers the look of every post</span></label>
+    <select data-k="aesthetic">
+      <option value="">Pick one...</option>
+      <option>clinical &amp; minimal</option>
+      <option>warm &amp; luxe</option>
+      <option>soft &amp; natural</option>
+      <option>bold &amp; modern</option>
+    </select>
+    <label>A brand whose look you admire<span class="hint">optional - helps us nail the vibe</span></label>
+    <input type="text" data-k="admired_look" placeholder="optional">
+  </div>
+
+  <div class="sec">
+    <span class="tag">9 &middot; Words &amp; rules</span>
+    <h2>Your words &amp; rules</h2>
+    <div class="sub">This is how we stop your content sounding like AI - your words in, the AI tells out.</div>
+    <label>Words + phrases you use a lot<span class="hint">the language that sounds like you - things you'd actually say to a patient</span></label>
+    <textarea data-k="words_love"></textarea>
+    <label>Words + phrases you'd never use<span class="hint">anything that feels off-brand, salesy, or just not you</span></label>
+    <textarea data-k="words_avoid"></textarea>
+    <label>Any rules for how Claude writes for you<span class="hint">e.g. always Australian English, never emojis, never say "amazing", keep it short and warm</span></label>
+    <textarea data-k="ai_rules"></textarea>
+  </div>
+
+  <div class="sec">
+    <span class="tag">10 &middot; Your team</span>
+    <h2>Your team</h2>
+    <div class="sub">Each person + what they have a special interest in - used in your content and bios. AHPRA-safe: "has a special interest in", never "specialist".</div>
+    <label>Your team + their special interests<span class="hint">one per line - e.g. Sophie, RN - special interest in barrier health; Megan, dermal therapist - congestion + dull skin</span></label>
+    <textarea data-k="team"></textarea>
+  </div>
+
+  <div class="sec">
+    <span class="tag">11 &middot; Contact &amp; links</span>
+    <h2>Your contact &amp; links</h2>
+    <div class="sub">Your customer-facing details + links - used in posts, landing pages, your Google profile and every booking CTA.</div>
+    <label>Public phone<span class="hint">the number patients call/text</span></label>
+    <input type="text" data-k="public_phone">
+    <label>Public email<span class="hint">the email patients use</span></label>
+    <input type="text" data-k="public_email">
+    <label>Clinic address<span class="hint">customer-facing address</span></label>
+    <input type="text" data-k="address">
+    <label>Website<span class="hint">your site URL</span></label>
+    <input type="text" data-k="website">
+    <label>Instagram<span class="hint">handle or URL</span></label>
+    <input type="text" data-k="instagram">
+    <label>Facebook<span class="hint">page URL</span></label>
+    <input type="text" data-k="facebook">
+    <label>Booking link<span class="hint">where people book - the CTA destination everywhere</span></label>
+    <input type="text" data-k="booking_link">
+  </div>
+
   <div class="build">
     <button class="btn" id="buildBtn">&#129504; Build my Business Brain &rarr;</button>
   </div>
@@ -325,6 +389,16 @@ function buildMd(){
 "## Ideal patient + resonance (-> resonance-messaging.md + concerns.md)\n- The real person: "+g("ideal_patient")+
 "\n- Their #1 pain point: "+g("pain")+"\n- Their #1 desire/outcome: "+g("desire")+
 "\n- Concerns we love treating: "+g("concerns")+"\n\n"+
+"## Brand look & feel (-> brand-guide.md Brand colours + brand-assets/)\n- Accent colour: "+g("accent_colour")+
+"\n- Text/contrast colour: "+g("ink_colour")+"\n- Fonts: "+g("fonts")+"\n- Logo: "+g("logo")+
+"\n- Aesthetic: "+g("aesthetic")+"\n- Admired look: "+g("admired_look")+
+"\n- ACTION: put font .ttf files (headline-font.ttf, body-font.ttf) + logo.png into Business-Brain/brand-assets/.\n\n"+
+"## Voice rules (-> brand-guide.md words_we_use / words_we_avoid + house rules)\n- Words + phrases we use: "+g("words_love")+
+"\n- Words + phrases we avoid: "+g("words_avoid")+"\n- Rules for how Claude writes: "+g("ai_rules")+"\n\n"+
+"## Team (-> team.md)\n"+g("team")+"\n(AHPRA: render each as 'has a special interest in ...', never 'specialist'.)\n\n"+
+"## Contact + links (-> brand-guide.md, customer-facing)\n- Phone: "+g("public_phone")+"\n- Email: "+g("public_email")+
+"\n- Address: "+g("address")+"\n- Website: "+g("website")+"\n- Instagram: "+g("instagram")+
+"\n- Facebook: "+g("facebook")+"\n- Booking link (the CTA destination): "+g("booking_link")+"\n\n"+
 "## Content pillars (-> the content engine)\nEducate (40%) / Connect (25%) / Proof (20%) / Offer (15%). "+
 "Proof = process + what-to-expect, never before/after. Every pillar points at this month's focus.\n";
 }
