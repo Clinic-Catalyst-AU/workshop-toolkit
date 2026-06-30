@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Take It For a Test Drive - Clinic Catalyst</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0;--teal-bright:#00D4BC;--teal-dark:#007A6E;
+  --hero-dark:#0A2A28;--hero-mid:#0D3D38;
+  --off-white:#F4F6F5;--text-dark:#1A1A1A;--text-soft:#5A6664;
+  --border:#E0E4E3;--card:#FFFFFF;--gold:#C9A24B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;border-bottom:1px solid rgba(0,212,188,.15)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none}
+.nav-logo span{color:var(--teal-bright)}
+.nav-back{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
+.nav-back:hover{color:var(--teal-bright)}
+
+.hero{padding:3.6rem 2rem 2.8rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid),var(--hero-dark) 65%);color:#fff}
+.hero .eyebrow{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:.9rem}
+.hero .ico{font-size:2.8rem;margin-bottom:.6rem}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,4.6vw,3rem);font-weight:900;line-height:1.06;max-width:720px;margin:0 auto .8rem}
+.hero h1 em{font-style:normal;color:var(--teal-bright)}
+.hero p{font-size:1.04rem;font-weight:300;color:rgba(255,255,255,.84);max-width:580px;margin:0 auto}
+
+.wrap{max-width:780px;margin:0 auto;padding:2.6rem 1.5rem 4rem}
+
+.how{background:#fff;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:2.2rem;font-size:.95rem;color:var(--text-soft)}
+.how b{color:var(--text-dark)}
+.how .swap{background:rgba(0,180,160,.1);color:var(--teal-dark);font-weight:700;border-radius:5px;padding:.05rem .4rem}
+
+.prompt{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.4rem;margin-bottom:1.1rem;transition:border-color .15s}
+.prompt:hover{border-color:var(--teal)}
+.prompt .tag{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);background:rgba(0,180,160,.1);padding:.3rem .65rem;border-radius:999px;margin-bottom:.7rem}
+.prompt h3{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:.5rem}
+.prompt .box{display:flex;gap:.8rem;align-items:flex-start;background:#0E2D2A;border-radius:10px;padding:.9rem 1rem;margin:.4rem 0 .7rem}
+.prompt .box .txt{flex:1;font-family:'Open Sans',sans-serif;font-size:.9rem;color:#EAF6F4;line-height:1.5}
+.prompt .box .txt b{color:var(--teal-bright);font-weight:600}
+.prompt .copy{flex-shrink:0;font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--teal-bright);color:var(--hero-dark);border:none;border-radius:7px;padding:.5rem .8rem;cursor:pointer;transition:background .15s}
+.prompt .copy:hover{background:#fff}
+.prompt .copy.done{background:var(--gold);color:#fff}
+.prompt .see{font-size:.86rem;color:var(--text-soft)}
+.prompt .see b{color:var(--text-dark)}
+
+.callout{background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));color:#fff;border-radius:16px;padding:1.9rem;margin:2.2rem 0 0;text-align:center}
+.callout h3{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:900;margin-bottom:.4rem}
+.callout p{color:rgba(255,255,255,.84);font-size:.96rem;max-width:540px;margin:0 auto}
+.callout .big{color:var(--teal-bright)}
+
+.foot{text-align:center;padding:2.4rem 1.5rem 3.4rem;color:var(--text-soft);font-size:.86rem}
+.foot a{color:var(--teal-dark);font-weight:700;text-decoration:none}
+.foot .logo{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hero-dark);font-size:1rem}
+.foot .logo span{color:var(--teal)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Clinic <span>Catalyst</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to your toolkit</a>
+</nav>
+
+<div class="hero">
+  <div class="ico">&#128640;</div>
+  <div class="eyebrow">The fun part</div>
+  <h1>Take your system for a <em>test drive</em></h1>
+  <p>It is built. Now watch it work. Paste any prompt below into your Claude and see each part of your system come alive, right in front of you.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="how">
+    <b>How to use this:</b> tap <b>Copy</b> on any card, paste it into your Claude, and hit enter. Swap anything in <span class="swap">[square brackets]</span> for your real details first. Start anywhere - each one shows off a different part of your new system.
+  </div>
+
+  <div class="prompt">
+    <span class="tag">&#128241; Content Engine</span>
+    <h3>A month of social posts, in your voice</h3>
+    <div class="box">
+      <div class="txt">Using my Business Brain, write me <b>5 Instagram posts</b> for this month about <b>[winter skin]</b>. Keep them on brand and AHPRA-safe, and tell me which content pillar each one is.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> on-brand captions across the educate, connect, prove and offer pillars - a month of content in a couple of minutes.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">&#128172; Follow-Up Agent</span>
+    <h3>The email that chases a lead for you</h3>
+    <div class="box">
+      <div class="txt">Write me a warm, no-pressure follow-up email to a lead who enquired about <b>[a treatment]</b> three days ago and hasn't booked yet. In my brand voice, AHPRA-safe.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> a gentle, on-brand email that builds trust and invites the booking - the kind your system sends on its own, so no lead is ever dropped.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">&#128269; Ad Builder</span>
+    <h3>A full Google ad set, written for you</h3>
+    <div class="box">
+      <div class="txt">Build me Google Search ad copy and a keyword plan for <b>[my clinic]</b> in <b>[my suburb]</b> for <b>[a service]</b>. Keep every line AHPRA-compliant.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> headlines, descriptions and keywords, all character-checked and compliance-screened - the thing agencies charge a fortune for.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">&#10024; Hook Generator</span>
+    <h3>Scroll-stopping hooks, scored</h3>
+    <div class="box">
+      <div class="txt">Give me <b>5 scroll-stopping hooks</b> for a post about <b>[why a consult comes first]</b>, and score each one for how likely it is to stop the scroll.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> five first-lines that actually earn attention, ranked - so your content gets seen, not skipped.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">&#129529; Stop The Slop</span>
+    <h3>Make any draft sound human</h3>
+    <div class="box">
+      <div class="txt">Here's a draft caption: <b>[paste any caption]</b>. Rewrite it so it sounds like a real human in my brand voice - strip out anything that sounds like AI.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> the robotic tells gone, your voice back in. Run anything through this before it goes out.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">&#128202; Carousel Builder</span>
+    <h3>A teaching carousel in 60 seconds</h3>
+    <div class="box">
+      <div class="txt">Make me a <b>5-slide Instagram carousel</b> teaching <b>[3 ways to look after winter skin]</b>, in my brand voice, with a gentle call to action on the last slide.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> slide-by-slide copy ready to design - no more late nights in Canva.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">&#128221; Pre-Call Brief</span>
+    <h3>Walk into every consult prepared</h3>
+    <div class="box">
+      <div class="txt">Give me a <b>one-page brief</b> on a new client coming in for <b>[a treatment]</b> - what to ask, what they're likely worried about, and how to make them feel at ease.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> a tight, human brief that makes you look like you've done your homework - because you have.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">&#128231; Marketing Genius</span>
+    <h3>Subject lines that get opened</h3>
+    <div class="box">
+      <div class="txt">Write me <b>5 subject lines</b> for a warm re-engagement email to past clients I haven't seen in a while. In my voice, no hype, AHPRA-safe.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> inviting, on-brand subject lines you can drop straight into a win-back email.</p>
+  </div>
+
+  <div class="callout">
+    <h3>That is your system, working &#127881;</h3>
+    <p>Every one of these runs on <span class="big">your</span> Business Brain - so it always sounds like you, and always stays compliant. This is the part that gives you your time back.</p>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div class="logo">Clinic <span>Catalyst</span></div>
+  <p style="margin-top:.6rem">Want to go deeper on any part? Head back to <a href="index.html">your toolkit</a>.</p>
+</div>
+
+<script>
+document.querySelectorAll('.prompt').forEach(function(p){
+  var btn=p.querySelector('.copy');
+  btn.addEventListener('click',function(){
+    var text=p.querySelector('.txt').innerText;
+    navigator.clipboard.writeText(text).then(function(){
+      btn.textContent='Copied';btn.classList.add('done');
+      setTimeout(function(){btn.textContent='Copy';btn.classList.remove('done')},1600);
+    });
+  });
+});
+</script>
+
+</body>
+</html>

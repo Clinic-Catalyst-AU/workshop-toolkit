@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Your Daily Routine - Clinic Catalyst Cheat Sheet</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0;--teal-bright:#00D4BC;--teal-dark:#007A6E;
+  --hero-dark:#0A2A28;--hero-mid:#0D3D38;
+  --off-white:#F4F6F5;--text-dark:#1A1A1A;--text-soft:#5A6664;
+  --border:#E0E4E3;--card:#FFFFFF;--gold:#C9A24B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;border-bottom:1px solid rgba(0,212,188,.15)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none}
+.nav-logo span{color:var(--teal-bright)}
+.nav-back{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
+.nav-back:hover{color:var(--teal-bright)}
+
+.hero{padding:3.4rem 2rem 2.6rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid),var(--hero-dark) 65%);color:#fff}
+.hero .eyebrow{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:.9rem}
+.hero .ico{font-size:2.6rem;margin-bottom:.6rem}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:900;line-height:1.08;max-width:680px;margin:0 auto .8rem}
+.hero p{font-size:1.02rem;font-weight:300;color:rgba(255,255,255,.82);max-width:540px;margin:0 auto}
+.meta-row{display:inline-flex;gap:1.3rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.meta-row span::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal-bright);margin-right:.45rem}
+
+.wrap{max-width:760px;margin:0 auto;padding:2.6rem 1.5rem 4rem}
+
+/* the why box */
+.why{background:#fff;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:2.2rem}
+.why h2{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:.4rem}
+.why p{font-size:.95rem;color:var(--text-soft)}
+
+/* steps */
+.step{display:flex;gap:1.1rem;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.5rem;margin-bottom:1rem;position:relative;transition:border-color .15s}
+.step:hover{border-color:var(--teal)}
+.step .num{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--hero-dark);color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+.step .body{flex:1}
+.step h3{font-family:'Montserrat',sans-serif;font-size:1.08rem;font-weight:800;margin-bottom:.35rem;line-height:1.25}
+.step p{font-size:.93rem;color:var(--text-soft);margin-bottom:.5rem}
+.step .where{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.04em;background:rgba(0,180,160,.1);color:var(--teal-dark);padding:.32rem .7rem;border-radius:7px}
+.step a.where:hover{background:var(--teal);color:#fff}
+.step .tip{font-size:.86rem;color:var(--text-dark);background:#FFF8E8;border:1px solid #F0E2BF;border-radius:8px;padding:.6rem .8rem;margin-top:.6rem}
+.step .tip b{color:#9A7B1F}
+
+/* callout */
+.callout{background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));color:#fff;border-radius:16px;padding:1.8rem;margin:2rem 0;text-align:center}
+.callout h3{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:900;margin-bottom:.4rem}
+.callout p{color:rgba(255,255,255,.82);font-size:.95rem;max-width:520px;margin:0 auto}
+.callout .big{color:var(--teal-bright)}
+
+/* done */
+.done{display:flex;gap:1rem;align-items:center;background:rgba(0,180,160,.08);border:1.5px solid var(--teal);border-radius:14px;padding:1.3rem 1.5rem;margin-top:1.4rem}
+.done .e{font-size:1.9rem}
+.done b{color:var(--teal-dark)}
+
+.foot{text-align:center;padding:2.4rem 1.5rem 3.4rem;color:var(--text-soft);font-size:.86rem}
+.foot a{color:var(--teal-dark);font-weight:700;text-decoration:none}
+.foot .logo{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hero-dark);font-size:1rem}
+.foot .logo span{color:var(--teal)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Clinic <span>Catalyst</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to your toolkit</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Cheat Sheet &middot; 10 minutes a day</div>
+  <div class="ico">&#9728;</div>
+  <h1>Your daily routine</h1>
+  <p>The system does the heavy lifting. Your job is a quick daily glance - about ten minutes - and a thumbs up. Here is the rhythm that keeps it all humming.</p>
+  <div class="meta-row"><span>10 min a day</span><span>Mostly approving</span><span>The system does the rest</span></div>
+</div>
+
+<div class="wrap">
+
+  <div class="why">
+    <h2>&#128161; The whole idea</h2>
+    <p>You are not running software all day. The system drafts, schedules and follows up on its own. You just check in, approve what it has prepared, and get back to your clients. Ten minutes in, a full marketing and front-desk team worth of work out.</p>
+  </div>
+
+  <div class="step">
+    <div class="num">1</div>
+    <div class="body">
+      <h3>Morning brief (5 min)</h3>
+      <p>Open Claude and ask for today: who is booked, who enquired overnight, what is queued. It hands you the day in plain English.</p>
+      <span class="where">ask: what is on today?</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">2</div>
+    <div class="body">
+      <h3>Approve the replies</h3>
+      <p>It has already drafted responses to enquiries in your voice. Read, tweak if you want, send. One tap each.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">3</div>
+    <div class="body">
+      <h3>Glance at your content</h3>
+      <p>A week of posts sits queued. Thumbs up, or ask for a tweak. No 11pm caption sessions.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">4</div>
+    <div class="body">
+      <h3>Ask for anything, anytime</h3>
+      <p>Drop a voice note or a line - write a post about X, reply to this lead, build me a page - and it just does it.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">5</div>
+    <div class="body">
+      <h3>Once a month: pick your focus</h3>
+      <p>Choose the month's offer or theme. That one decision points your ads, posts and emails the same way, automatically.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>Ten minutes in, a team's work out &#127881;</h3>
+    <p>This is the part that <span class="big">gives you your evenings back</span>. The system never forgets, never sleeps, and never sounds like a robot.</p>
+  </div>
+
+  <div class="done">
+    <div class="e">&#9989;</div>
+    <div><b>You are doing it right when:</b> checking in feels like a quick habit, not a chore - and things are getting done while you are with clients.</div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div class="logo">Clinic <span>Catalyst</span></div>
+  <p style="margin-top:.6rem">Stuck? We do this with you live on Day 1 - nothing to figure out alone.</p>
+</div>
+
+</body>
+</html>
