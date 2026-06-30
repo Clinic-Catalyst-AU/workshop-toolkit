@@ -268,8 +268,12 @@ textarea{min-height:80px;resize:vertical;line-height:1.5}
     <textarea data-k="words_love"></textarea>
     <label>Words + phrases you'd never use<span class="hint">anything that feels off-brand, salesy, or just not you</span></label>
     <textarea data-k="words_avoid"></textarea>
-    <label>Any rules for how Claude writes for you<span class="hint">e.g. always Australian English, never emojis, never say "amazing", keep it short and warm</span></label>
+    <label>Any rules for how Claude writes for you<span class="hint">e.g. always Australian English, never say "amazing", keep it short and warm</span></label>
     <textarea data-k="ai_rules"></textarea>
+    <label>Emoji - yes or no? If yes, which do you use?<span class="hint">clinical brands often skip them; if you use them, list your regulars</span></label>
+    <input type="text" data-k="emoji_policy" placeholder="no  /  yes: a couple of clean ones">
+    <label>Your top 5 hashtags<span class="hint">the ones you like - or leave blank and we'll research what's working in your niche</span></label>
+    <textarea data-k="hashtags"></textarea>
   </div>
 
   <div class="sec">
@@ -394,7 +398,8 @@ function buildMd(){
 "\n- Aesthetic: "+g("aesthetic")+"\n- Admired look: "+g("admired_look")+
 "\n- ACTION: put font .ttf files (headline-font.ttf, body-font.ttf) + logo.png into Business-Brain/brand-assets/.\n\n"+
 "## Voice rules (-> brand-guide.md words_we_use / words_we_avoid + house rules)\n- Words + phrases we use: "+g("words_love")+
-"\n- Words + phrases we avoid: "+g("words_avoid")+"\n- Rules for how Claude writes: "+g("ai_rules")+"\n\n"+
+"\n- Words + phrases we avoid: "+g("words_avoid")+"\n- Rules for how Claude writes: "+g("ai_rules")+
+"\n- Emoji policy: "+g("emoji_policy")+"\n- Top hashtags: "+g("hashtags")+"\n\n"+
 "## Team (-> team.md)\n"+g("team")+"\n(AHPRA: render each as 'has a special interest in ...', never 'specialist'.)\n\n"+
 "## Contact + links (-> brand-guide.md, customer-facing)\n- Phone: "+g("public_phone")+"\n- Email: "+g("public_email")+
 "\n- Address: "+g("address")+"\n- Website: "+g("website")+"\n- Instagram: "+g("instagram")+
