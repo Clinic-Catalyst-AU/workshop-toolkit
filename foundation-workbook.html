@@ -356,8 +356,8 @@ function calc(){
   var gap=Math.max(0,num("rev_target")-num("rev_now"));
   var avg=num("avg_value"), conv=num("conv_rate"), show=num("show_rate");
   var pat=avg>0?gap/avg:0;
-  var con=conv>0?pat/(conv/100):0;
-  var lead=show>0?con/(show/100):0;
+  var con=show>0?pat/(show/100):0;   // consults BOOKED: show% of bookings turn up (and a showed consult = a patient)
+  var lead=conv>0?con/(conv/100):0;  // leads: conv% of leads become booked consults
   var week=lead/4.3;
   var spend=lead*20/30; // ~$20 CPL est
   document.getElementById("r_gap").textContent=money(gap);
