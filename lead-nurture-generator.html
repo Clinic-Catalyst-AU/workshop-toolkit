@@ -97,7 +97,9 @@ input[type=file]{width:100%;font-size:.86rem;background:var(--off-white);border:
 </div>
 
 <div class="wrap">
-  <div class="note">&#128161; <b>This is the instant follow-up for THIS offer</b> - the sequence that fires the moment someone submits your Meta lead form. It's separate from your evergreen 7-email nurture ladder (that's <code>/cc-follow-up-agent</code> on Day 2). Fill it in your own words - rough is fine. It saves automatically on this device.</div>
+  <div class="note">&#128161; <b>This is the instant follow-up for THIS offer</b> - the sequence that fires the moment someone submits your Meta lead form. It's separate from your evergreen 7-email nurture ladder (that's <code>/cc-follow-up-agent</code> on Day 2). Fill it in your own words - rough is fine. It saves automatically on this device.
+    <div style="margin-top:.7rem"><button class="btn ghost" id="exampleBtn" type="button" style="padding:.55rem 1.1rem;font-size:.68rem">&#128064; See it with example data &rarr;</button></div>
+  </div>
   <div class="ahpra">&#9888;&#65039; <b>AHPRA reminder:</b> describe what the treatment may help with, never guarantee a result. No "specialist" or "expert" - use "has a special interest in". Every line below gets built with that guardrail on, but give it a final read before it goes live.</div>
 
   <!-- 1. THE OFFER -->
@@ -412,6 +414,47 @@ document.getElementById("dlBtn").addEventListener("click",function(){
   a.download=(g("clinic_name").replace(/[^a-z0-9]+/gi,"-").toLowerCase()||"clinic")+"-lead-nurture.txt";
   a.click();
 });
+
+// ---- demo: fill with example data so you can see it work ----
+function demoPhoto(label,bg){
+  var c=document.createElement("canvas"); c.width=240; c.height=160;
+  var ctx=c.getContext("2d");
+  ctx.fillStyle=bg; ctx.fillRect(0,0,240,160);
+  ctx.fillStyle="#fff"; ctx.font="bold 20px sans-serif"; ctx.textAlign="center";
+  ctx.fillText(label,120,86);
+  return c.toDataURL("image/jpeg",0.8);
+}
+document.getElementById("exampleBtn").addEventListener("click",function(){
+  var example={
+    clinic_name:"Facial Harmony",
+    sender_name:"Kelly",
+    treatment_name:"Skin Tightening Facial",
+    concerns:"loose skin, jawline, neck, fine lines",
+    how_it_works:"works with your skin's own collagen to help it look firmer and more supported over time",
+    benefits:"no downtime, visible over a few weeks, suits most skin types",
+    booking_link:"https://link.facialharmony.com.au/book-consult",
+    consult_price:"complimentary",
+    consult_includes:"skin assessment, personalised plan, honest recommendations, time for questions",
+    sessions:"3-6 sessions, spaced 4-6 weeks apart",
+    recovery:"no downtime, back to normal activities the same day",
+    faq:"Does it hurt? - Most people describe mild warmth, nothing more.\nHow soon will I see results? - Usually within a few weeks, improving over 2-3 months.",
+    reply_phone:"03 9000 1234",
+    reply_email:"hello@facialharmony.com.au",
+    words_avoid:"guaranteed, miracle, instant"
+  };
+  Object.keys(example).forEach(function(k){
+    var el=document.querySelector('[data-k="'+k+'"]');
+    if(el){ el.value=example[k]; el.dispatchEvent(new Event("input")); }
+  });
+  if(photos.length===0){
+    photos.push({name:"before-after-1.jpg",caption:"jawline, 6 weeks post-treatment",data:demoPhoto("BEFORE / AFTER","#00897B")});
+    savePhotos(); renderPhotos();
+  }
+  var consentBox=document.getElementById("photoConsent");
+  consentBox.checked=true; consentBox.dispatchEvent(new Event("change"));
+  out.value=buildText(); modal.classList.add("open");
+});
+
 progress();
 </script>
 </body>
