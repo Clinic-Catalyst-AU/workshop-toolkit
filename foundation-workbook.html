@@ -236,6 +236,19 @@ textarea{min-height:80px;resize:vertical;line-height:1.5}
         &#9744; You can say it in one sentence - name, price, what they get, why now
       </div>
     </div>
+
+    <div style="background:#E7F6F3;border:1.5px solid var(--teal);border-radius:12px;padding:1rem 1.2rem;margin:1rem 0">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:.95rem;margin-bottom:.4rem">&#127912; Your ad templates (Canva)</div>
+      <div style="font-size:.88rem;margin-bottom:.5rem">Six ready-made formats - open one, swap in your photos and this offer, done. The exact templates we build with on Day 1:</div>
+      <div style="font-size:.88rem;line-height:1.9">
+        <a href="https://canva.link/qgm6gfr40on7fr2" target="_blank">Single Image Ad 1</a> &middot;
+        <a href="https://canva.link/b994e3sijypr51s" target="_blank">Single Image Ad 2</a> &middot;
+        <a href="https://canva.link/uehkkdyta156r32" target="_blank">Single Image Ad 3</a><br>
+        <a href="https://canva.link/v6sqpzbe64gq3fa" target="_blank">Video Ad 1</a> &middot;
+        <a href="https://canva.link/f5zfnj228pqm7sx" target="_blank">Video Ad 2</a> &middot;
+        <a href="https://canva.link/doislqgwmxvbfq2" target="_blank">Video Ad 3</a>
+      </div>
+    </div>
   </div>
 
   <!-- 5. IDEAL PATIENT (resonance) -->
@@ -249,6 +262,8 @@ textarea{min-height:80px;resize:vertical;line-height:1.5}
     <textarea data-k="pain"></textarea>
     <label>Their #1 desire / outcome<span class="hint">e.g. "I want to look refreshed and confident, without looking done"</span></label>
     <textarea data-k="desire"></textarea>
+    <label>More pain points - for remarketing ads (3-5, in THEIR words)<span class="hint">remarketing works by hitting a DIFFERENT nerve than the first ad - e.g. "nothing I try at home works anymore", "I avoid photos", "makeup sits in my lines", "I don't want to look done, just fresh"</span></label>
+    <textarea data-k="pain_points_more"></textarea>
     <label>The skin concerns you most love treating<span class="hint">the ones you want to be known for and want more of</span></label>
     <textarea data-k="concerns"></textarea>
   </div>
@@ -441,6 +456,7 @@ function buildMd(){
 "\n- Estimated lifetime value: "+money(num("ltv"))+"\n\n"+
 "## Ideal patient + resonance (-> resonance-messaging.md + concerns.md)\n- The real person: "+g("ideal_patient")+
 "\n- Their #1 pain point: "+g("pain")+"\n- Their #1 desire/outcome: "+g("desire")+
+"\n- More pain points (remarketing ads): "+g("pain_points_more")+
 "\n- Concerns we love treating: "+g("concerns")+"\n\n"+
 "## Brand look & feel (-> brand-guide.md Brand colours + brand-assets/)\n- Accent colour: "+g("accent_colour")+
 "\n- Text/contrast colour: "+g("ink_colour")+"\n- Fonts: "+g("fonts")+"\n- Logo: "+g("logo")+

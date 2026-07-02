@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>GHL Setup - The Full Build - Clinic Catalyst</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0;--teal-bright:#00D4BC;--teal-dark:#007A6E;
+  --hero-dark:#0A2A28;--hero-mid:#0D3D38;
+  --off-white:#F4F6F5;--text-dark:#1A1A1A;--text-soft:#5A6664;
+  --border:#E0E4E3;--card:#FFFFFF;--gold:#C9A24B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;border-bottom:1px solid rgba(0,212,188,.15)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none}
+.nav-logo span{color:var(--teal-bright)}
+.nav-back{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
+.nav-back:hover{color:var(--teal-bright)}
+
+.hero{padding:3.4rem 2rem 2.6rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid),var(--hero-dark) 65%);color:#fff}
+.hero .eyebrow{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:.9rem}
+.hero .ico{font-size:2.6rem;margin-bottom:.6rem}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:900;line-height:1.08;max-width:680px;margin:0 auto .8rem}
+.hero p{font-size:1.02rem;font-weight:300;color:rgba(255,255,255,.82);max-width:540px;margin:0 auto}
+.meta-row{display:inline-flex;gap:1.3rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.meta-row span::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal-bright);margin-right:.45rem}
+
+.wrap{max-width:760px;margin:0 auto;padding:2.6rem 1.5rem 4rem}
+
+/* the why box */
+.why{background:#fff;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:2.2rem}
+.why h2{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:.4rem}
+.why p{font-size:.95rem;color:var(--text-soft)}
+
+/* steps */
+.step{display:flex;gap:1.1rem;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.5rem;margin-bottom:1rem;position:relative;transition:border-color .15s}
+.step:hover{border-color:var(--teal)}
+.step .num{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--hero-dark);color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+.step .body{flex:1}
+.step h3{font-family:'Montserrat',sans-serif;font-size:1.08rem;font-weight:800;margin-bottom:.35rem;line-height:1.25}
+.step p{font-size:.93rem;color:var(--text-soft);margin-bottom:.5rem}
+.step .where{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.04em;background:rgba(0,180,160,.1);color:var(--teal-dark);padding:.32rem .7rem;border-radius:7px}
+.step a.where:hover{background:var(--teal);color:#fff}
+.step .tip{font-size:.86rem;color:var(--text-dark);background:#FFF8E8;border:1px solid #F0E2BF;border-radius:8px;padding:.6rem .8rem;margin-top:.6rem}
+.step .tip b{color:#9A7B1F}
+
+/* callout */
+.callout{background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));color:#fff;border-radius:16px;padding:1.8rem;margin:2rem 0;text-align:center}
+.callout h3{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:900;margin-bottom:.4rem}
+.callout p{color:rgba(255,255,255,.82);font-size:.95rem;max-width:520px;margin:0 auto}
+.callout .big{color:var(--teal-bright)}
+
+/* done */
+.done{display:flex;gap:1rem;align-items:center;background:rgba(0,180,160,.08);border:1.5px solid var(--teal);border-radius:14px;padding:1.3rem 1.5rem;margin-top:1.4rem}
+.done .e{font-size:1.9rem}
+.done b{color:var(--teal-dark)}
+
+.foot{text-align:center;padding:2.4rem 1.5rem 3.4rem;color:var(--text-soft);font-size:.86rem}
+.foot a{color:var(--teal-dark);font-weight:700;text-decoration:none}
+.foot .logo{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hero-dark);font-size:1rem}
+.foot .logo span{color:var(--teal)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Clinic <span>Catalyst</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to your toolkit</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Day 1 &middot; We build this together</div>
+  <div class="ico">&#9881;&#65039;</div>
+  <h1>GHL Setup - The Full Build</h1>
+  <p>Your CRM is the engine room: pipeline, calendar, lead forms, workflows. Here is the whole build, step by step - the same order we run in the room.</p>
+  <div class="meta-row"><span>6 steps</span><span>Day 1 morning</span><span>We do it together</span></div>
+</div>
+
+<div class="wrap">
+
+  <div class="why">
+    <h2>&#128161; Why this order matters</h2>
+    <p>Everything downstream - your ads, your AI receptionist, your follow-up - reads from GHL. Pipeline first so leads have somewhere to live, calendar so they can book, forms so ads can capture, workflows so nothing leaks. Then we TEST before any ad spend touches it.</p>
+  </div>
+
+  <div class="step">
+    <div class="num">1</div>
+    <div class="body">
+      <h3>Basic setup</h3>
+      <p>Load in your logo, business name, address and email. Connect your social accounts (Facebook + Instagram). Set your email reply address so responses come back to you.</p>
+      <span class="where">Settings &rarr; Business Profile</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">2</div>
+    <div class="body">
+      <h3>Pipeline + opportunities + SMS registration</h3>
+      <p>Your pipeline is the money view: every lead becomes an <b>opportunity card</b> that moves across stages, so you can see exactly where every potential patient sits and what they are worth. We build these stages:</p>
+      <p style="font-family:ui-monospace,Menlo,monospace;font-size:.82rem;background:#0E2D2A;color:#CFF3EC;border-radius:8px;padding:.7rem .9rem">New Lead &rarr; 1st-5th Follow-Up &rarr; Follow Up Later (adds a task) &rarr; Booked/Won &rarr; Lost/Cancelled</p>
+      <p>Automations wired here: the <b>Won tag</b> triggers the Booked flow, and <b>DND</b> switches on so booked patients stop getting chased.</p>
+      <div class="tip"><b>SMS registration:</b> Australia requires sender registration. Bring your business registration PDF (free from ABN Lookup) - we submit the SMS certificate application together on the day. Approval takes days, which is why this happens on Day 1, not after.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">3</div>
+    <div class="body">
+      <h3>Calendar - two options</h3>
+      <p><b>Option A - go native (recommended):</b> your rooms, staff and services live in GHL and everything books there. One source of truth, nothing to sync.</p>
+      <p><b>Option B - new GHL calendar from our snapshot:</b> one click loads our pre-built calendar setup into your account:</p>
+      <a class="where" href="https://affiliates.gohighlevel.com/?fp_ref=&share=sl3BpH5usuzjg0j6XyUI" target="_blank">Load the calendar snapshot &rarr;</a>
+      <div class="tip"><b>Keeping Timely/Cliniko/Fresha?</b> Then the calendars must agree in BOTH directions or you will double-book: GHL bookings copy across to your old tool, and bookings landing in your old tool (from ads or phone) must block GHL. That is the calendar bridge - Zapier does the reverse lane (Timely "New Booking" &rarr; filter out bookings marked "Mirrored from GHL" &rarr; create the GHL contact + appointment). <a href="calendar-bridge.html">Read: do you need this?</a></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">4</div>
+    <div class="body">
+      <h3>Lead forms</h3>
+      <p>Two forms: a <b>treatment-specific lead form</b> (this is what your Meta ads connect to) and a <b>website lead form</b> for your site. The treatment form asks just enough to qualify - name, contact, concern - because every extra field costs you leads.</p>
+      <span class="where">Sites &rarr; Forms &rarr; Builder</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">5</div>
+    <div class="body">
+      <h3>Workflows - the four that run everything</h3>
+      <p><b>New Lead Workflow</b> - instant reply the second a form is submitted (speed = conversion).<br>
+      <b>Internal Notification Workflow</b> - your team gets pinged so a human can jump in fast.<br>
+      <b>Pipeline Movement Workflow</b> - opportunity cards move stages automatically as things happen.<br>
+      <b>Enable DND Workflow</b> - booked patients stop receiving chase messages.</p>
+      <div class="tip"><b>Where Zapier fits with ads:</b> Meta lead forms connect to GHL natively (Integrations &rarr; Facebook) - no Zapier needed there. Zapier earns its keep on the calendar reverse-lane above and the odd tool with no direct connection.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">6</div>
+    <div class="body">
+      <h3>TEST. Before any ad spend.</h3>
+      <p>Submit your own lead form and watch the whole chain fire: opportunity card appears in the pipeline, internal notification lands, auto-reply goes out. If any link in that chain is silent, we fix it NOW - not after ads are live.</p>
+      <a class="where" href="https://developers.facebook.com/tools/lead-ads-testing" target="_blank">FB Lead Form Test Tool &rarr;</a>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>Built once, runs forever &#9881;&#65039;</h3>
+    <p>This is the morning of Day 1, <span class="big">done together screen by screen</span>. Walk out with a CRM that catches, chases and books - before we even touch ads.</p>
+  </div>
+
+  <div class="done">
+    <div class="e">&#9989;</div>
+    <div><b>You are done when:</b> a test lead moves through your pipeline, you got the notification, and the auto-reply hit your inbox. That is a working engine room.</div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div class="logo">Clinic <span>Catalyst</span></div>
+  <p style="margin-top:.6rem">Stuck? We do this with you live on Day 1 - nothing to figure out alone.</p>
+</div>
+
+</body>
+</html>
