@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Lead Nurture Generator - Clinic Catalyst</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0;--teal-bright:#00D4BC;--teal-dark:#007A6E;
+  --hero-dark:#0A2A28;--hero-mid:#0D3D38;
+  --off-white:#F4F6F5;--text-dark:#1A1A1A;--text-soft:#5A6664;
+  --border:#E0E4E3;--card:#FFFFFF;--gold:#C9A24B;--code:#0E2D2A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.97);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.6rem;border-bottom:1px solid rgba(0,212,188,.15)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none}
+.nav-logo span{color:var(--teal-bright)}
+.nav-back{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none}
+.nav-back:hover{color:var(--teal-bright)}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:101;background:linear-gradient(90deg,var(--teal-bright),var(--gold));transition:width .2s}
+
+.hero{padding:3.2rem 1.6rem 2.4rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid),var(--hero-dark) 65%);color:#fff}
+.hero .eyebrow{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:.8rem}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,4.6vw,2.9rem);font-weight:900;line-height:1.06;max-width:640px;margin:0 auto .7rem}
+.hero h1 em{font-style:normal;color:var(--teal-bright)}
+.hero p{font-size:1.02rem;font-weight:300;color:rgba(255,255,255,.85);max-width:600px;margin:0 auto}
+
+.wrap{max-width:760px;margin:0 auto;padding:2.2rem 1.4rem 3rem}
+.note{background:rgba(0,180,160,.07);border:1px solid var(--teal);border-radius:11px;padding:.9rem 1.1rem;font-size:.92rem;color:var(--teal-dark);margin-bottom:1.8rem}
+.note b{font-weight:700}
+.ahpra{background:#FFF7E6;border:1px solid var(--gold);border-radius:11px;padding:.9rem 1.1rem;font-size:.88rem;color:#7a5c1e;margin-bottom:1.8rem}
+.ahpra b{color:#5c4415}
+
+.sec{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.6rem 1.8rem;margin-bottom:1.3rem}
+.sec .tag{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);background:rgba(0,180,160,.1);padding:.3rem .65rem;border-radius:999px;display:inline-block;margin-bottom:.7rem}
+.sec h2{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:.3rem}
+.sec .sub{font-size:.9rem;color:var(--text-soft);margin-bottom:1.1rem}
+label{display:block;font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;margin:1rem 0 .35rem}
+label .hint{display:block;font-family:'Open Sans';font-weight:400;font-size:.78rem;color:var(--text-soft);font-style:italic;margin-top:.15rem}
+input[type=text],input[type=number],textarea{width:100%;font-family:'Open Sans',sans-serif;font-size:.95rem;color:var(--text-dark);background:var(--off-white);border:1px solid var(--border);border-radius:10px;padding:.7rem .85rem;transition:border-color .15s}
+input:focus,textarea:focus{outline:none;border-color:var(--teal)}
+textarea{min-height:80px;resize:vertical;line-height:1.5}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+
+.preview{background:var(--hero-dark);border-radius:14px;padding:1.2rem 1.3rem;margin-top:1rem;color:#CFF3EC;font-size:.82rem;line-height:1.7;white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace}
+.preview .lbl{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-bright);display:block;margin-bottom:.4rem}
+
+.build{position:sticky;bottom:0;background:linear-gradient(0deg,var(--off-white) 60%,transparent);padding:1.2rem 0 0;text-align:center}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-bright);color:var(--hero-dark);border:none;padding:1rem 2rem;border-radius:11px;font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px);background:#fff}
+
+.modal{position:fixed;inset:0;background:rgba(10,42,40,.7);display:none;align-items:flex-start;justify-content:center;padding:2rem 1rem;z-index:200;overflow-y:auto}
+.modal.open{display:flex}
+.sheet{background:#fff;border-radius:16px;max-width:680px;width:100%;padding:1.8rem}
+.sheet h2{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:900;margin-bottom:.3rem}
+.sheet p{font-size:.92rem;color:var(--text-soft);margin-bottom:1rem}
+.sheet .steps{background:rgba(0,180,160,.07);border:1px solid var(--teal);border-radius:10px;padding:.9rem 1.1rem;font-size:.9rem;margin-bottom:1rem}
+.sheet .steps b{color:var(--teal-dark)}
+.sheet textarea{min-height:360px;font-family:ui-monospace,Menlo,monospace;font-size:.78rem;background:var(--code);color:#CFF3EC;border:none}
+.sheet .acts{display:flex;gap:.7rem;margin-top:1rem;flex-wrap:wrap}
+.sheet .acts button{flex:1;min-width:130px}
+.btn.ghost{background:transparent;border:1.5px solid var(--border);color:var(--text-dark)}
+.btn.ghost:hover{background:var(--off-white);transform:none}
+.close{float:right;cursor:pointer;color:var(--text-soft);font-weight:700;font-size:1.3rem;line-height:1}
+
+.foot{text-align:center;padding:2rem 1.4rem 3rem;color:var(--text-soft);font-size:.82rem}
+.foot .logo{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hero-dark);font-size:1rem}
+.foot .logo span{color:var(--teal)}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav>
+  <a class="nav-logo" href="index.html">Clinic <span>Catalyst</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to your toolkit</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Day 1 &middot; Meta Lead-Gen Launch</div>
+  <h1>Lead Nurture <em>Generator</em></h1>
+  <p>Answer these once about your offer. At the end, your system writes the full 5-touch SMS + email sequence for anyone who responds to this campaign, ready to copy straight into a GHL workflow.</p>
+</div>
+
+<div class="wrap">
+  <div class="note">&#128161; <b>This is the instant follow-up for THIS offer</b> - the sequence that fires the moment someone submits your Meta lead form. It's separate from your evergreen 7-email nurture ladder (that's <code>/cc-follow-up-agent</code> on Day 2). Fill it in your own words - rough is fine. It saves automatically on this device.</div>
+  <div class="ahpra">&#9888;&#65039; <b>AHPRA reminder:</b> describe what the treatment may help with, never guarantee a result. No "specialist" or "expert" - use "has a special interest in". Every line below gets built with that guardrail on, but give it a final read before it goes live.</div>
+
+  <!-- 1. THE OFFER -->
+  <div class="sec">
+    <span class="tag">1 &middot; This campaign's offer</span>
+    <h2>What is this campaign about</h2>
+    <div class="sub">The one offer this Meta campaign is driving leads for.</div>
+    <div class="row">
+      <div><label>Clinic name</label><input type="text" data-k="clinic_name"></div>
+      <div><label>Who's texting them<span class="hint">first name - it should feel like a person, not a bot</span></label><input type="text" data-k="sender_name"></div>
+    </div>
+    <label>Treatment / offer name<span class="hint">e.g. "Skin Tightening Facial" or "The Glow Starter"</span></label>
+    <input type="text" data-k="treatment_name">
+    <label>Concerns it may help with<span class="hint">comma separated, in plain language - e.g. loose skin, jawline, neck, fine lines</span></label>
+    <input type="text" data-k="concerns">
+    <label>How it works, in plain language<span class="hint">one or two sentences, no jargon - e.g. "works with your skin's own collagen to help it look firmer and more supported over time"</span></label>
+    <textarea data-k="how_it_works"></textarea>
+    <label>Key benefits<span class="hint">comma separated - e.g. no downtime, visible over a few weeks, suits most skin types</span></label>
+    <textarea data-k="benefits"></textarea>
+  </div>
+
+  <!-- 2. CONSULTATION -->
+  <div class="sec">
+    <span class="tag">2 &middot; The consult</span>
+    <h2>The consultation &amp; booking</h2>
+    <div class="sub">What actually happens once they book - this is what removes the fear.</div>
+    <label>Booking link</label>
+    <input type="text" data-k="booking_link" placeholder="https://...">
+    <label>Consult price<span class="hint">e.g. "complimentary" or "$49, credited to treatment"</span></label>
+    <input type="text" data-k="consult_price">
+    <label>What happens in the consult<span class="hint">comma separated - e.g. skin assessment, personalised plan, honest recommendations, time for questions</span></label>
+    <textarea data-k="consult_includes"></textarea>
+  </div>
+
+  <!-- 3. THE JOURNEY -->
+  <div class="sec">
+    <span class="tag">3 &middot; Proof &amp; the journey</span>
+    <h2>What to expect</h2>
+    <div class="sub">Turns intention into belief - people need to picture themselves going through it.</div>
+    <label>Typical number of sessions<span class="hint">e.g. "3-6 sessions, spaced 4-6 weeks apart"</span></label>
+    <input type="text" data-k="sessions">
+    <label>Recovery / downtime<span class="hint">e.g. "no downtime, back to normal activities the same day"</span></label>
+    <input type="text" data-k="recovery">
+    <label>2-3 common questions, with your answers<span class="hint">one per line, e.g. "Does it hurt? - Most people describe it as mild warmth, nothing more."</span></label>
+    <textarea data-k="faq"></textarea>
+  </div>
+
+  <!-- 4. VOICE & CONTACT -->
+  <div class="sec">
+    <span class="tag">4 &middot; Sign-off</span>
+    <h2>Contact &amp; voice</h2>
+    <div class="sub">How replies come back to you, and any words to use or avoid.</div>
+    <div class="row">
+      <div><label>Reply phone / SMS number</label><input type="text" data-k="reply_phone"></div>
+      <div><label>Reply email</label><input type="text" data-k="reply_email"></div>
+    </div>
+    <label>Words or phrases you'd never use<span class="hint">optional - anything off-brand or too salesy for your clinic</span></label>
+    <textarea data-k="words_avoid"></textarea>
+  </div>
+
+  <div class="build">
+    <button class="btn" id="buildBtn">&#9993; Build my nurture sequence &rarr;</button>
+  </div>
+</div>
+
+<!-- EXPORT MODAL -->
+<div class="modal" id="modal">
+  <div class="sheet">
+    <span class="close" id="closeX">&times;</span>
+    <h2>&#127881; Your nurture sequence is ready</h2>
+    <p>Every SMS and email, labelled by touch point and timing, in send order.</p>
+    <div class="steps"><b>In GHL:</b> build one workflow triggered on "Lead form submitted" (or your pipeline stage), then add each step below in order with the wait time noted, pasting the SMS/email copy straight in. Swap any <code>[ ]</code> placeholder for a real photo, link or detail before you turn it on.</div>
+    <textarea id="out" readonly></textarea>
+    <div class="acts">
+      <button class="btn" id="copyBtn">Copy</button>
+      <button class="btn ghost" id="dlBtn">Download .txt</button>
+    </div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="logo">Clinic <span>Catalyst</span></div>
+  <p style="margin-top:.5rem">Built with Alicia Hagen + Kelly Wotherspoon. The follow-up that never lets a lead go cold.</p>
+</div>
+
+<script>
+var KEY="cc_nurture_v1";
+var fields=[].slice.call(document.querySelectorAll("[data-k]"));
+var saved={};
+try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+fields.forEach(function(f){ if(saved[f.dataset.k]!=null) f.value=saved[f.dataset.k]; });
+function save(){
+  var o={}; fields.forEach(function(f){o[f.dataset.k]=f.value});
+  localStorage.setItem(KEY,JSON.stringify(o));
+  progress();
+}
+fields.forEach(function(f){ f.addEventListener("input",save); });
+
+function progress(){
+  var done=fields.filter(function(f){return f.value.trim()!==""}).length;
+  document.getElementById("bar").style.width=(done/fields.length*100)+"%";
+}
+
+function g(k){var el=document.querySelector('[data-k="'+k+'"]');return (el&&el.value.trim())||"[fill this in]";}
+function firstConcern(){
+  var c=g("concerns");
+  if(c==="[fill this in]") return "your skin concerns";
+  return c.split(",")[0].trim();
+}
+function faqBlock(){
+  var raw=(document.querySelector('[data-k="faq"]').value||"").trim();
+  if(!raw) return "[add 2-3 common questions + your answers here]";
+  return raw.split("\n").filter(function(l){return l.trim()!==""}).map(function(l){return "  " + l.trim();}).join("\n");
+}
+function signoff(){
+  var cn=g("clinic_name");
+  return cn==="[fill this in]" ? "your clinic" : cn;
+}
+
+function buildText(){
+  var clinic=g("clinic_name"), sender=g("sender_name"), treatment=g("treatment_name"),
+      concerns=g("concerns"), howItWorks=g("how_it_works"), benefits=g("benefits"),
+      link=g("booking_link"), price=g("consult_price"), includes=g("consult_includes"),
+      sessions=g("sessions"), recovery=g("recovery"), phone=g("reply_phone"), email=g("reply_email"),
+      avoid=document.querySelector('[data-k="words_avoid"]').value.trim();
+
+  var out = "";
+  out += "==============================================\n";
+  out += clinic.toUpperCase()+" - NEW LEAD NURTURE ("+treatment.toUpperCase()+")\n";
+  out += "GHL workflow: trigger on lead form submission for this campaign\n";
+  out += "==============================================\n\n";
+  out += "AHPRA CHECK BEFORE YOU TURN THIS ON:\n";
+  out += "  - no promised or guaranteed result, only what it may help with\n";
+  out += "  - no 'specialist' / 'expert' - 'has a special interest in' instead\n";
+  out += "  - any before/after images need documented patient consent\n";
+  if(avoid) out += "  - avoid: "+avoid+"\n";
+  out += "\n";
+
+  out += "----------------------------------------------\n";
+  out += "TOUCH 1 - IMMEDIATELY - SMS\n";
+  out += "----------------------------------------------\n";
+  out += "Hi {{contact.first_name}}, it's "+sender+" from "+clinic+" :) We received your enquiry about "+treatment+". ";
+  out += "Just wondering, what's the main thing you're hoping to improve? ("+concerns+" or something else?) ";
+  out += "I'd love to point you in the right direction.\n\n";
+
+  out += "----------------------------------------------\n";
+  out += "TOUCH 1 - IMMEDIATELY - EMAIL\n";
+  out += "----------------------------------------------\n";
+  out += "Subject: Thanks for your enquiry, {{contact.first_name}}\n\n";
+  out += "Hi {{contact.first_name}},\n\n";
+  out += "Thank you for reaching out to "+clinic+" about "+treatment+".\n\n";
+  out += "In plain terms, here's how it works: "+howItWorks+"\n\n";
+  out += "It's a good fit if you're noticing "+concerns+".\n\n";
+  out += "A few of the benefits: "+benefits+"\n\n";
+  out += "[Insert 2-4 before/after images here - consented patients only]\n\n";
+  out += "If you have any questions at all, just reply to this email - a real person reads every one. ";
+  out += "Or if you're ready, you can book a "+price+" consultation here: "+link+"\n\n";
+  out += "Talk soon,\n"+sender+"\n"+signoff()+"\n\n";
+
+  out += "----------------------------------------------\n";
+  out += "TOUCH 2 - 24 HOURS LATER - SMS\n";
+  out += "----------------------------------------------\n";
+  out += "Hi {{contact.first_name}} :) Just in case it's easier, here's the link to book your "+price+" consultation.\n\n";
+  out += link+"\n\n";
+  out += "We'll assess your skin, explain your options and answer all your questions before recommending anything.\n\n";
+
+  out += "----------------------------------------------\n";
+  out += "TOUCH 3 - 2-3 DAYS LATER - EMAIL\n";
+  out += "----------------------------------------------\n";
+  out += "Subject: What actually happens at your consultation\n\n";
+  out += "Hi {{contact.first_name}},\n\n";
+  out += "A lot of people put off booking not because they don't want to improve "+firstConcern()+", but because they're worried about making the wrong decision. So here's exactly what happens when you come in:\n\n";
+  out += includes+"\n\n";
+  out += "No pressure, no obligation - just an honest conversation about your options.\n\n";
+  out += "Book your consultation here: "+link+"\n\n";
+  out += sender+"\n"+signoff()+"\n\n";
+
+  out += "----------------------------------------------\n";
+  out += "TOUCH 4 - 4-5 DAYS LATER - SMS\n";
+  out += "----------------------------------------------\n";
+  out += "Hi {{contact.first_name}} :) I've just sent through some more before & after photos so you can see what's possible with "+treatment+".\n\n";
+  out += "Everyone's skin is different, but hopefully it gives you a better idea of what to expect. If you have any questions, simply reply to this message.\n\n";
+
+  out += "----------------------------------------------\n";
+  out += "TOUCH 4 - 4-5 DAYS LATER - EMAIL\n";
+  out += "----------------------------------------------\n";
+  out += "Subject: What to expect with "+treatment+"\n\n";
+  out += "Hi {{contact.first_name}},\n\n";
+  out += "[Insert before/after gallery here - consented patients only]\n\n";
+  out += "Typically, "+treatment+" is "+sessions+".\n\n";
+  out += "Recovery: "+recovery+"\n\n";
+  out += "A few questions people usually ask:\n"+faqBlock()+"\n\n";
+  out += "Ready to get started? Book here: "+link+"\n\n";
+  out += sender+"\n"+signoff()+"\n\n";
+
+  out += "----------------------------------------------\n";
+  out += "TOUCH 5 - 7 DAYS LATER - SMS\n";
+  out += "----------------------------------------------\n";
+  out += "Hi {{contact.first_name}} :) Just checking in one last time.\n\n";
+  out += "I don't want to keep bothering you if now isn't the right time. If you'd like me to stop following up, just let me know.\n\n";
+  out += "Otherwise, if you're still considering "+treatment+", we'd absolutely love to help whenever you're ready: "+link+"\n\n";
+
+  out += "----------------------------------------------\n";
+  out += "AFTER DAY 7 - NO BOOKING\n";
+  out += "----------------------------------------------\n";
+  out += "Move the contact into your evergreen nurture (the monthly newsletter + long-term follow-up built by /cc-follow-up-agent) instead of continuing to chase this offer.\n\n";
+
+  out += "----------------------------------------------\n";
+  out += "REPLIES LAND AT\n";
+  out += "----------------------------------------------\n";
+  out += "Phone: "+phone+"\nEmail: "+email+"\n";
+
+  return out;
+}
+
+var modal=document.getElementById("modal"), out=document.getElementById("out");
+document.getElementById("buildBtn").addEventListener("click",function(){
+  out.value=buildText(); modal.classList.add("open");
+});
+document.getElementById("closeX").addEventListener("click",function(){modal.classList.remove("open")});
+modal.addEventListener("click",function(e){if(e.target===modal)modal.classList.remove("open")});
+document.getElementById("copyBtn").addEventListener("click",function(){
+  out.select();navigator.clipboard.writeText(out.value);
+  this.textContent="Copied";var b=this;setTimeout(function(){b.textContent="Copy"},1500);
+});
+document.getElementById("dlBtn").addEventListener("click",function(){
+  var blob=new Blob([out.value],{type:"text/plain"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download=(g("clinic_name").replace(/[^a-z0-9]+/gi,"-").toLowerCase()||"clinic")+"-lead-nurture.txt";
+  a.click();
+});
+progress();
+</script>
+</body>
+</html>
