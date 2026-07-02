@@ -50,6 +50,13 @@ textarea{min-height:80px;resize:vertical;line-height:1.5}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
 @media(max-width:560px){.row{grid-template-columns:1fr}}
 
+input[type=file]{width:100%;font-size:.86rem;background:var(--off-white);border:1px dashed var(--border);border-radius:10px;padding:.9rem}
+.photogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem;margin-top:1rem}
+.photocard{background:var(--off-white);border:1px solid var(--border);border-radius:10px;padding:.5rem;position:relative}
+.photocard img{width:100%;height:100px;object-fit:cover;border-radius:7px;display:block;margin-bottom:.4rem}
+.photocard input{font-size:.76rem;padding:.4rem .5rem}
+.photocard .rm{position:absolute;top:.3rem;right:.3rem;background:rgba(10,42,40,.75);color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:.8rem;line-height:1;cursor:pointer}
+
 .preview{background:var(--hero-dark);border-radius:14px;padding:1.2rem 1.3rem;margin-top:1rem;color:#CFF3EC;font-size:.82rem;line-height:1.7;white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace}
 .preview .lbl{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-bright);display:block;margin-bottom:.4rem}
 
@@ -138,9 +145,23 @@ textarea{min-height:80px;resize:vertical;line-height:1.5}
     <textarea data-k="faq"></textarea>
   </div>
 
-  <!-- 4. VOICE & CONTACT -->
+  <!-- 4. BEFORE & AFTER PHOTOS -->
   <div class="sec">
-    <span class="tag">4 &middot; Sign-off</span>
+    <span class="tag">4 &middot; Before &amp; after photos</span>
+    <h2>Your before &amp; after photos</h2>
+    <div class="sub">Upload the pairs you want in Touch 1 and Touch 4. This keeps them captioned, ordered and consent-checked in one place - GHL still needs them dropped into its email builder directly, images can't be pasted as text.</div>
+    <label for="photoInput">Upload photos<span class="hint">consented patients only - saves on this device, nothing is uploaded anywhere</span></label>
+    <input type="file" id="photoInput" accept="image/*" multiple>
+    <div class="photogrid" id="photogrid"></div>
+    <label style="display:flex;align-items:center;gap:.6rem;margin-top:1.1rem;font-weight:700">
+      <input type="checkbox" id="photoConsent" style="width:auto">
+      I have documented consent from every patient pictured to use these images in marketing
+    </label>
+  </div>
+
+  <!-- 5. VOICE & CONTACT -->
+  <div class="sec">
+    <span class="tag">5 &middot; Sign-off</span>
     <h2>Contact &amp; voice</h2>
     <div class="sub">How replies come back to you, and any words to use or avoid.</div>
     <div class="row">
@@ -194,6 +215,72 @@ function progress(){
   document.getElementById("bar").style.width=(done/fields.length*100)+"%";
 }
 
+// ---- before & after photos ----
+var PHOTO_KEY="cc_nurture_photos_v1", PHOTO_MAX=8;
+var photos=[];
+try{photos=JSON.parse(localStorage.getItem(PHOTO_KEY)||"[]")}catch(e){photos=[]}
+var photoConsentSaved=localStorage.getItem("cc_nurture_photo_consent")==="1";
+document.getElementById("photoConsent").checked=photoConsentSaved;
+document.getElementById("photoConsent").addEventListener("change",function(){
+  localStorage.setItem("cc_nurture_photo_consent", this.checked ? "1" : "0");
+});
+
+function savePhotos(){
+  try{ localStorage.setItem(PHOTO_KEY, JSON.stringify(photos)); }
+  catch(e){ alert("Couldn't save that photo - your browser storage is full. Try removing an older photo first, or use a smaller image."); }
+}
+function renderPhotos(){
+  var grid=document.getElementById("photogrid");
+  grid.innerHTML="";
+  photos.forEach(function(p,i){
+    var card=document.createElement("div"); card.className="photocard";
+    var img=document.createElement("img"); img.src=p.data; card.appendChild(img);
+    var cap=document.createElement("input"); cap.type="text"; cap.placeholder="caption - e.g. jawline, 6 weeks";
+    cap.value=p.caption||""; cap.addEventListener("input",function(){ photos[i].caption=cap.value; savePhotos(); });
+    card.appendChild(cap);
+    var rm=document.createElement("button"); rm.className="rm"; rm.textContent="×"; rm.type="button";
+    rm.addEventListener("click",function(){ photos.splice(i,1); savePhotos(); renderPhotos(); });
+    card.appendChild(rm);
+    grid.appendChild(card);
+  });
+}
+function resizeImage(file,cb){
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      var maxW=480, scale=Math.min(1,maxW/img.width);
+      var canvas=document.createElement("canvas");
+      canvas.width=img.width*scale; canvas.height=img.height*scale;
+      canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);
+      cb(canvas.toDataURL("image/jpeg",0.72));
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+document.getElementById("photoInput").addEventListener("change",function(e){
+  var files=[].slice.call(e.target.files);
+  files.forEach(function(file){
+    if(photos.length>=PHOTO_MAX){ alert("That's "+PHOTO_MAX+" photos - plenty for this sequence. Remove one to add another."); return; }
+    resizeImage(file,function(dataUrl){
+      photos.push({name:file.name,caption:"",data:dataUrl});
+      savePhotos(); renderPhotos();
+    });
+  });
+  e.target.value="";
+});
+renderPhotos();
+
+function photoBlock(){
+  if(photos.length===0) return "[Attach 2-4 before/after photos in GHL's email builder for this step - consented patients only]";
+  var consent=document.getElementById("photoConsent").checked;
+  var lines=photos.map(function(p,i){
+    return "  "+(i+1)+". "+(p.caption?p.caption:p.name)+(consent?"":"  [!] CONSENT NOT CONFIRMED - do not send");
+  });
+  return "Drop these "+photos.length+" photo(s) into GHL's email builder for this step (saved on this device, attach them manually):\n"+lines.join("\n");
+}
+
 function g(k){var el=document.querySelector('[data-k="'+k+'"]');return (el&&el.value.trim())||"[fill this in]";}
 function firstConcern(){
   var c=g("concerns");
@@ -227,6 +314,9 @@ function buildText(){
   out += "  - no 'specialist' / 'expert' - 'has a special interest in' instead\n";
   out += "  - any before/after images need documented patient consent\n";
   if(avoid) out += "  - avoid: "+avoid+"\n";
+  if(photos.length>0 && !document.getElementById("photoConsent").checked){
+    out += "  - [!] "+photos.length+" photo(s) attached but consent checkbox is NOT ticked - confirm before sending\n";
+  }
   out += "\n";
 
   out += "----------------------------------------------\n";
@@ -245,7 +335,7 @@ function buildText(){
   out += "In plain terms, here's how it works: "+howItWorks+"\n\n";
   out += "It's a good fit if you're noticing "+concerns+".\n\n";
   out += "A few of the benefits: "+benefits+"\n\n";
-  out += "[Insert 2-4 before/after images here - consented patients only]\n\n";
+  out += photoBlock()+"\n\n";
   out += "If you have any questions at all, just reply to this email - a real person reads every one. ";
   out += "Or if you're ready, you can book a "+price+" consultation here: "+link+"\n\n";
   out += "Talk soon,\n"+sender+"\n"+signoff()+"\n\n";
@@ -279,7 +369,7 @@ function buildText(){
   out += "----------------------------------------------\n";
   out += "Subject: What to expect with "+treatment+"\n\n";
   out += "Hi {{contact.first_name}},\n\n";
-  out += "[Insert before/after gallery here - consented patients only]\n\n";
+  out += photoBlock()+"\n\n";
   out += "Typically, "+treatment+" is "+sessions+".\n\n";
   out += "Recovery: "+recovery+"\n\n";
   out += "A few questions people usually ask:\n"+faqBlock()+"\n\n";
