@@ -171,8 +171,8 @@ textarea{min-height:80px;resize:vertical;line-height:1.5}
   <!-- 4. OFFER -->
   <div class="sec">
     <span class="tag">4 &middot; Your offer</span>
-    <h2>Your front-door offer</h2>
-    <div class="sub">One offer for your first campaign: in demand, good margin, simple to explain. The intro offer is a door, not the profit - the profit is the ascension that follows.</div>
+    <h2>Your front-door offer - the Offer Architecture</h2>
+    <div class="sub">One offer for your first campaign: in demand, good margin, simple to explain. The intro offer is a door, not the profit - the profit is the ascension that follows. Fill in EVERY piece below - together they are the complete architecture your Meta ad is built from: the name, the price story, what is included, the urgency and the scarcity. Miss one and the ad has to guess.</div>
     <div class="sweet">
       <div class="s lo">Too cheap<b>$29-99</b>price shoppers</div>
       <div class="s mid">Sweet spot<b>$199-499</b>commits + filters</div>
@@ -188,6 +188,10 @@ textarea{min-height:80px;resize:vertical;line-height:1.5}
     <input type="text" data-k="offer_included">
     <label>The treatment this offer leads with<span class="hint">non-injectable for the front door - e.g. HIFU, IPL, skin needling, a facial, or a paid skin assessment</span></label>
     <input type="text" data-k="offer_treatment">
+    <label>Urgency - when does the offer expire?<span class="hint">e.g. "ends 31 July", "this month only", "first visit within 14 days of booking"</span></label>
+    <input type="text" data-k="offer_urgency">
+    <label>Scarcity - what limits it?<span class="hint">e.g. "only 20 spots", "5 per week", "new patients only", "exclusive to [suburb] locals"</span></label>
+    <input type="text" data-k="offer_scarcity">
   </div>
 
   <!-- 5. IDEAL PATIENT (resonance) -->
@@ -387,7 +391,8 @@ function buildMd(){
 "\n- Leads needed/month: "+lead+"\n- This month's ONE focus: "+g("monthly_focus")+"\n\n"+
 "## Offer (-> offers.md)\n- Front-door offer: "+g("offer_name")+"\n- Full price: "+money(num("offer_full"))+
 "\n- Intro price: "+money(num("offer_price"))+"\n- Included + bonus: "+g("offer_included")+
-"\n- Leads with treatment: "+g("offer_treatment")+"\n- First upsell: "+g("upsell_1")+
+"\n- Leads with treatment: "+g("offer_treatment")+"\n- Urgency / expiry: "+g("offer_urgency")+
+"\n- Scarcity: "+g("offer_scarcity")+"\n- First upsell: "+g("upsell_1")+
 "\n- Package/plan: "+g("upsell_2")+"\n- Long-term partnership: "+g("upsell_3")+
 "\n- Estimated lifetime value: "+money(num("ltv"))+"\n\n"+
 "## Ideal patient + resonance (-> resonance-messaging.md + concerns.md)\n- The real person: "+g("ideal_patient")+
