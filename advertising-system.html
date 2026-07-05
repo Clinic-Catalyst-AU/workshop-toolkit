@@ -94,6 +94,17 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,0.96);backdrop-fi
 .loop .n h4{font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:800;margin-bottom:.2rem;}
 .loop .n p{font-size:.76rem;color:var(--text-soft);line-height:1.45;}
 
+.btnrow{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem;}
+.btnrow a{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-bright);color:var(--hero-dark);padding:.85rem 1.4rem;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.btnrow a:hover{background:var(--hero-dark);color:#fff;transform:translateY(-2px);}
+.btnrow a.alt{background:#fff;border:1.5px solid var(--teal);color:var(--teal-dark);}
+.btnrow a.alt:hover{background:var(--teal);color:#fff;}
+.skillrow{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:1rem;}
+@media(max-width:680px){.skillrow{grid-template-columns:1fr;}}
+.skillrow .sk{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;}
+.skillrow .sk h4{font-family:'Montserrat',sans-serif;font-size:.86rem;font-weight:800;margin-bottom:.15rem;}
+.skillrow .sk p{font-size:.8rem;color:var(--text-soft);line-height:1.5;}
+.skillrow .sk code{background:var(--hero-dark);color:#CFF3EC;font-family:ui-monospace,Menlo,monospace;font-size:.76rem;padding:.08rem .4rem;border-radius:5px;}
 .callout{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:1.2rem 1.4rem;display:flex;gap:.9rem;align-items:flex-start;}
 .callout .ci{font-size:1.4rem;}
 .callout p{font-size:.9rem;color:var(--text-soft);}
@@ -120,6 +131,7 @@ footer .fl span{color:var(--teal);}
 
 <div class="jump">
   <a href="#map">The System</a>
+  <a href="#kit">Templates &amp; Skills</a>
   <a href="#connect">Connect Meta</a>
   <a href="#cancant">Can / Can't</a>
   <a href="#playbook">The Playbook</a>
@@ -185,6 +197,50 @@ footer .fl span{color:var(--teal);}
       <h3>Compliance Filter</h3>
       <p>Sits across all of it. Screens every line for AHPRA/TGA - no Schedule-4 drug names, no pricing on injectables, no banned superlatives or guarantees - before anything reaches an ad.</p>
       <span class="role">AHPRA on everything</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEMPLATES, TOOLS & SKILLS ===== -->
+<section class="wrap" id="kit">
+  <div class="sec-head">
+    <div class="label">Your ad kit &middot; everything for this section, right here</div>
+    <h2 class="sec-title">Templates, tools and the skills you run</h2>
+    <p class="sec-intro">What you need before you start: your Business Brain built (Day 1 morning), your Meta Business Suite login, your chosen offer, and the photos + footage from your content folders. Then everything below is yours to use.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <h3>Your ad templates (Canva)</h3>
+    <p>Six ready-made templates - open one, swap in your photos and offer, done. Three single-image, three video. The exact formats we build with on Day 1.</p>
+    <div class="btnrow">
+      <a href="https://canva.link/qgm6gfr40on7fr2" target="_blank">&#128444; Single Image 1</a>
+      <a href="https://canva.link/b994e3sijypr51s" target="_blank">&#128444; Single Image 2</a>
+      <a href="https://canva.link/uehkkdyta156r32" target="_blank">&#128444; Single Image 3</a>
+      <a href="https://canva.link/v6sqpzbe64gq3fa" target="_blank">&#127909; Video Ad 1</a>
+      <a href="https://canva.link/f5zfnj228pqm7sx" target="_blank">&#127909; Video Ad 2</a>
+      <a href="https://canva.link/doislqgwmxvbfq2" target="_blank">&#127909; Video Ad 3</a>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <h3>Test your lead form before money moves</h3>
+    <p>Meta's own test tool fires a fake lead at your form so you can watch it land in GHL - proof the pipe works before a single ad dollar is spent.</p>
+    <div class="btnrow">
+      <a class="alt" href="https://developers.facebook.com/tools/lead-ads-testing" target="_blank">&#129514; FB Lead Form Test Tool</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The skills that do the work</h3>
+    <p>Type these in Claude Code - every one reads your Business Brain and runs the AHPRA gate.</p>
+    <div class="skillrow">
+      <div class="sk"><h4>Meta ads <code>/cc-metaad-builder</code></h4><p>Headlines, neuro-emotive hooks and primary text variants for Facebook + Instagram - the workshop Campaign Details contract, compliance-screened.</p></div>
+      <div class="sk"><h4>Google ads <code>/cc-googlead-builder</code></h4><p>Your full RSA set + Exact/Phrase keyword plan, character-checked, generated clinic-specific and ready to load.</p></div>
+      <div class="sk"><h4>Hooks <code>/cc-hook</code></h4><p>5 scroll-stopping hooks, scored - the first 3 seconds that decide whether your ad gets seen.</p></div>
+      <div class="sk"><h4>Ad spy <code>/cc-ad-spy</code></h4><p>What competitor clinics are running right now - angles to own, mistakes not to copy.</p></div>
+    </div>
+    <div class="btnrow">
+      <a class="alt" href="lead-nurture-generator.html">&#9993; Lead Nurture Generator - the follow-up your ads feed &rarr;</a>
     </div>
   </div>
 </section>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Reference Shelf - Clinic Catalyst Workshop</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0;
+  --teal-bright:#00D4BC;
+  --teal-dark:#007A6E;
+  --hero-dark:#0A2A28;
+  --hero-mid:#0D3D38;
+  --dark-section:#0E2D2A;
+  --white:#FFFFFF;
+  --off-white:#F4F6F5;
+  --light-gray:#EBEBEB;
+  --text-dark:#1A1A1A;
+  --text-soft:#5A6664;
+  --border:#E0E4E3;
+  --card:#FFFFFF;
+  --gold:#C9A24B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6;overflow-x:hidden;}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;border-bottom:1px solid rgba(0,212,188,0.15);}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none;}
+.nav-logo span{color:var(--teal-bright);}
+.nav-back{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;}
+.nav-back:hover{color:var(--teal-bright);}
+
+.hero{position:relative;padding:3.4rem 2rem 2.8rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid) 0%,var(--hero-dark) 60%);color:#fff;overflow:hidden;}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:1rem;}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:900;line-height:1.08;letter-spacing:-.01em;max-width:760px;margin:0 auto 1rem;}
+.hero h1 em{font-style:normal;color:var(--teal-bright);}
+.hero-sub{font-size:1.02rem;font-weight:300;color:rgba(255,255,255,.82);max-width:600px;margin:0 auto;line-height:1.7;}
+
+.jump{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:880px;margin:-1.4rem auto 0;padding:0 1.5rem;}
+.jump a{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--hero-dark);background:#fff;border:1px solid var(--border);padding:.6rem 1.1rem;border-radius:999px;box-shadow:0 4px 16px rgba(10,42,40,.06);transition:all .18s;}
+.jump a:hover{background:var(--hero-dark);color:#fff;border-color:var(--hero-dark);}
+
+.wrap{max-width:1080px;margin:0 auto;padding:3rem 1.5rem 1rem;}
+.sec-head{margin-bottom:1.8rem;}
+.label{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;}
+.label::before{content:'';width:26px;height:2px;background:var(--teal);}
+.sec-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;line-height:1.1;letter-spacing:-.01em;margin-bottom:.5rem;}
+.sec-intro{color:var(--text-soft);max-width:640px;font-size:1rem;}
+
+.grid{display:grid;gap:1rem;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:860px){.g3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.g2,.g3{grid-template-columns:1fr;}}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;transition:all .18s;text-decoration:none;color:inherit;position:relative;}
+.card:hover{border-color:var(--teal);box-shadow:0 12px 30px rgba(10,42,40,.08);transform:translateY(-2px);}
+.card .ico{width:42px;height:42px;border-radius:10px;background:rgba(0,180,160,.1);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:.9rem;}
+.card h3{font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:800;margin-bottom:.35rem;line-height:1.2;}
+.card p{font-size:.86rem;color:var(--text-soft);line-height:1.55;flex:1;}
+.card .go{margin-top:1rem;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);display:inline-flex;align-items:center;gap:.4rem;}
+.card .go::after{content:'\2192';transition:transform .18s;}
+.card:hover .go::after{transform:translateX(4px);}
+
+.feature{background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));border-radius:18px;padding:2.4rem;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;position:relative;overflow:hidden;}
+.feature::before{content:'';position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(0,212,188,.22),transparent 70%);}
+.feature-txt{position:relative;z-index:1;max-width:560px;}
+.feature-txt h3{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;margin-bottom:.5rem;}
+.feature-txt p{color:rgba(255,255,255,.8);font-size:.95rem;}
+.feature.light .feature-txt p{color:var(--text-soft);}
+.btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--teal-bright);color:var(--hero-dark);padding:1rem 2rem;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .18s;position:relative;z-index:1;white-space:nowrap;}
+.btn:hover{background:#fff;transform:translateY(-2px);}
+.btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff;}
+.btn.ghost:hover{background:#fff;color:var(--hero-dark);border-color:#fff;}
+
+.skill{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;display:flex;gap:.85rem;align-items:flex-start;transition:all .15s;}
+.skill:hover{border-color:var(--teal);}
+.skill .n{font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:900;color:var(--teal);background:rgba(0,180,160,.1);min-width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.skill h4{font-family:'Montserrat',sans-serif;font-size:.86rem;font-weight:800;margin-bottom:.15rem;line-height:1.2;}
+.skill p{font-size:.78rem;color:var(--text-soft);line-height:1.45;}
+
+.acct{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:all .15s;}
+.acct:hover{border-color:var(--teal);box-shadow:0 8px 20px rgba(10,42,40,.06);}
+.acct .badge{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.95rem;width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;}
+.acct .meta{flex:1;}
+.acct h4{font-family:'Montserrat',sans-serif;font-size:.92rem;font-weight:800;margin-bottom:.1rem;}
+.acct .meta p{font-size:.78rem;color:var(--text-soft);}
+.acct .arrow{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--teal);font-size:1.1rem;}
+
+.support{background:var(--dark-section);border-radius:18px;padding:2.6rem;text-align:center;color:#fff;}
+.support h3{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:900;margin-bottom:.6rem;}
+.support p{color:rgba(255,255,255,.78);max-width:480px;margin:0 auto 1.5rem;}
+.support .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+
+footer{text-align:center;padding:2.5rem 1.5rem;color:var(--text-soft);font-size:.78rem;}
+footer .fl{font-family:'Montserrat',sans-serif;font-weight:900;letter-spacing:.04em;color:var(--hero-dark);margin-bottom:.4rem;}
+footer .fl span{color:var(--teal);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">CLINIC<span>CATALYST</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to your toolkit</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Moment 3 &middot; After the Workshop</div>
+  <h1>Your reference shelf, <em>whenever you need it.</em></h1>
+  <p class="hero-sub">Nothing here is pre-work. This is where everything from the room lives afterwards - the cheat sheets, your 16 skills, the ad system, and every login. Bookmark this page.</p>
+</header>
+
+<div class="jump">
+  <a href="#sheets">Cheat sheets</a>
+  <a href="#skills">Your 16 skills</a>
+  <a href="#ads">The ad system</a>
+  <a href="#accounts">Logins</a>
+  <a href="#support">Get help</a>
+</div>
+
+<!-- ===== CHEAT SHEETS ===== -->
+<section class="wrap" id="sheets">
+  <div class="sec-head">
+    <div class="label">Cheat sheets &middot; the one-pagers from the room</div>
+  </div>
+  <div class="grid g3">
+    <a class="card" href="guide-claude-setup.html">
+      <div class="ico">&#129504;</div>
+      <h3>Claude setup - all in one</h3>
+      <p>Account, API key, and the install on Mac or Windows - the whole Claude section in one guide.</p>
+      <span class="go">Open the Claude guide</span>
+    </a>
+    <a class="card" href="guide-business-brain.html">
+      <div class="ico">&#129504;</div>
+      <h3>Business Brain template</h3>
+      <p>The few sections that teach your whole system your voice, services and clients. We build it together in the room - come back any time your services or team change.</p>
+      <span class="go">Open template</span>
+    </a>
+    <a class="card" href="guide-daily-routine.html">
+      <div class="ico">&#9749;</div>
+      <h3>Your daily routine</h3>
+      <p>The 10-minute morning loop: check GHL, approve drafts, glance at the social queue. That's it.</p>
+      <span class="go">Open card</span>
+    </a>
+    <a class="card" href="guide-ghl-setup.html">
+      <div class="ico">&#9881;&#65039;</div>
+      <h3>GHL Setup - the full build</h3>
+      <p>The whole engine-room build, step by step: pipeline, SMS registration, calendar, lead forms, the four workflows, and the test that proves it all fires.</p>
+      <span class="go">Open the GHL build guide</span>
+    </a>
+    <a class="card" href="foundation-workbook.html">
+      <div class="ico">&#128218;</div>
+      <h3>The Foundation Workbook</h3>
+      <p>The questions that became your Business Brain. Come back any time your services, prices or team change.</p>
+      <span class="go">Open the workbook</span>
+    </a>
+    <a class="card" href="cc-aios-explained.html">
+      <div class="ico">&#10024;</div>
+      <h3>How your AI system works</h3>
+      <p>The plain-English tour of your whole Clinic Catalyst system - the brain, the six engines, and the follow-up that never lets a lead slip.</p>
+      <span class="go">See how it all works</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section class="wrap" id="skills">
+  <div class="sec-head">
+    <div class="label">Your 16 skills &middot; what each one does</div>
+    <p class="sec-intro">The pack drops into your <code>~/Clinic/</code> folder and every skill reads your <strong>Business Brain</strong>, so everything sounds like you. Build the brain first (the two foundation skills) - the rest run off it. Type the command in Claude Code to run a skill.</p>
+  </div>
+
+  <div class="feature" style="margin-bottom:1.6rem;background:linear-gradient(135deg,var(--teal-dark),var(--hero-mid))">
+    <div class="feature-txt">
+      <h3>The Clinic Catalyst skill pack</h3>
+      <p>Already installed in the room on Day 1. Reinstalling on a new laptop? Download the pack again here and drop it into <code>~/Clinic/</code>.</p>
+    </div>
+    <a class="btn" href="https://clinic-catalyst-au.github.io/cc-onboard/cc-clinic-pack.zip">&#11015; Download the skill pack (.zip)</a>
+  </div>
+
+  <div class="label" style="margin:0 0 .8rem">&#9312; Foundation &middot; build your Business Brain first</div>
+  <div class="grid g2" style="margin-bottom:1.6rem">
+    <div class="skill"><span class="n">1</span><div><h4>Resonance <code>/cc-resonance</code></h4><p>The interview that captures your voice + your clients' real emotional truth. Writes resonance-messaging.md.</p></div></div>
+    <div class="skill"><span class="n">2</span><div><h4>Brand Guide <code>/cc-brand-guide</code></h4><p>Turns it into your Business Brain - the spine every other skill reads. Writes brand-guide.md.</p></div></div>
+  </div>
+
+  <div class="label" style="margin:0 0 .8rem">&#9313; Your system &middot; runs off the brain</div>
+  <div class="grid g2" style="margin-bottom:1.6rem">
+    <div class="skill"><span class="n">3</span><div><h4>Content Engine <code>/cc-content-engine</code></h4><p>A month of on-brand, AHPRA-safe social posts across the four pillars. Queues to your socials.</p></div></div>
+    <div class="skill"><span class="n">4</span><div><h4>Follow-Up Agent <code>/cc-follow-up-agent</code></h4><p>The 7-email nurture ladder + weekly newsletter, in your voice, loaded into GHL. Nothing dropped.</p></div></div>
+    <div class="skill"><span class="n">5</span><div><h4>Ad Builder <code>/cc-googlead-builder</code></h4><p>Your Google ads + keyword plan, every line compliance-screened. Fills the sheet for you.</p></div></div>
+  </div>
+
+  <div class="label" style="margin:0 0 .8rem">&#9314; Content &middot; on tap</div>
+  <div class="grid g2" style="margin-bottom:1.6rem">
+    <div class="skill"><span class="n">6</span><div><h4>Marketing Genius <code>/cc-marketing-genius</code></h4><p>Your copy strategist - emails, subject lines, sales scripts, outreach, all concern-led.</p></div></div>
+    <div class="skill"><span class="n">7</span><div><h4>Hook Generator <code>/cc-hook</code></h4><p>5 scroll-stopping hooks, scored, so your content actually gets seen.</p></div></div>
+    <div class="skill"><span class="n">8</span><div><h4>Carousel <code>/cc-carousel</code></h4><p>Give it a topic, get a branded, ready-to-design carousel. No late nights in Canva.</p></div></div>
+    <div class="skill"><span class="n">9</span><div><h4>Stop The Slop <code>/stoptheslop</code></h4><p>Run any draft through it - strips the robotic AI tells back into your voice.</p></div></div>
+  </div>
+
+  <div class="label" style="margin:0 0 .8rem">&#9315; Get found &middot; online + in AI</div>
+  <div class="grid g2" style="margin-bottom:1.6rem">
+    <div class="skill"><span class="n">10</span><div><h4>AI Visibility (GEO) <code>/cc-geo-seo</code></h4><p>So when someone asks ChatGPT "skin clinic near me," yours comes up. Plus local Google.</p></div></div>
+    <div class="skill"><span class="n">11</span><div><h4>Keyword Research <code>/cc-keyword-research</code></h4><p>The exact words your clients type into Google before they book.</p></div></div>
+    <div class="skill"><span class="n">12</span><div><h4>Website Audit <code>/cc-website-audit</code></h4><p>Quick wins for your site, ranked - most take five minutes.</p></div></div>
+    <div class="skill"><span class="n">13</span><div><h4>Landing Page <code>/cc-landing-page</code></h4><p>High-converting, AHPRA-safe pages that match your offers and capture every click.</p></div></div>
+    <div class="skill"><span class="n">14</span><div><h4>Ad Spy <code>/cc-ad-spy</code></h4><p>What competitor clinics are running - angles to own, mistakes not to copy.</p></div></div>
+  </div>
+
+  <div class="label" style="margin:0 0 .8rem;opacity:.85">Optional &middot; only if you keep an external booking system</div>
+  <div class="feature light" style="background:#fff;border:1px solid var(--border);color:var(--text-dark)">
+    <div class="feature-txt">
+      <h3 style="color:var(--text-dark)">Calendar Mirror <code>/cc-calendar-mirror</code></h3>
+      <p><strong>You probably won't need this.</strong> If you build your rooms, machines and services natively in GHL, clients book there, everything runs off that one calendar, and there is nothing to mirror. That is the no-brainer - one less subscription, one less thing to break.</p>
+      <p>Only if you decide to <strong>keep your old booking system</strong> (Timely, Cliniko or Fresha) alongside GHL: this is the <strong>one agent we build live, together, on the day</strong> - because it is the only piece that needs your own GHL webhook and your own key. It watches GHL and copies every confirmed booking across, so the two calendars never disagree.</p>
+      <p style="font-size:.82rem;color:var(--text-soft);margin-top:.6rem"><strong>Worth knowing:</strong> tools that sync with Google Calendar (Timely, Cliniko) get the tidy version: one shared Google calendar that both systems read and write, fully cloud, hands-off - we have tested it working both ways. Fresha syncs with nothing, so its bridge only runs while your computer is on and needs babysitting - bookings queue and catch up, never lost. One more reason to just go native in GHL. We build this one live with you on the day if you want it.</p>
+    </div>
+    <a class="btn" href="calendar-bridge.html">Read first: do you need this? &rarr;</a>
+  </div>
+</section>
+
+<!-- ===== AD SYSTEM ===== -->
+<section class="wrap" id="ads">
+  <div class="sec-head">
+    <div class="label">The ad system &middot; run your own ads, no agency</div>
+  </div>
+  <div class="feature">
+    <div class="feature-txt">
+      <h3>The Ad System guide</h3>
+      <p>Meta's AI does the targeting now - you win on creative volume and reading the data. One brain, four tools, one compliance gate - plus the step-by-step to connect Meta to Claude (read-only) and the weekly prompts that tell you which ads to scale and which to kill.</p>
+    </div>
+    <a class="btn" href="advertising-system.html">Open the Ad System &rarr;</a>
+  </div>
+
+  <div class="feature" style="margin-top:1.2rem">
+    <div class="feature-txt">
+      <h3>Your ad templates (Canva)</h3>
+      <p>Six ready-made ad templates in Canva - open one, swap in your photos and offer, done. Three single-image ads, three video ads. These are the exact formats we build with on Day 1.</p>
+      <p style="margin-top:.6rem">
+        <a href="https://canva.link/qgm6gfr40on7fr2" target="_blank">Single Image Ad 1</a> &middot;
+        <a href="https://canva.link/b994e3sijypr51s" target="_blank">Single Image Ad 2</a> &middot;
+        <a href="https://canva.link/uehkkdyta156r32" target="_blank">Single Image Ad 3</a><br>
+        <a href="https://canva.link/v6sqpzbe64gq3fa" target="_blank">Video Ad 1</a> &middot;
+        <a href="https://canva.link/f5zfnj228pqm7sx" target="_blank">Video Ad 2</a> &middot;
+        <a href="https://canva.link/doislqgwmxvbfq2" target="_blank">Video Ad 3</a>
+      </p>
+    </div>
+    <a class="btn" href="https://developers.facebook.com/tools/lead-ads-testing" target="_blank">FB Lead Form Test Tool &rarr;</a>
+  </div>
+
+  
+  <div class="feature" style="margin-top:1.2rem;background:linear-gradient(135deg,var(--teal-dark),var(--hero-mid))">
+    <div class="feature-txt">
+      <h3>Lead Nurture Generator</h3>
+      <p>Fill in this campaign's offer once and it writes the full 5-touch SMS + email follow-up - the sequence that fires the moment someone responds to your ad - ready to paste straight into a GHL workflow.</p>
+    </div>
+    <a class="btn" href="lead-nurture-generator.html">Build your nurture sequence &rarr;</a>
+  </div>
+</section>
+
+<!-- ===== ACCOUNTS ===== -->
+<section class="wrap" id="accounts">
+  <div class="sec-head">
+    <div class="label">Accounts &amp; tools &middot; every login in one place</div>
+  </div>
+  <div class="grid g2">
+    <a class="acct" href="https://affiliates.gohighlevel.com/?fp_ref=&amp;share=sl3BpH5usuzjg0j6XyUI" target="_blank">
+      <span class="badge" style="background:#2b3a8c">GHL</span>
+      <span class="meta"><h4>GoHighLevel</h4><p>Your CRM, SMS, social planner &amp; workflows</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://claude.ai" target="_blank">
+      <span class="badge" style="background:#0A2A28">C</span>
+      <span class="meta"><h4>Claude</h4><p>claude.ai - your AI assistant</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://console.anthropic.com" target="_blank">
+      <span class="badge" style="background:#C9745A">A</span>
+      <span class="meta"><h4>Anthropic Console</h4><p>Your API key &amp; usage/billing</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://handy.computer" target="_blank">
+      <span class="badge" style="background:#6B4FB3">H</span>
+      <span class="meta"><h4>Handy</h4><p>Talk instead of type - press a hotkey and speak into Claude. Free, private, works offline</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://business.facebook.com" target="_blank">
+      <span class="badge" style="background:#1877F2">f</span>
+      <span class="meta"><h4>Meta Business Suite</h4><p>Facebook + Instagram ads &amp; pages</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="acct" href="https://ads.google.com" target="_blank">
+      <span class="badge" style="background:#34A853">G</span>
+      <span class="meta"><h4>Google Ads + Business</h4><p>Search ads, reviews &amp; bookings</p></span>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+  
+  <div class="grid g2" style="margin-top:1rem">
+    <a class="card" href="ai-system-build-process.html">
+      <div class="ico">&#128220;</div>
+      <h3>The AI System Build Process</h3>
+      <p>The complete step-by-step playbook for standing up your whole AI system - every phase in order, with the gotchas flagged. The full build, documented.</p>
+      <span class="go">Open the process guide</span>
+    </a>
+    <a class="card" href="ai-system-build-process.html">
+      <div class="ico">&#127908;</div>
+      <h3>Your AI voice is built in</h3>
+      <p>No extra account, no API key. GHL includes a natural Australian voice (Sophia) you select for your voice agent right inside the platform. We pick it together in the room.</p>
+      <span class="go">See the voice agent step</span>
+    </a>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="feature" style="margin-top:2.2rem;background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid))">
+    <div class="feature-txt">
+      <h3>Take it for a test drive</h3>
+      <p>Copy-paste prompts that walk you through each part of your new system - watch it write a post, a follow-up, an ad, right there in front of you. The fun part.</p>
+    </div>
+    <a class="btn" href="test-drive.html">&#128640; Take a test drive</a>
+  </div>
+</section>
+
+<!-- ===== SUPPORT ===== -->
+<section class="wrap" id="support">
+  <div class="support">
+    <h3>Stuck on something?</h3>
+    <p>Don't troubleshoot alone. If an install step throws an error, paste the terminal output straight into the install chat - we watch it and answer with the exact fix. Or reply to your workshop email and we'll sort it together.</p>
+    <div class="row">
+      <a class="btn" href="install-chat.html">&#128172; Open the install chat</a>
+      <a class="btn ghost" href="mailto:info@cliniccatalyst.com.au">&#9993; Email us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">CLINIC<span>CATALYST</span></div>
+  <div>2-Day Workshop Toolkit &middot; Melbourne CBD &middot; 7-8 July 2026</div>
+</footer>
+
+</body>
+</html>
