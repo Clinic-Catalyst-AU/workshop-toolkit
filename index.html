@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Your Toolkit - Clinic Catalyst Workshop</title>
 <link rel="icon" href="cc-fav-32.png" sizes="32x32">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -28,15 +29,28 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,0.96);backdrop-fi
 .nav-logo span{color:var(--teal-bright);}
 .nav-tag{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);}
 
-.hero{position:relative;padding:3.6rem 2rem 2.8rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid) 0%,var(--hero-dark) 60%);color:#fff;overflow:hidden;}
+.hero{position:relative;padding:3.4rem 2rem 2.6rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid) 0%,var(--hero-dark) 60%);color:#fff;overflow:hidden;}
 .hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:1rem;}
 .hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,4.6vw,2.9rem);font-weight:900;line-height:1.06;letter-spacing:-.01em;max-width:780px;margin:0 auto 1rem;}
 .hero h1 em{font-style:normal;color:var(--teal-bright);}
 .hero-sub{font-size:1.04rem;font-weight:300;color:rgba(255,255,255,.82);max-width:580px;margin:0 auto;line-height:1.7;}
 
-.wrap{max-width:860px;margin:0 auto;padding:2.8rem 1.5rem 1rem;}
-.label{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem;}
-.label::before{content:'';width:26px;height:2px;background:var(--teal);}
+.wrap{max-width:880px;margin:0 auto;padding:2rem 1.5rem .6rem;}
+
+/* SECTION BANNERS - the spine of the page */
+.banner{font-family:'Montserrat',sans-serif;color:#fff;background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));border-radius:14px;padding:1.2rem 1.6rem;margin:1.2rem 0 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.banner .bt{font-size:1.35rem;font-weight:900;letter-spacing:.01em;}
+.banner .bt span{color:var(--teal-bright);}
+.banner .bs{display:block;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:.15rem;}
+.banner .bbtn{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-bright);color:var(--hero-dark);padding:.85rem 1.5rem;border-radius:10px;font-size:.74rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .18s;white-space:nowrap;}
+.banner .bbtn:hover{background:#fff;transform:translateY(-2px);}
+
+/* address card */
+.addr{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:12px;padding:1.3rem 1.5rem;}
+.addr p{font-size:.95rem;color:var(--text-soft);}
+.addr b{color:var(--text-dark);}
+.addr a.map{display:inline-block;margin-top:.7rem;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.04em;background:rgba(0,180,160,.1);color:var(--teal-dark);padding:.35rem .8rem;border-radius:7px;text-decoration:none;}
+.addr a.map:hover{background:var(--teal);color:#fff;}
 
 /* accounts */
 .grid{display:grid;gap:1rem;}
@@ -49,18 +63,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,0.96);backdrop-fi
 .acct h4{font-family:'Montserrat',sans-serif;font-size:.92rem;font-weight:800;margin-bottom:.1rem;}
 .acct .meta p{font-size:.78rem;color:var(--text-soft);}
 .acct .arrow{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--teal);font-size:1.1rem;}
+.sublabel{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin:1.2rem 0 .9rem;display:flex;align-items:center;gap:.6rem;}
+.sublabel::before{content:'';width:26px;height:2px;background:var(--teal);}
 
-/* pre-work steps */
-.step{display:flex;gap:1.1rem;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.5rem;margin-bottom:1rem;transition:border-color .15s;}
-.step:hover{border-color:var(--teal);}
-.step .num{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--hero-dark);color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;display:flex;align-items:center;justify-content:center;}
-.step .body{flex:1;}
-.step h3{font-family:'Montserrat',sans-serif;font-size:1.08rem;font-weight:800;margin-bottom:.35rem;line-height:1.25;}
-.step p{font-size:.93rem;color:var(--text-soft);margin-bottom:.5rem;}
-.step .where{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.04em;background:rgba(0,180,160,.1);color:var(--teal-dark);padding:.32rem .7rem;border-radius:7px;text-decoration:none;margin-right:.4rem;}
-.step a.where:hover{background:var(--teal);color:#fff;}
-.step .tip{font-size:.86rem;color:var(--text-dark);background:#FFF8E8;border:1px solid #F0E2BF;border-radius:8px;padding:.6rem .8rem;margin-top:.6rem;}
-.step .tip b{color:#9A7B1F;}
+/* pre-work summary card */
+.pw{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;}
+.pw ol{margin:.4rem 0 0 1.2rem;font-size:.94rem;color:var(--text-soft);display:grid;gap:.3rem;}
+.pw b{color:var(--text-dark);}
 
 /* 2-day plan gist */
 .plan{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:1rem;}
@@ -71,16 +80,25 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,0.96);backdrop-fi
 .plan li:last-child{border-bottom:none;}
 .plan li::before{content:'\2192';color:var(--teal);font-weight:900;flex-shrink:0;}
 .plan li b{color:var(--text-dark);}
+.plan li a{color:var(--teal-dark);text-decoration:none;font-weight:800;}
+.plan li a:hover{text-decoration:underline;}
+
 .gist-note{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:1.1rem 1.3rem;display:flex;gap:.9rem;margin-top:.4rem;}
 .gist-note .ci{font-size:1.3rem;}
 .gist-note p{font-size:.9rem;color:var(--text-soft);}
 .gist-note strong{color:var(--text-dark);}
 
-.helpline{text-align:center;padding:2.2rem 1.5rem .4rem;color:var(--text-soft);font-size:.9rem;}
-.helpline a{color:var(--teal-dark);font-weight:700;text-decoration:none;}
-.helpline a:hover{text-decoration:underline;}
+/* support */
+.support{background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));border-radius:16px;padding:2.2rem;text-align:center;color:#fff;margin-top:1.2rem;}
+.support h3{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:900;margin-bottom:.5rem;}
+.support p{color:rgba(255,255,255,.78);max-width:480px;margin:0 auto 1.3rem;font-size:.94rem;}
+.support .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+.support a.sbtn{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-bright);color:var(--hero-dark);padding:.9rem 1.6rem;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.support a.sbtn:hover{background:#fff;}
+.support a.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff;}
+.support a.ghost:hover{background:#fff;color:var(--hero-dark);}
 
-footer{text-align:center;padding:1.6rem 1.5rem 2.5rem;color:var(--text-soft);font-size:.78rem;}
+footer{text-align:center;padding:1.8rem 1.5rem 2.5rem;color:var(--text-soft);font-size:.78rem;}
 footer .fl{font-family:'Montserrat',sans-serif;font-weight:900;letter-spacing:.04em;color:var(--hero-dark);margin-bottom:.4rem;}
 footer .fl span{color:var(--teal);}
 </style>
@@ -94,13 +112,26 @@ footer .fl span{color:var(--teal);}
 
 <header class="hero">
   <div class="hero-eyebrow">2-Day Workshop &middot; Melbourne &middot; 7-8 July 2026</div>
-  <h1>Do this, then this. <em>That's the whole page.</em></h1>
-  <p class="hero-sub">Your logins, your pre-work in order, and what the two days look like. Everything you need is right here.</p>
+  <h1>Your workshop toolkit, <em>in order.</em></h1>
+  <p class="hero-sub">Where to be, what to do before Tuesday, what the two days look like, and every page Kelly calls out in the room - all on this one page, top to bottom.</p>
 </header>
 
-<!-- ===== ACCOUNTS & TOOLS ===== -->
-<section class="wrap">
-  <div class="label">Accounts &amp; tools &middot; every login in one place</div>
+<div class="wrap">
+
+  <!-- ===== 1. WHERE + WHEN ===== -->
+  <div class="banner">
+    <div class="bt"><span class="bs">Section 1</span>Where + <span>when</span></div>
+  </div>
+  <div class="addr">
+    <p><b>Holiday Inn Express Melbourne Southbank</b> - 35-47 City Road, Southbank VIC 3006.<br>
+    <b>Tuesday 7 + Wednesday 8 July</b>, 9:00am - 4:00pm both days. Doors from 8:30am - arrive early enough to be set up with a coffee, laptop out, before we kick off at 9 sharp.<br>
+    Parking at the hotel is about $35 a day and Southbank trams stop close by.</p>
+    <a class="map" href="https://maps.google.com/?q=Holiday+Inn+Express+Melbourne+Southbank,+35-47+City+Road,+Southbank+VIC+3006" target="_blank">Open in Google Maps &rarr;</a>
+  </div>
+
+  <div class="banner">
+    <div class="bt"><span class="bs">Section 2 &middot; every login in one place</span>Accounts <span>&amp; tools</span></div>
+  </div>
   <div class="grid g2">
     <a class="acct" href="https://affiliates.gohighlevel.com/?fp_ref=&amp;share=sl3BpH5usuzjg0j6XyUI" target="_blank">
       <span class="badge" style="background:#2b3a8c">GHL</span>
@@ -133,83 +164,30 @@ footer .fl span{color:var(--teal);}
       <span class="arrow">&rarr;</span>
     </a>
   </div>
-</section>
 
-<!-- ===== PRE-WORK ===== -->
-<section class="wrap">
-  <div class="label">Your pre-work &middot; do these in order, before Tuesday</div>
-
-  <div class="step">
-    <div class="num">1</div>
-    <div class="body">
-      <h3>Update your laptop</h3>
-      <p>Tonight, on good wifi, plugged in. Mac: <em>System Settings &gt; General &gt; Software Update</em> (macOS 14+ is golden). Windows: <em>Settings &gt; Windows Update</em>, install everything, restart, repeat until "You're up to date". Know your login password - the install will ask for it.</p>
-      <div class="tip"><b>Windows only:</b> also install <a href="https://git-scm.com/downloads/win" target="_blank" style="color:var(--teal-dark);font-weight:700">Git for Windows</a> - run it and click Next through every screen. Mac doesn't need this.</div>
-    </div>
+  <!-- ===== 2. PRE-WORK ===== -->
+  <div class="banner">
+    <div class="bt"><span class="bs">Section 3 &middot; before Tuesday</span>Your <span>pre-work</span></div>
+    <a class="bbtn" href="guide-pre-workshop-checklist.html">&#9989; Open the pre-work checklist</a>
+  </div>
+  <div class="pw">
+    <p style="font-size:.95rem;color:var(--text-soft)">About an hour, everything linked step by step on the checklist. The short version:</p>
+    <ol>
+      <li><b>Update your laptop</b> (overnight job) - Windows folks also install Git for Windows</li>
+      <li><b>Claude account</b> created with your clinic email</li>
+      <li><b>API key</b> made and saved</li>
+      <li><b>GHL free trial</b> started, phone number claimed, calendar snapshot loaded</li>
+      <li><b>Business registration PDF</b> downloaded from ABN Lookup</li>
+      <li><b>Content goldmine packed</b> - four folders: photos, no-talking video, talking head, brand</li>
+      <li><b>Laptop charged</b>, charger packed, questions jotted down</li>
+    </ol>
   </div>
 
-  <div class="step">
-    <div class="num">2</div>
-    <div class="body">
-      <h3>Create your Claude account</h3>
-      <p>Sign up at claude.ai with your clinic email. This is the assistant you'll be approving and driving from minute one on Tuesday.</p>
-      <a class="where" href="https://claude.ai/referral/AzyH2Zlenw" target="_blank">Sign up - use this link</a>
-    </div>
+  <!-- ===== 3. THE 2-DAY PLAN ===== -->
+  <div class="banner">
+    <div class="bt"><span class="bs">Section 4 &middot; the idea</span>The <span>2-day plan</span></div>
+    <a class="bbtn" href="itinerary.html">&#128197; Open the full 2-day plan</a>
   </div>
-
-  <div class="step">
-    <div class="num">3</div>
-    <div class="body">
-      <h3>Make your API key and save it</h3>
-      <p>Five-minute job in the Anthropic Console, saved somewhere safe. You'll paste it in once on Tuesday.</p>
-      <a class="where" href="guide-claude-setup.html">See the API key guide &rarr;</a>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="num">4</div>
-    <div class="body">
-      <h3>Start your GHL free trial</h3>
-      <p>Start the trial and claim your phone number early - it takes time to activate. Then, while logged in, open the calendar snapshot link: one click loads our pre-built calendar and booking setup into your account.</p>
-      <a class="where" href="https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=mint-peach-media35" target="_blank">Start the trial</a>
-      <a class="where" href="https://affiliates.gohighlevel.com/?fp_ref=&amp;share=sl3BpH5usuzjg0j6XyUI" target="_blank">Then load the calendar snapshot &rarr;</a>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="num">5</div>
-    <div class="body">
-      <h3>Download your business registration PDF</h3>
-      <p>Free from ABN Lookup - we lodge your SMS bundle with it first thing Day 1.</p>
-      <a class="where" href="https://abr.business.gov.au" target="_blank">abr.business.gov.au</a>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="num">6</div>
-    <div class="body">
-      <h3>Pack your content goldmine - four folders</h3>
-      <p>On the laptop you're bringing, make four folders and fill them with whatever you have:</p>
-      <p>1. <em>Photos</em> - your clinic, rooms, staff, products, machines, you with staff or clients.<br>
-      2. <em>Video - no talking</em> - raw clips: treatments happening, hands working, machines running, a walk through the clinic.<br>
-      3. <em>Talking head</em> - any video of you speaking to camera, even rough takes.<br>
-      4. <em>Brand</em> - logo files, brand colours (hex codes or a screenshot), font names, any style guide.</p>
-      <div class="tip"><b>Do not polish anything.</b> Raw is exactly right - the system does the editing, captions and branding. AirDrop it off your phone before you come. More is better.</div>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="num">7</div>
-    <div class="body">
-      <h3>Laptop charged, charger packed, questions jotted down</h3>
-      <p>Restart your laptop Tuesday morning. Anything you're unsure about, write it on a sticky note and bring it - we cover every bit of setup live together.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== THE 2-DAY PLAN (GIST ONLY, NO LINKS) ===== -->
-<section class="wrap">
-  <div class="label">The 2-day plan &middot; what we're doing together</div>
 
   <div class="plan">
     <h3>Day 1 - Build the system</h3>
@@ -232,48 +210,58 @@ footer .fl span{color:var(--teal);}
       <li><div><b>Content engine on.</b> A month of on-brand social from your own footage and photos - the folders you packed.</div></li>
       <li><div><b>Follow-up that never sleeps.</b> The nurture ladder and newsletter loaded into GHL, in your voice.</div></li>
       <li><div><b>Get found - SEO + AI search.</b> So when someone asks Google or ChatGPT for a clinic like yours, you come up.</div></li>
+      <li><div><b>Take it for a test drive.</b> Hands on your own wheel before you leave.</div></li>
       <li><div><b>Go live.</b> Everything switched on, tested, and yours - with your daily 10-minute routine to run it.</div></li>
     </ul>
   </div>
 
   <div class="gist-note">
     <span class="ci">&#128161;</span>
-    <p><strong>That's the gist - you don't need to prepare anything from it.</strong> On the day, Kelly drives every step from the front and tells you exactly what to open, when.</p>
+    <p><strong>You don't need to prepare anything from this.</strong> On the day, Kelly drives every step from the front and tells you exactly what to open, when.</p>
   </div>
-</section>
 
-<!-- ===== EVERYTHING ELSE - THE GUIDES & DOWNLOADS ===== -->
-<section class="wrap">
-  <div class="label">Everything for the room &middot; Kelly calls these out, in this order</div>
+  <!-- ===== 4. EVERYTHING FOR THE ROOM ===== -->
+  <div class="banner">
+    <div class="bt"><span class="bs">Section 5 &middot; the pages we work from</span>Everything <span>for the room</span></div>
+  </div>
 
   <div class="plan">
-    <h3>Day 1 - the pages we work from</h3>
+    <h3>Day 1 - in the order Kelly calls them</h3>
     <ul>
-      <li><div><b><a href="itinerary.html" style="color:var(--teal-dark)">The full 2-day plan</a></b> - the follow-along map, every block linked.</div></li>
-      <li><div><b><a href="cc-aios-explained.html" style="color:var(--teal-dark)">How your AI system works</a></b> - the opening tour, first thing Tuesday.</div></li>
-      <li><div><b><a href="guide-claude-setup.html" style="color:var(--teal-dark)">Claude setup - all in one</a></b> - account, API key, the install (Mac + Windows) and sign-in.</div></li>
-      <li><div><b><a href="https://clinic-catalyst-au.github.io/cc-onboard/cc-clinic-pack.zip" style="color:var(--teal-dark)">Download the skill pack (.zip)</a></b> - when Kelly says "download the pack", this is the button.</div></li>
-      <li><div><b><a href="guide-ghl-setup.html" style="color:var(--teal-dark)">GHL setup - the full build</a></b> - account, SMS bundle, calendars, pipeline, forms, workflows, test.</div></li>
-      <li><div><b><a href="foundation-workbook.html" style="color:var(--teal-dark)">The Foundation Workbook</a></b> - pick your one treatment, first session.</div></li>
-      <li><div><b><a href="guide-business-brain.html" style="color:var(--teal-dark)">Business Brain</a></b> - the interview that teaches the system your voice.</div></li>
-      <li><div><b><a href="advertising-system.html" style="color:var(--teal-dark)">The Ad System</a></b> - Canva templates, FB test tool, the ad skills and the Meta connect, all inside.</div></li>
-      <li><div><b><a href="lead-nurture-generator.html" style="color:var(--teal-dark)">Lead Nurture Generator</a></b> - the instant follow-up for this campaign's offer.</div></li>
+      <li><div><b><a href="cc-aios-explained.html">How your AI system works</a></b> - the opening tour, first thing Tuesday.</div></li>
+      <li><div><b><a href="guide-claude-setup.html">Claude setup - all in one</a></b> - account, API key, and the one-command install for Mac AND Windows (Python, ffmpeg, everything included).</div></li>
+      <li><div><b><a href="https://clinic-catalyst-au.github.io/cc-onboard/cc-clinic-pack.zip">Download the skill pack (.zip)</a></b> - when Kelly says "download the pack", this is the button.</div></li>
+      <li><div><b><a href="guide-ghl-setup.html">GHL setup - the full build</a></b> - account, SMS bundle, calendars, pipeline, forms, workflows, test.</div></li>
+      <li><div><b><a href="foundation-workbook.html">The Foundation Workbook</a></b> - pick your one treatment, first session.</div></li>
+      <li><div><b><a href="guide-business-brain.html">Business Brain</a></b> - the interview that teaches the system your voice.</div></li>
+      <li><div><b><a href="advertising-system.html">The Ad System</a></b> - Canva templates, FB test tool, the ad skills and the Meta connect, all inside.</div></li>
+      <li><div><b><a href="lead-nurture-generator.html">Lead Nurture Generator</a></b> - the instant follow-up for this campaign's offer.</div></li>
     </ul>
   </div>
 
   <div class="plan">
     <h3>Day 2 + after the workshop</h3>
     <ul>
-      <li><div><b><a href="calendar-bridge.html" style="color:var(--teal-dark)">Your booking calendar</a></b> - go native in GHL, or the bridge if you keep your old tool.</div></li>
-      <li><div><b><a href="test-drive.html" style="color:var(--teal-dark)">Take it for a test drive</a></b> - hands on the wheel, end of Day 2.</div></li>
-      <li><div><b><a href="guide-daily-routine.html" style="color:var(--teal-dark)">Your daily routine</a></b> - the 10-minute loop that runs it all afterwards.</div></li>
-      <li><div><b><a href="cheat-sheets.html" style="color:var(--teal-dark)">Your reference shelf</a></b> - every guide, skill and login in one place, for later.</div></li>
+      <li><div><b><a href="calendar-bridge.html">Your booking calendar</a></b> - go native in GHL, or the bridge if you keep your old tool.</div></li>
+      <li><div><b><a href="test-drive.html">Take it for a test drive</a></b> - hands on the wheel, end of Day 2.</div></li>
+      <li><div><b><a href="guide-daily-routine.html">Your daily routine</a></b> - the 10-minute loop that runs it all afterwards.</div></li>
+      <li><div><b><a href="cheat-sheets.html">Your reference shelf</a></b> - every guide, skill and login in one place, for later.</div></li>
     </ul>
   </div>
-</section>
 
-<div class="helpline">
-  Stuck on something? <a href="install-chat.html">Open the install chat</a> or <a href="mailto:info@cliniccatalyst.com.au">email us</a> - never troubleshoot alone.
+  <!-- ===== 5. GET HELP ===== -->
+  <div class="banner">
+    <div class="bt"><span class="bs">Section 6</span>Get <span>help</span></div>
+  </div>
+  <div class="support">
+    <h3>Stuck on something?</h3>
+    <p>Don't troubleshoot alone. If an install step throws an error, paste the terminal output straight into the install chat - we watch it and answer with the exact fix. Or reply to your workshop email.</p>
+    <div class="row">
+      <a class="sbtn" href="install-chat.html">&#128172; Open the install chat</a>
+      <a class="sbtn ghost" href="mailto:info@cliniccatalyst.com.au">&#9993; Email us</a>
+    </div>
+  </div>
+
 </div>
 
 <footer>

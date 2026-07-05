@@ -123,7 +123,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-fil
     <div class="num">4</div>
     <div class="body">
       <h3>On Windows</h3>
-      <p>You already installed Git for Windows in your pre-work (if not, we do it now). We then paste one install line together and it sets up Claude Code and your skills the same way. A couple more steps than Mac - which is exactly why we do it on your screen, together.</p>
+      <p>Windows needs more pieces than Mac - Python, ffmpeg, Node, Git - and this one command installs ALL of them, then Claude Code, then your skills. Open PowerShell (Start, type "PowerShell", enter) and paste:</p>
+      <code>irm https://clinic-catalyst-au.github.io/cc-onboard/clinic-bootstrap.ps1 | iex</code>
+      <p style="margin-top:.5rem">That single line sets up: Git, Node, Python, ffmpeg (the video engine), Claude Code itself, the Python packages your skills use, the full Clinic Catalyst skill pack and your <em>~/Clinic</em> folder. Same ~25-45 minutes as Mac, mostly downloads, runs in the background. No WSL, no admin rights.</p>
+      <div class="tip"><b>If it says "winget not found":</b> install "App Installer" from the Microsoft Store (aka.ms/getwinget), then paste the command again. That's the only speed bump we ever see - and we're on your screen with you anyway.</div>
     </div>
   </div>
 
