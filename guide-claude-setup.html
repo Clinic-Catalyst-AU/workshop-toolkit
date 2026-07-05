@@ -123,19 +123,35 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-fil
     <div class="num">4</div>
     <div class="body">
       <h3>On Windows</h3>
-      <p>Windows needs more pieces than Mac - Python, ffmpeg, Node, Git - and this one command installs ALL of them, then Claude Code, then your skills. Open PowerShell (Start, type "PowerShell", enter) and paste:</p>
+      <p>Windows needs more pieces than Mac - Python, ffmpeg, Node, Git - and this one command installs ALL of them, then Claude Code, then your skills. Press the Start button, type "PowerShell", and open <em>Windows PowerShell</em> - the blue window. (Not Command Prompt, not Git Bash - the blue one.) Then paste this line and press enter:</p>
       <code>irm https://clinic-catalyst-au.github.io/cc-onboard/clinic-bootstrap.ps1 | iex</code>
-      <p style="margin-top:.5rem">That single line sets up: Git, Node, Python, ffmpeg (the video engine), Claude Code itself, the Python packages your skills use, the full Clinic Catalyst skill pack and your <em>~/Clinic</em> folder. Same ~25-45 minutes as Mac, mostly downloads, runs in the background. No WSL, no admin rights.</p>
-      <div class="tip"><b>If it says "winget not found":</b> install "App Installer" from the Microsoft Store (aka.ms/getwinget), then paste the command again. That's the only speed bump we ever see - and we're on your screen with you anyway.</div>
+      <p style="margin-top:.5rem">That single line sets up: Git, Node, Python, ffmpeg (the video engine), Claude Code itself, the Python packages your skills use, the full Clinic Catalyst skill pack and your <em>~/Clinic</em> folder. Same ~25-45 minutes as Mac, mostly downloads. No account sign-ups needed for any of this - and no GitHub account, ever.</p>
+      <p style="margin-top:.5rem"><em>What you'll see while it runs:</em> lines of text scrolling - that's normal. Windows may pop up "Do you want to allow this app to make changes?" once or twice - click <em>Yes</em>. Keep the window open until it says <em>DONE</em>. The installer ends with a self-check that lists every piece as "ok" or tells you exactly what to flag with us.</p>
+      <div class="tip"><b>If it says "winget not found":</b> install "App Installer" from the Microsoft Store (aka.ms/getwinget), then paste the command again. That's the most common speed bump - and we're on your screen with you anyway.</div>
     </div>
   </div>
 
   <div class="step">
     <div class="num">5</div>
     <div class="body">
+      <h3>Close the window, open a fresh one, prove it</h3>
+      <p>This step matters: the <em>claude</em> command only exists in windows opened AFTER the install. So close Terminal or PowerShell completely, open a brand new one the same way as before, and type:</p>
+      <code>claude --version</code>
+      <p style="margin-top:.5rem">A version number means everything worked. That's your proof.</p>
+      <div class="tip"><b>Says "not recognized" or "command not found"?</b> Don't panic - one paste fixes it for this window.<br>
+      Windows: <code>$env:Path += ";$env:USERPROFILE\.local\bin"</code><br>
+      Mac: <code>source ~/.zprofile</code><br>
+      Then try <em>claude --version</em> again. Still stuck? That's what we're in the room for.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">6</div>
+    <div class="body">
       <h3>Start it, sign in, plug in your key</h3>
-      <p>Type <em>claude</em> and press enter. Sign in with your Claude account, and paste the API key you saved when it asks. Done - your skills are on your machine.</p>
+      <p>In that same window type <em>claude</em> and press enter. First run asks you to sign in - choose your Claude account (the one from step 1), and paste the API key you saved when it asks. Done - your skills are on your machine.</p>
       <code>claude</code>
+      <div class="tip"><b>Anything look wrong at any point?</b> Copy the last few lines from your window and paste them into the <a href="install-chat.html">Install Chat</a> - we watch it live in the room and fix as we go.</div>
     </div>
   </div>
 
