@@ -83,23 +83,27 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-fil
   </div>
 
   <div class="prompt">
-    <span class="tag">&#128241; Content Engine</span>
-    <h3>A month of social posts, in your voice</h3>
+    <span class="tag">&#127909; One Post, Done</span>
+    <h3>A whole reel post, built and loaded into GHL</h3>
     <div class="box">
-      <div class="txt"><b>/cc-content-engine</b> - using my Business Brain, write me <b>5 Instagram posts</b> for this month about <b>[winter skin]</b>. Keep them on brand and AHPRA-safe, and tell me which content pillar each one is.</div>
+      <div class="txt"><b>/cc-reeltalkinghead</b> - here's a 30-second clip of me talking about <b>[a treatment]</b>. Caption it, write the post copy, hook and hashtags in my brand voice, and load it into GHL ready to post.</div>
       <button class="copy">Copy</button>
     </div>
-    <p class="see"><b>What you'll see:</b> on-brand captions across the educate, connect, prove and offer pillars - a month of content in a couple of minutes.</p>
+    <div class="box">
+      <div class="txt"><b>/cc-cover</b> - make a branded cover for that reel with the headline <b>[your headline]</b> in my clinic's colours and font.</div>
+      <button class="copy">Copy</button>
+    </div>
+    <p class="see"><b>What you'll see:</b> a captioned reel, the caption + hook + hashtags written in your voice, and a branded cover - all landed as a GHL Social Planner draft, ready to approve and post.</p>
   </div>
 
   <div class="prompt">
     <span class="tag">&#128172; Follow-Up Agent</span>
-    <h3>The email that chases a lead for you</h3>
+    <h3>Your whole follow-up nurture, written in your voice</h3>
     <div class="box">
-      <div class="txt"><b>/cc-follow-up-agent</b> - write me a warm, no-pressure follow-up email to a lead who enquired about <b>[a treatment]</b> three days ago and hasn't booked yet. In my brand voice, AHPRA-safe.</div>
+      <div class="txt"><b>/cc-follow-up-agent</b> - write my clinic's follow-up nurture in my brand voice from my Business Brain: the enquiry follow-up sequence, plus the pre-appointment and win-back messages, all AHPRA-safe.</div>
       <button class="copy">Copy</button>
     </div>
-    <p class="see"><b>What you'll see:</b> a gentle, on-brand email that builds trust and invites the booking - the kind your system sends on its own, so no lead is ever dropped.</p>
+    <p class="see"><b>What you'll see:</b> your entire follow-up system written in your voice - the sequence that chases every enquiry, preps every booking and wins back quiet clients - ready to load into GHL so no lead is ever dropped.</p>
   </div>
 
   <div class="prompt">
@@ -185,10 +189,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-fil
 </div>
 
 <script>
-document.querySelectorAll('.prompt').forEach(function(p){
-  var btn=p.querySelector('.copy');
+document.querySelectorAll('.prompt .box').forEach(function(box){
+  var btn=box.querySelector('.copy');
   btn.addEventListener('click',function(){
-    var text=p.querySelector('.txt').innerText;
+    var text=box.querySelector('.txt').innerText;
     navigator.clipboard.writeText(text).then(function(){
       btn.textContent='Copied';btn.classList.add('done');
       setTimeout(function(){btn.textContent='Copy';btn.classList.remove('done')},1600);
