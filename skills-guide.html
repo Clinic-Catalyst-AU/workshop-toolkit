@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Your Skills - what each one does + how to use it - Clinic Catalyst</title>
+<link rel="icon" href="cc-fav-32.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#00B4A0;--teal-bright:#00D4BC;--teal-dark:#007A6E;
+  --hero-dark:#0A2A28;--hero-mid:#0D3D38;
+  --off-white:#F4F6F5;--text-dark:#1A1A1A;--text-soft:#5A6664;
+  --border:#E0E4E3;--card:#FFFFFF;--gold:#C9A24B;--code:#0E2D2A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;border-bottom:1px solid rgba(0,212,188,.15)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:900;color:#fff;letter-spacing:.04em;text-decoration:none}
+.nav-logo span{color:var(--teal-bright)}
+.nav-back{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
+.nav-back:hover{color:var(--teal-bright)}
+
+.hero{padding:3rem 2rem 2.2rem;text-align:center;background:radial-gradient(ellipse at 50% -10%,var(--hero-mid),var(--hero-dark) 65%);color:#fff}
+.hero .eyebrow{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:.9rem}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,4.5vw,2.7rem);font-weight:900;line-height:1.08;max-width:700px;margin:0 auto .7rem}
+.hero h1 em{font-style:normal;color:var(--teal-bright)}
+.hero p{font-size:1.02rem;font-weight:300;color:rgba(255,255,255,.84);max-width:600px;margin:0 auto}
+
+.wrap{max-width:820px;margin:0 auto;padding:2.2rem 1.5rem 4rem}
+.intro{background:#fff;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:1.8rem;font-size:.94rem;color:var(--text-soft)}
+.intro b{color:var(--text-dark)}
+
+.grp{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin:2.2rem 0 1rem;display:flex;align-items:center;gap:.6rem}
+.grp::before{content:'';width:26px;height:2px;background:var(--teal)}
+.grp span{color:var(--text-soft);letter-spacing:.04em;font-weight:700;text-transform:none;font-size:.8rem}
+
+.skill{background:#fff;border:1px solid var(--border);border-radius:13px;padding:1.1rem 1.3rem;margin-bottom:.8rem}
+.skill .cmd{position:relative;display:block;background:var(--code);color:#CFF3EC;border-radius:8px;padding:.6rem 3.6rem .6rem .8rem;font-family:ui-monospace,Menlo,monospace;font-size:.85rem;font-weight:700;margin-bottom:.5rem;word-break:break-all}
+.skill .cmd .copy{position:absolute;top:.4rem;right:.4rem;background:var(--teal-bright);color:var(--hero-dark);border:none;border-radius:6px;padding:.32rem .6rem;font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.skill .cmd .copy.done{background:var(--gold);color:#fff}
+.skill .what{font-size:.92rem;margin-bottom:.4rem}
+.skill .use{font-size:.85rem;color:var(--text-soft)}
+.skill .use b{color:var(--teal-dark);font-weight:700}
+.skill .use i{font-style:italic;color:var(--text-dark)}
+
+.foot{text-align:center;padding:2.4rem 1.5rem 3.4rem;color:var(--text-soft);font-size:.86rem}
+.foot a{color:var(--teal-dark);font-weight:700;text-decoration:none}
+.foot .logo{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--hero-dark);font-size:1rem}
+.foot .logo span{color:var(--teal)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Clinic <span>Catalyst</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to your toolkit</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Your reference &middot; keep this open</div>
+  <h1>Your skills - <em>what each does + how to use it</em></h1>
+  <p>Every skill installed on your machine, grouped by job. Tap a command to copy it, paste it into Claude Code, and add your own details. Build your Business Brain first - everything else reads it.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="intro"><b>How to use any skill:</b> open Claude Code in your <code>~/Clinic</code> folder, type the command, and add plain-English detail after it. Every skill reads your <b>Business Brain</b> so it sounds like you, and everything is AHPRA-screened automatically. <b>Run the two Foundation skills first</b> - nothing else works properly until your brand guide exists.</div>
+
+  <div class="grp">Start here &middot; <span>Foundation - run these first, in order</span></div>
+
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-resonance</div>
+    <div class="what"><b>The emotional interview.</b> Claude interviews you and turns how your patients really feel into your messaging foundation (<code>resonance-messaging.md</code>).</div>
+    <div class="use"><b>Say:</b> <i>/cc-resonance for my clinic</i> - then just answer the questions.</div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-brand-guide</div>
+    <div class="what"><b>Your brand spine.</b> Turns the resonance work into <code>brand-guide.md</code> - the one file every other skill reads first, so all your content sounds like you.</div>
+    <div class="use"><b>Say:</b> <i>/cc-brand-guide for my clinic</i> - run it straight after resonance.</div>
+  </div>
+
+  <div class="grp">Content &amp; social &middot; <span>a steady stream, in your voice</span></div>
+
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-content-engine</div>
+    <div class="what"><b>A month of social content.</b> Plans a month of posts across the four pillars (educate, connect, prove, offer), AHPRA-safe, and drafts them into your GHL Social Planner.</div>
+    <div class="use"><b>Say:</b> <i>/cc-content-engine build this month's content around [winter skin]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-carousel</div>
+    <div class="what"><b>A teaching carousel.</b> Slide-by-slide Instagram carousel copy in your voice, with a gentle CTA on the last slide.</div>
+    <div class="use"><b>Say:</b> <i>/cc-carousel a 5-slide carousel on [3 winter skin tips]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-hook</div>
+    <div class="what"><b>Scroll-stopping first lines.</b> Generates and scores hooks so your posts earn attention instead of getting scrolled past.</div>
+    <div class="use"><b>Say:</b> <i>/cc-hook 5 hooks for a post about [why a consult comes first]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-marketing-genius</div>
+    <div class="what"><b>Sharper copy + strategy.</b> Tightens subject lines, offers and the one CTA per message. Run it over any draft to lift it.</div>
+    <div class="use"><b>Say:</b> <i>/cc-marketing-genius sharpen this email: [paste]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/stoptheslop</div>
+    <div class="what"><b>Make it sound human.</b> Strips the AI tells out of any draft and rewrites it in your brand voice. Run it before anything goes out.</div>
+    <div class="use"><b>Say:</b> <i>/stoptheslop rewrite this so it sounds like me: [paste]</i></div>
+  </div>
+
+  <div class="grp">Video &amp; reels &middot; <span>from the clips in your Assets folder</span></div>
+
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-reeltalkinghead</div>
+    <div class="what"><b>Talking-to-camera → a postable reel.</b> Cuts the dead air, burns animated captions, writes the caption + hook + hashtags, and drafts it straight into GHL for approval.</div>
+    <div class="use"><b>Say:</b> <i>/cc-reeltalkinghead</i> after you drop a clip in <code>Assets/Talking-Head/</code></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-reelvoiceover</div>
+    <div class="what"><b>A voiceover montage.</b> Assembles your short clips into one paced montage and writes the voiceover script timed to the cut, for you to record over.</div>
+    <div class="use"><b>Say:</b> <i>/cc-reelvoiceover</i> with clips in <code>Assets/Video/</code></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-reelclips</div>
+    <div class="what"><b>A trending-audio reel.</b> Stitches your clips into one clean edit with no music baked in - so you add the trending sound natively in Instagram/TikTok where the reach is.</div>
+    <div class="use"><b>Say:</b> <i>/cc-reelclips stitch these for a trending sound</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-reelassembly</div>
+    <div class="what"><b>A story reel.</b> Edits your clips in a told order (arrive → meet → explain → CTA card), captions the talking parts, and builds the full GHL post kit.</div>
+    <div class="use"><b>Say:</b> <i>/cc-reelassembly a welcome/journey reel from these clips</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-find-clip</div>
+    <div class="what"><b>The best moment from a long video.</b> Finds and extracts the strongest ~2 minutes from a longer recording, ready for a reel.</div>
+    <div class="use"><b>Say:</b> <i>/cc-find-clip find the best clip in [file]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-content-pipeline</div>
+    <div class="what"><b>Clip → finished social video.</b> Takes a chosen clip and runs it through captions and branding into a ready-to-post video.</div>
+    <div class="use"><b>Say:</b> <i>/cc-content-pipeline turn this clip into a post</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-assemble</div>
+    <div class="what"><b>Stitch clips + music.</b> Joins multiple clips into one reel with clean transitions and optional music.</div>
+    <div class="use"><b>Say:</b> <i>/cc-assemble stitch these clips into one reel</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-cover</div>
+    <div class="what"><b>A branded reel cover.</b> A 1080x1920 cover in your colours and font with a punchy headline - the thumbnail for a reel or story.</div>
+    <div class="use"><b>Say:</b> <i>/cc-cover a cover with the headline [your line]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-script</div>
+    <div class="what"><b>Video scripts + shot lists.</b> Six script types (30/60-sec ad, problem-aware, offer, educational, remarketing), each with a 3-second hook, a talking-head script and a b-roll shot list.</div>
+    <div class="use"><b>Say:</b> <i>/cc-script give me the set for my front-door offer</i></div>
+  </div>
+
+  <div class="grp">Ads &middot; <span>compliant copy the agencies charge a fortune for</span></div>
+
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-metaad-builder</div>
+    <div class="what"><b>Meta (Facebook/Instagram) ads.</b> Headlines, neuro-emotive hooks and primary text variants, outcome-led and AHPRA-screened, ready for your campaign.</div>
+    <div class="use"><b>Say:</b> <i>/cc-metaad-builder Meta ads for my [offer]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-googlead-builder</div>
+    <div class="what"><b>Google Search ads.</b> 15 headlines, 4 descriptions, keyword and negative plans - all character-checked and compliance-screened, filling the RSA sheet.</div>
+    <div class="use"><b>Say:</b> <i>/cc-googlead-builder Google ads for [service] in [suburb]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-ad-spy</div>
+    <div class="what"><b>See what competitors run.</b> Researches the ads other clinics are running so you can position against them.</div>
+    <div class="use"><b>Say:</b> <i>/cc-ad-spy what are clinics near me advertising</i></div>
+  </div>
+
+  <div class="grp">Get found &middot; <span>so people find you on Google and in AI search</span></div>
+
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-geo-seo</div>
+    <div class="what"><b>Show up in AI search.</b> The moves to get your clinic cited when someone asks Google or ChatGPT for a clinic like yours, and to rank locally.</div>
+    <div class="use"><b>Say:</b> <i>/cc-geo-seo help me get found for [a skin clinic in my suburb]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-keyword-research</div>
+    <div class="what"><b>What people actually search.</b> High-value keywords with intent and difficulty, the base for your ads and SEO.</div>
+    <div class="use"><b>Say:</b> <i>/cc-keyword-research keywords for [treatment] in [suburb]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-website-audit</div>
+    <div class="what"><b>Audit your website.</b> Reviews your current site for what's helping and hurting bookings, with fixes.</div>
+    <div class="use"><b>Say:</b> <i>/cc-website-audit audit [your website URL]</i></div>
+  </div>
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-landing-page</div>
+    <div class="what"><b>A landing page for your offer.</b> Builds or audits a high-converting, AHPRA-safe page for one offer - paste it into GHL behind your ads.</div>
+    <div class="use"><b>Say:</b> <i>/cc-landing-page build a page for my [$199 offer]</i></div>
+  </div>
+
+  <div class="grp">Follow-up &middot; <span>the system that never drops a lead</span></div>
+
+  <div class="skill">
+    <div class="cmd"><button class="copy">Copy</button>/cc-follow-up-agent</div>
+    <div class="what"><b>Your whole follow-up nurture.</b> Writes your enquiry ladder, welcome sequence, newsletter and win-back messages in your voice and loads them into GHL, so every enquiry is chased automatically.</div>
+    <div class="use"><b>Say:</b> <i>/cc-follow-up-agent for my clinic</i></div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div class="logo">Clinic <span>Catalyst</span></div>
+  <p style="margin-top:.6rem">Keep this open as you work. Back to <a href="index.html">your toolkit</a>.</p>
+</div>
+
+<script>
+document.querySelectorAll('.cmd .copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.parentElement.textContent.replace('Copy','').trim();
+    navigator.clipboard.writeText(t).then(function(){
+      b.textContent='Copied';b.classList.add('done');
+      setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1500);
+    });
+  });
+});
+</script>
+
+</body>
+</html>
