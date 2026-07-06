@@ -81,7 +81,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-fil
   <div class="ico">&#9881;&#65039;</div>
   <h1>GHL Setup - The Full Build</h1>
   <p>Your CRM is the engine room: pipeline, calendar, lead forms, workflows. Here is the whole build, step by step - the same order we run in the room.</p>
-  <div class="meta-row"><span>7 steps</span><span>Day 1 morning</span><span>We do it together</span></div>
+  <div class="meta-row"><span>8 steps</span><span>Day 1 morning</span><span>We do it together</span></div>
 </div>
 
 <div class="wrap">
@@ -159,6 +159,17 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-fil
       <h3>TEST. Before any ad spend.</h3>
       <p>Submit your own lead form and watch the whole chain fire: opportunity card appears in the pipeline, internal notification lands, auto-reply goes out. If any link in that chain is silent, we fix it NOW - not after ads are live.</p>
       <a class="where" href="https://developers.facebook.com/tools/lead-ads-testing" target="_blank">FB Lead Form Test Tool &rarr;</a>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">8</div>
+    <div class="body">
+      <h3>Give your Claude the keys - API token + Location ID</h3>
+      <p>Your Claude system talks to your CRM through the API - that is how it drafts social posts into your planner, loads emails, and files media without you copy-pasting. It needs two values, created once, together in the room:</p>
+      <p><b>1. Private Integration token:</b> Settings &rarr; Private Integrations &rarr; Create - name it "Claude", tick the scopes we call out on screen, copy the token. <b>2. Location ID:</b> Settings &rarr; Business Profile (it is also the code after /location/ in your browser address bar).</p>
+      <p>Both go into <b>Credentials/credentials-reference.txt</b> in your clinic folder - and nowhere else. Never paste keys into prompts, posts, or documents; when a skill needs them, point it at that file.</p>
+      <div class="tip"><b>The token shows ONCE.</b> If you lose it, no drama - delete the integration and create a fresh one (30 seconds). Never share it: it IS access to your CRM.</div>
     </div>
   </div>
 
