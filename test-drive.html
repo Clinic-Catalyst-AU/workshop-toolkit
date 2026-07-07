@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Take It For a Test Drive - Clinic Catalyst</title>
+<title>Your System - Clinic Catalyst</title>
 <link rel="icon" href="cc-fav-32.png" sizes="32x32">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -30,13 +30,40 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-fil
 .hero .ico{font-size:2.8rem;margin-bottom:.6rem}
 .hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,4.6vw,3rem);font-weight:900;line-height:1.06;max-width:720px;margin:0 auto .8rem}
 .hero h1 em{font-style:normal;color:var(--teal-bright)}
-.hero p{font-size:1.04rem;font-weight:300;color:rgba(255,255,255,.84);max-width:580px;margin:0 auto}
+.hero p{font-size:1.04rem;font-weight:300;color:rgba(255,255,255,.84);max-width:600px;margin:0 auto}
 
 .wrap{max-width:780px;margin:0 auto;padding:2.6rem 1.5rem 4rem}
+
+.section-head{max-width:780px;margin:2.8rem auto 1.2rem;padding:0 1.5rem;text-align:center}
+.section-head .eyebrow{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.5rem}
+.section-head h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.4rem,3.4vw,2rem);font-weight:900;line-height:1.1}
+.section-head p{color:var(--text-soft);font-size:.98rem;max-width:600px;margin:.6rem auto 0}
 
 .how{background:#fff;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:2.2rem;font-size:.95rem;color:var(--text-soft)}
 .how b{color:var(--text-dark)}
 .how .swap{background:rgba(0,180,160,.1);color:var(--teal-dark);font-weight:700;border-radius:5px;padding:.05rem .4rem}
+
+/* homework - load your content */
+.homework{background:linear-gradient(135deg,var(--hero-dark),var(--hero-mid));color:#fff;border-radius:16px;padding:1.6rem 1.5rem;margin-bottom:1rem}
+.open-note{background:rgba(0,212,188,.1);border:1px solid rgba(0,212,188,.25);border-radius:10px;padding:.95rem 1.1rem;font-size:.88rem;color:#EAF6F4;margin-bottom:1.3rem;line-height:1.7}
+.open-note b{color:var(--teal-bright)}
+.folder-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.7rem}
+.folder-card .path{font-family:'Montserrat',sans-serif;font-size:.92rem;font-weight:800;color:var(--teal-bright);margin-bottom:.4rem;display:flex;align-items:center;gap:.45rem;flex-wrap:wrap}
+.folder-card .path .seg{color:rgba(255,255,255,.4);font-weight:600}
+.folder-card .what{font-size:.92rem;color:#EAF6F4;margin-bottom:.4rem;line-height:1.55}
+.folder-card .feeds{font-size:.78rem;color:rgba(255,255,255,.58)}
+.folder-card .feeds b{color:rgba(255,255,255,.85);font-weight:600}
+.homework .close{color:rgba(255,255,255,.82);font-size:.9rem;margin-top:1rem;text-align:center}
+.homework .close b{color:var(--teal-bright)}
+
+/* full skills list */
+.skills-group{max-width:780px;margin:0 auto;padding:0 1.5rem}
+.skills-group h3{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);margin:1.4rem 0 .5rem;padding-bottom:.4rem;border-bottom:2px solid var(--border)}
+.skill-item{display:flex;gap:.9rem;padding:.6rem 0;border-bottom:1px solid var(--border);align-items:baseline}
+.skill-item:last-child{border-bottom:none}
+.skill-item .cmd{font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:800;color:var(--teal-dark);flex-shrink:0;width:185px}
+.skill-item .desc{font-size:.9rem;color:var(--text-soft);line-height:1.5}
+@media(max-width:560px){.skill-item{flex-direction:column;gap:.1rem}.skill-item .cmd{width:auto}}
 
 .prompt{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.4rem;margin-bottom:1.1rem;transition:border-color .15s}
 .prompt:hover{border-color:var(--teal)}
@@ -71,12 +98,114 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,42,40,.96);backdrop-fil
 
 <div class="hero">
   <div class="ico">&#128640;</div>
-  <div class="eyebrow">The fun part</div>
-  <h1>Take your system for a <em>test drive</em></h1>
-  <p>It is built. Now watch it work. Paste any prompt below into your Claude and see each part of your system come alive, right in front of you.</p>
+  <div class="eyebrow">Your system</div>
+  <h1>It's built. Now <em>load it up</em></h1>
+  <p>Three things on this page: drop your content into the right folders so tomorrow's content engine has real material, see every skill you now have, and paste a prompt to watch it all work.</p>
 </div>
 
-<div class="wrap">
+<!-- ============ HOMEWORK: LOAD YOUR CONTENT ============ -->
+<div class="section-head">
+  <div class="eyebrow">Do this tonight</div>
+  <h2>Load your content into your folders</h2>
+  <p>Your system was built with a home for every kind of content. Tonight, drop what you've got into the right folder - your photos, your clips, your face - so tomorrow the content engine has real material to build with.</p>
+</div>
+
+<div class="wrap" style="padding-top:0;padding-bottom:1rem">
+  <div class="homework">
+    <div class="open-note">
+      <b>Where to find it:</b> your <b>Clinic</b> folder lives in your home directory.<br>
+      <b>On Mac:</b> Finder &rarr; menu bar &rarr; Go &rarr; Home &rarr; open <b>Clinic</b> &rarr; <b>Assets</b>.<br>
+      <b>On Windows:</b> File Explorer &rarr; This PC &rarr; <b>C:\Users\[your name]\Clinic\Assets</b>.<br>
+      Then just drag your files into the right folder below. Your skills read straight from here - no uploading, no linking.
+    </div>
+
+    <div class="folder-card">
+      <div class="path">Clinic <span class="seg">&rsaquo;</span> Assets <span class="seg">&rsaquo;</span> Photos</div>
+      <div class="what">Every still image - photos of your clinic, your team, your treatments, your space, your products. Anything that isn't moving.</div>
+      <div class="feeds">Feeds: <b>cc-cover</b> &middot; <b>cc-content-engine</b> &middot; <b>cc-carousel</b></div>
+    </div>
+
+    <div class="folder-card">
+      <div class="path">Clinic <span class="seg">&rsaquo;</span> Assets <span class="seg">&rsaquo;</span> Video</div>
+      <div class="what">Short silent clips with <em>no talking</em> - the treatment room, machines running, hands working, product shots, the front door, any b-roll. The little pieces that get stitched together into a reel.</div>
+      <div class="feeds">Feeds: <b>cc-reelclips</b> &middot; <b>cc-reelvoiceover</b> &middot; <b>cc-reelassembly</b> &middot; <b>cc-assemble</b> &middot; <b>cc-find-clip</b></div>
+    </div>
+
+    <div class="folder-card">
+      <div class="path">Clinic <span class="seg">&rsaquo;</span> Assets <span class="seg">&rsaquo;</span> Talking-Head</div>
+      <div class="what">Any video of you or your team <em>talking to camera</em> - just filmed on your phone, rambling is fine. The system cuts the dead air, captions it and brands it for you.</div>
+      <div class="feeds">Feeds: <b>cc-reeltalkinghead</b></div>
+    </div>
+
+    <div class="folder-card">
+      <div class="path">Clinic <span class="seg">&rsaquo;</span> Assets <span class="seg">&rsaquo;</span> Static</div>
+      <div class="what">Anything already designed - finished graphics, logos in context, past posts you're proud of. Reference and reuse.</div>
+      <div class="feeds">Reference library</div>
+    </div>
+
+    <div class="folder-card">
+      <div class="path">Clinic <span class="seg">&rsaquo;</span> Business-Brain <span class="seg">&rsaquo;</span> brand-assets</div>
+      <div class="what">Your logo (a transparent PNG) and your brand fonts, if you have them. Every skill that makes an image or reel reads your colours and font from here.</div>
+      <div class="feeds">Feeds: everything that brands an image or reel</div>
+    </div>
+
+    <p class="close">Not sure where something goes? If someone's <b>talking</b>, it's Talking-Head. If it's <b>silent b-roll</b>, it's Video. If it's a <b>photo</b>, it's Photos. When in doubt, just get it in - we'll sort it together tomorrow.</p>
+  </div>
+</div>
+
+<!-- ============ FULL SKILLS LIST ============ -->
+<div class="section-head">
+  <div class="eyebrow">Everything you now have</div>
+  <h2>Your full toolkit - all 24 skills</h2>
+  <p>Every one runs on your Business Brain, so it always sounds like you and always stays AHPRA-safe. Type the command into your Claude to run it.</p>
+</div>
+
+<div class="skills-group">
+
+  <h3>Foundation - build these first</h3>
+  <div class="skill-item"><div class="cmd">/cc-resonance</div><div class="desc">Finds the emotional messaging that makes your ideal client feel seen and say yes - the source your whole voice is built from.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-brand-guide</div><div class="desc">Turns your resonance and business facts into one brand-voice file that every other skill reads first.</div></div>
+
+  <h3>Content &amp; social</h3>
+  <div class="skill-item"><div class="cmd">/cc-content-engine</div><div class="desc">A full month of on-brand, AHPRA-safe social posts, planned across the four content pillars and ready for GHL.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-carousel</div><div class="desc">A teaching Instagram carousel, slide by slide, in your voice with a gentle call to action.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-hook</div><div class="desc">Five scroll-stopping first lines, each scored for how likely it is to stop the scroll.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-script</div><div class="desc">Recordable, AHPRA-safe video scripts (ad, social, educational) with a 3-second hook and a shot list.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-marketing-genius</div><div class="desc">Sales and marketing copy strategy - subject lines, email copy, the psychology of why people book.</div></div>
+  <div class="skill-item"><div class="cmd">/stoptheslop</div><div class="desc">Strips the AI tells out of any draft so it sounds like a real human in your voice. Run everything through this before it goes out.</div></div>
+
+  <h3>Video &amp; reels</h3>
+  <div class="skill-item"><div class="cmd">/cc-reeltalkinghead</div><div class="desc">Your raw talking-to-camera video, cut, captioned, branded and loaded into GHL as a draft.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-reelclips</div><div class="desc">Stitches your silent clips into one clean edit for a trending-audio reel (you add the sound in-app).</div></div>
+  <div class="skill-item"><div class="cmd">/cc-reelvoiceover</div><div class="desc">Turns your short silent clips into a paced montage and writes the voiceover script for you to record.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-reelassembly</div><div class="desc">A story-order reel - walk in, meet your practitioner, explain, call to action - with captions and the full GHL kit.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-assemble</div><div class="desc">Stitches clips into one reel with clean transitions and music.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-find-clip</div><div class="desc">Finds the single best 2-minute moment inside a longer video and pulls it out ready to use.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-content-pipeline</div><div class="desc">Turns one clip into finished, captioned, on-brand content.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-cover</div><div class="desc">A branded cover or thumbnail in your clinic's colours and font.</div></div>
+
+  <h3>Ads &amp; lead generation</h3>
+  <div class="skill-item"><div class="cmd">/cc-metaad-builder</div><div class="desc">AHPRA-safe Meta (Facebook / Instagram) ad copy - headlines, hooks, primary text and descriptions, ready to paste.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-googlead-builder</div><div class="desc">AHPRA-safe Google Search ads - headlines, descriptions and a keyword plan, all character-checked.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-ad-spy</div><div class="desc">Shows you the ads your competitors are running, so you can see what's working in your market.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-landing-page</div><div class="desc">A high-converting, AHPRA-safe landing page built around your actual offer, with one clear booking button.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-follow-up-agent</div><div class="desc">Your whole follow-up nurture - enquiry sequence, pre-appointment and win-back - written in your voice for GHL.</div></div>
+
+  <h3>Get found - search &amp; AI search</h3>
+  <div class="skill-item"><div class="cmd">/cc-geo-seo</div><div class="desc">Gets your clinic cited by AI search (ChatGPT, Google) and ranked locally, so you come up when it matters.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-keyword-research</div><div class="desc">The high-value search terms and intent to build your content and ads around.</div></div>
+  <div class="skill-item"><div class="cmd">/cc-website-audit</div><div class="desc">Audits your clinic website for the conversion and search gaps quietly costing you bookings.</div></div>
+
+</div>
+
+<!-- ============ TEST DRIVE PROMPTS ============ -->
+<div class="section-head">
+  <div class="eyebrow">The fun part</div>
+  <h2>Take it for a test drive</h2>
+  <p>Paste any prompt below into your Claude and watch a piece of your system come alive, right in front of you.</p>
+</div>
+
+<div class="wrap" style="padding-top:0">
 
   <div class="how">
     <b>How to use this:</b> tap <b>Copy</b> on any card, paste it into your Claude, and hit enter. Each one starts with its <span class="swap">/skill-command</span> so your Claude runs the right tool. Swap anything in <span class="swap">[square brackets]</span> for your real details first. Start anywhere - each shows off a different part of your new system.
